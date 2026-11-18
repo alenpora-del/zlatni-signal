@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-18T17:17",
+ "azurirano": "2026-11-18T17:19",
  "danas": {
-  "server_vrijeme": "2026-11-18 18:17",
-  "cijena": 3750.18,
+  "server_vrijeme": "2026-11-18 18:19",
+  "cijena": 3747.16,
   "status": "Danas gotovo - nema novog signala",
   "raspon": {
    "gornja": 3857.38,
@@ -13,10 +13,12 @@
   },
   "signal": null,
   "dnevnik": [
-   "Azijski raspon: 3764.69 - 3857.38 (92.69$) | dnevni ATR 85.71$ | cekam proboj",
    "Kalendar: 5 USD vijesti visokog utjecaja ucitano.",
    "NALOG ODBIJEN (ulaz): 10027 AutoTrading disabled by client",
-   "Nalog za ulaz nije potvrden - danas bez novog pokusaja. Provjeravam stanje kod brokera."
+   "Nalog za ulaz nije potvrden - danas bez novog pokusaja. Provjeravam stanje kod brokera.",
+   "Azijski raspon: 3764.69 - 3857.38 (92.69$) | dnevni ATR 85.71$ | proboj je vec bio prije starta",
+   "Kalendar: 5 USD vijesti visokog utjecaja ucitano.",
+   "WAIT - Cijena je vec 16.64$ iza razine proboja - prekasno, ne jurim cijenu."
   ]
  },
  "statistika": {
