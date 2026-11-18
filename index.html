@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Zlatni signal</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{--bg:#0f1115;--kartica:#181b22;--linija:#262a33;--tekst:#e8e6e1;--siva:#8b8f98;--zlato:#d4a537;--zeleno:#2fbf71;--crveno:#e5484d}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--tekst);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-bottom:78px}
+  header{padding:18px 16px 10px;display:flex;justify-content:space-between;align-items:baseline}
+  h1{font-size:20px;font-weight:700;letter-spacing:.2px}
+  h1 span{color:var(--zlato)}
+  .mali{color:var(--siva);font-size:12px}
+  main{padding:0 12px}
+  .kartica{background:var(--kartica);border:1px solid var(--linija);border-radius:14px;padding:14px;margin-bottom:12px}
+  .naslov{font-size:12px;color:var(--siva);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+  .status{font-size:18px;font-weight:700}
+  .red{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--linija)}
+  .red:last-child{border-bottom:0}
+  .red b{font-variant-numeric:tabular-nums}
+  .buy{color:var(--zeleno)} .sell{color:var(--crveno)}
+  .znacka{display:inline-block;padding:2px 10px;border-radius:99px;font-weight:700;font-size:14px}
+  .znacka.buy{background:rgba(47,191,113,.15)} .znacka.sell{background:rgba(229,72,77,.15)}
+  .skala{position:relative;height:56px;margin:10px 4px 2px}
+  .skala .traka{position:absolute;top:24px;left:0;right:0;height:8px;border-radius:4px;background:linear-gradient(90deg,rgba(47,191,113,.35),rgba(255,255,255,.08),rgba(229,72,77,.35))}
+  .skala .cij{position:absolute;top:14px;width:3px;height:28px;background:var(--zlato);border-radius:2px;transform:translateX(-1px)}
+  .skala .oz{position:absolute;top:44px;font-size:12px;color:var(--siva)}
+  .dnevnik div{font-size:13px;color:var(--siva);padding:4px 0;border-bottom:1px dashed var(--linija)}
+  .dnevnik div:last-child{border:0}
+  .mreza{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .broj{background:#11141a;border-radius:10px;padding:10px}
+  .broj b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+  .broj span{font-size:12px;color:var(--siva)}
+  label{display:block;font-size:13px;color:var(--siva);margin:10px 0 4px}
+  input{width:100%;background:#11141a;border:1px solid var(--linija);color:var(--tekst);border-radius:10px;padding:11px;font-size:16px}
+  .rez{margin-top:12px;padding:12px;border-radius:10px;background:#11141a}
+  .rez b{font-size:22px;color:var(--zlato)}
+  .upoz{color:#f0b429;font-size:13px;margin-top:8px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  td,th{padding:7px 4px;text-align:left;border-bottom:1px solid var(--linija)}
+  th{color:var(--siva);font-weight:500}
+  td.br{text-align:right;font-variant-numeric:tabular-nums}
+  svg{width:100%;height:120px;display:block}
+  nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#12151b;border-top:1px solid var(--linija);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+  nav button{flex:1;background:none;border:0;color:var(--siva);font-size:12px;padding:6px 2px;border-radius:10px}
+  nav button.akt{color:var(--zlato);background:rgba(212,165,55,.1)}
+  nav button i{display:block;font-style:normal;font-size:19px}
+  .skriveno{display:none}
+  footer{font-size:11px;color:var(--siva);padding:6px 16px 14px}
+</style>
+</head>
+<body>
+<header><h1>Zlatni <span>signal</span></h1><div class="mali" id="azur">učitavam…</div></header>
+<main>
+  <section id="t-danas">
+    <div class="kartica"><div class="naslov">Status danas</div><div class="status" id="status">—</div>
+      <div class="mali" id="cijena"></div></div>
+    <div class="kartica" id="k-raspon"><div class="naslov">Azijski raspon</div>
+      <div class="skala" id="skala"></div>
+      <div class="red"><span>Gornja granica (proboj gore → BUY)</span><b id="gornja">—</b></div>
+      <div class="red"><span>Donja granica (proboj dolje → SELL)</span><b id="donja">—</b></div>
+      <div class="red"><span>Širina raspona</span><b id="sirina">—</b></div></div>
+    <div class="kartica"><div class="naslov">Što bot radi</div><div class="dnevnik" id="dnevnik"></div></div>
+  </section>
+
+  <section id="t-signal" class="skriveno">
+    <div class="kartica" id="k-signal"></div>
+    <div class="kartica"><div class="naslov">Šansa (povijesni test)</div>
+      <div class="mreza">
+        <div class="broj"><b id="s-win">—</b><span>dobitnih signala</span></div>
+        <div class="broj"><b id="s-r">—</b><span>prosjek po signalu</span></div>
+      </div>
+      <p class="mali" style="margin-top:8px" id="s-opis"></p></div>
+  </section>
+
+  <section id="t-kalk" class="skriveno">
+    <div class="kartica"><div class="naslov">Kalkulator rizika</div>
+      <label>Stanje računa ($)</label><input id="k-racun" type="number" inputmode="decimal" value="1000">
+      <label>Rizik po signalu (%)</label><input id="k-rizik" type="number" inputmode="decimal" value="1">
+      <label>Udaljenost stopa ($ cijene zlata)</label><input id="k-stop" type="number" inputmode="decimal" value="20">
+      <div class="rez" id="k-rez"></div>
+      <p class="mali" style="margin-top:8px">Na zlatu 0.01 lota = 1$ po 1$ pomaka cijene. Najmanji lot je 0.01.</p></div>
+  </section>
+
+  <section id="t-rez" class="skriveno">
+    <div class="kartica"><div class="naslov">Stvarni rezultati signala</div>
+      <div class="mreza" id="stat"></div>
+      <svg id="graf" viewBox="0 0 300 120" preserveAspectRatio="none"></svg>
+      <p class="mali">Krivulja u R: 1R = iznos koji riskiraš po signalu.</p></div>
+    <div class="kartica"><div class="naslov">Po mjesecima</div><table id="mj"></table></div>
+    <div class="kartica"><div class="naslov">Zadnji signali</div><table id="pov"></table></div>
+  </section>
+</main>
+<footer id="upoz"></footer>
+<nav>
+  <button data-t="danas" class="akt"><i>☀️</i>Danas</button>
+  <button data-t="signal"><i>📈</i>Signal</button>
+  <button data-t="kalk"><i>🧮</i>Rizik</button>
+  <button data-t="rez"><i>📊</i>Rezultati</button>
+</nav>
+<script>
+const tg = window.Telegram && Telegram.WebApp; if (tg) { tg.ready(); tg.expand(); }
+const $ = id => document.getElementById(id);
+const f2 = x => (x==null||isNaN(x)) ? "—" : Number(x).toFixed(2);
+const sgn = x => (x>0?"+":"") + f2(x);
+let D = null;
+
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button").forEach(x => x.classList.remove("akt")); b.classList.add("akt");
+  document.querySelectorAll("main section").forEach(s => s.classList.add("skriveno"));
+  $("t-" + b.dataset.t).classList.remove("skriveno");
+  if (tg && tg.HapticFeedback) tg.HapticFeedback.selectionChanged();
+});
+
+function danas(d) {
+  const t = d.danas;
+  $("status").textContent = t.status;
+  $("status").className = "status" + (t.signal ? (t.signal.smjer === "BUY" ? " buy" : " sell") : "");
+  $("cijena").textContent = `Zlato ${f2(t.cijena)} · server ${t.server_vrijeme.slice(11)}`;
+  if (t.raspon) {
+    $("gornja").textContent = f2(t.raspon.gornja); $("donja").textContent = f2(t.raspon.donja);
+    $("sirina").textContent = f2(t.raspon.sirina) + " $";
+    const lo = t.raspon.donja - t.raspon.sirina*0.5, hi = t.raspon.gornja + t.raspon.sirina*0.5;
+    const pos = x => Math.max(0, Math.min(100, (x - lo) / (hi - lo) * 100));
+    $("skala").innerHTML = `<div class="traka" style="left:${pos(t.raspon.donja)}%;right:${100-pos(t.raspon.gornja)}%"></div>
+      <div class="cij" style="left:${pos(t.cijena)}%"></div>
+      <div class="oz" style="left:${pos(t.raspon.donja)}%;transform:translateX(-50%)">${f2(t.raspon.donja)}</div>
+      <div class="oz" style="left:${pos(t.raspon.gornja)}%;transform:translateX(-50%)">${f2(t.raspon.gornja)}</div>`;
+  } else { $("k-raspon").querySelector(".skala").innerHTML = '<p class="mali">Raspon se još bilježi.</p>'; }
+  $("dnevnik").innerHTML = (t.dnevnik.length ? t.dnevnik : ["Nema novih događaja danas."]).map(x => `<div>${x.replace(/</g,"&lt;")}</div>`).join("");
+}
+
+function signal(d) {
+  const s = d.danas.signal;
+  if (!s) {
+    $("k-signal").innerHTML = `<div class="naslov">Aktivni signal</div><div class="status">Trenutno nema signala</div>
+      <p class="mali" style="margin-top:6px">Signal dolazi kad cijena probije azijski raspon (najčešće između 10 i 17h po serveru). Dobit ćeš obavijest u Telegramu.</p>`;
+  } else {
+    const k = s.smjer === "BUY" ? "buy" : "sell";
+    $("k-signal").innerHTML = `<div class="naslov">Aktivni signal · ${s.otvoren.slice(11)}</div>
+      <div style="margin-bottom:8px"><span class="znacka ${k}">${s.smjer} XAU/USD</span></div>
+      <div class="red"><span>Ulaz</span><b>${f2(s.ulaz)}</b></div>
+      <div class="red"><span>Stop</span><b class="sell">${f2(s.stop)}</b></div>
+      <div class="red"><span>Cilj</span><b class="buy">${f2(s.cilj)}</b></div>
+      <div class="red"><span>Trenutno</span><b class="${s.trenutno_R>=0?"buy":"sell"}">${sgn(s.trenutno_R)} R</b></div>`;
+    if (s.stop_udaljenost) $("k-stop").value = s.stop_udaljenost;
+  }
+  $("s-win").textContent = d.test.dobitnih_pct + "%";
+  $("s-r").textContent = sgn(d.test.prosjek_R) + " R";
+  $("s-opis").textContent = `Test na ${d.test.trejdova} signala (${d.test.razdoblje}). Dobitni signali su u prosjeku veći od gubitnih, zato strategija zarađuje i s oko 50% pogodaka. ${d.test.napomena}`;
+}
+
+function kalk() {
+  const racun = +$("k-racun").value, rizik = +$("k-rizik").value, stop = +$("k-stop").value;
+  if (!(racun > 0 && rizik > 0 && stop > 0)) { $("k-rez").innerHTML = "Upiši sve tri vrijednosti."; return; }
+  const rizikUsd = racun * rizik / 100, lot = Math.floor(rizikUsd / (stop * 100) * 100) / 100;
+  const minRizik = stop * 1, minPct = minRizik / racun * 100;
+  let h = `<div class="mali">Preporučeni lot</div><b>${lot >= 0.01 ? lot.toFixed(2) : "—"}</b>
+    <div class="mali" style="margin-top:6px">Rizik: ${rizikUsd.toFixed(2)} $ po signalu</div>`;
+  if (lot < 0.01) h += `<div class="upoz">⚠️ I najmanji lot (0.01) bi riskirao ${minRizik.toFixed(2)} $ = ${minPct.toFixed(1)}% računa. Za ovaj račun koristi cent račun ili ne prati signal.</div>`;
+  else if (rizik > 2) h += `<div class="upoz">⚠️ Više od 2% po signalu znači velike oscilacije računa.</div>`;
+  $("k-rez").innerHTML = h;
+}
+["k-racun","k-rizik","k-stop"].forEach(id => $(id).oninput = kalk);
+
+function rezultati(d) {
+  const s = d.statistika;
+  if (!s.signala) { $("stat").innerHTML = '<p class="mali">Još nema zatvorenih signala.</p>'; return; }
+  $("stat").innerHTML = [["Signala", s.signala], ["Dobitnih", s.dobitnih_pct + "%"], ["Ukupno", sgn(s.ukupno_R) + " R"],
+    ["Najveći pad", f2(s.najveci_pad_R) + " R"]].map(([a,b]) => `<div class="broj"><b>${b}</b><span>${a}</span></div>`).join("");
+  const k = [0, ...s.krivulja_R], mn = Math.min(...k), mx = Math.max(...k), r = (mx - mn) || 1;
+  const pts = k.map((v,i) => `${(i/(k.length-1||1))*300},${110 - (v-mn)/r*100}`).join(" ");
+  const nula = 110 - (0-mn)/r*100;
+  $("graf").innerHTML = `<line x1="0" x2="300" y1="${nula}" y2="${nula}" stroke="#333" stroke-dasharray="3 3"/>
+    <polyline fill="none" stroke="#d4a537" stroke-width="2" points="${pts}"/>`;
+  $("mj").innerHTML = "<tr><th>Mjesec</th><th style='text-align:right'>Rezultat</th></tr>" +
+    Object.entries(s.po_mjesecima).reverse().map(([m,v]) => `<tr><td>${m}</td><td class="br ${v>=0?"buy":"sell"}">${sgn(v)} R</td></tr>`).join("");
+  $("pov").innerHTML = "<tr><th>Datum</th><th>Smjer</th><th style='text-align:right'>Ulaz</th><th style='text-align:right'>R</th></tr>" +
+    d.povijest.slice(0, 30).map(p => `<tr><td>${p.otvoren.slice(5,10)}</td><td class="${p.smjer==="BUY"?"buy":"sell"}">${p.smjer}</td>
+      <td class="br">${f2(p.ulaz)}</td><td class="br ${p.R>=0?"buy":"sell"}">${sgn(p.R)}</td></tr>`).join("");
+}
+
+async function ucitaj() {
+  try {
+    const r = await fetch("signali.json?t=" + Date.now(), {cache: "no-store"});
+    D = await r.json();
+    $("azur").textContent = "ažurirano " + D.azurirano.slice(11, 16);
+    danas(D); signal(D); rezultati(D); kalk();
+    $("upoz").textContent = D.upozorenje;
+  } catch (e) { $("azur").textContent = "nema veze s podacima"; }
+}
+ucitaj(); setInterval(ucitaj, 60000);
+</script>
+</body>
+</html>
