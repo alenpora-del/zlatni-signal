@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-19T11:47",
+ "azurirano": "2026-11-19T11:50",
  "danas": {
-  "server_vrijeme": "2026-11-19 12:47",
-  "cijena": 3736.59,
+  "server_vrijeme": "2026-11-19 12:50",
+  "cijena": 3734.82,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
@@ -341,9 +341,9 @@
    {
     "t": "12:45",
     "o": 3735.33,
-    "h": 3736.8,
+    "h": 3737.7,
     "l": 3734.74,
-    "c": 3736.59
+    "c": 3734.82
    }
   ],
   "dan": {
@@ -366,10 +366,10 @@
  },
  "povijest": [],
  "test": {
-  "razdoblje": "2024 - 2026",
-  "trejdova": 572,
-  "dobitnih_pct": 39,
-  "prosjek_R": 0.13,
+  "razdoblje": "2026",
+  "trejdova": 198,
+  "dobitnih_pct": 42,
+  "prosjek_R": 0.16,
   "napomena": "Rezultati iz prošlosti ne jamče buduće rezultate."
  },
  "upozorenje": "Ovo nije financijski savjet. Trgovanje zlatom s polugom nosi visok rizik gubitka. Riskiraj samo novac koji si spreman izgubiti.",
