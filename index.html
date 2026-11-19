@@ -133,7 +133,7 @@
   .don .gl{display:flex;justify-content:space-between;align-items:center;gap:8px}
   .don b{font-size:14px} .don .mreza{font-size:11px;color:var(--z);background:rgba(233,185,73,.1);padding:2px 8px;border-radius:99px}
   .don code{display:block;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#d4d6db;word-break:break-all;margin:8px 0}
-  .hdr-don{margin-left:auto;padding:9px 14px;border-radius:12px;border:1px solid rgba(233,185,73,.4);background:rgba(233,185,73,.12);color:var(--z);font-weight:750;font-size:13px}
+  .hdr-don{margin-left:auto;white-space:nowrap;flex:none;padding:9px 14px;border-radius:12px;border:1px solid rgba(233,185,73,.4);background:rgba(233,185,73,.12);color:var(--z);font-weight:750;font-size:13px}
   .sloj{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:50;opacity:0;pointer-events:none;transition:.25s}
   .sloj.otv{opacity:1;pointer-events:auto}
   .list{position:fixed;left:0;right:0;bottom:0;z-index:51;background:#121419;border-top:1px solid var(--rub);border-radius:24px 24px 0 0;
@@ -171,7 +171,7 @@
   <div class="sp-naziv">ZLATNI SIGNAL</div><div class="sp-pod">Azijski proboj · XAU/USD</div><div class="sp-post" id="sp-post">0%</div></div>
 <header>
   <img class="logo" src="logo_192.jpg" alt="" style="border-radius:50%;padding:0;border:1.5px solid rgba(242,199,92,.6);object-fit:cover">
-  <div><h1>Zlatni signal</h1><div class="pod"><span class="tocka off" id="tocka"></span><span id="azur">učitavam…</span></div></div>
+  <div><h1>Zlatni signal</h1><div class="pod"><span class="tocka off" id="tocka"></span><span id="azur">učitavam…</span></div><div class="pod" id="prat" style="margin-top:2px"></div></div>
   <button class="hdr-don" id="hdr-don" style="display:none">❤️ Doniraj</button>
 </header>
 <main>
@@ -370,7 +370,8 @@ async function ucitaj() {
     const d = await r.json();
     const star = (Date.now() - new Date(d.azurirano).getTime()) / 60000;
     $("tocka").className = "tocka" + (star > 20 ? " off" : "");
-    $("azur").textContent = (star > 20 ? "zadnje ažuriranje " : "uživo · ") + d.azurirano.slice(11, 16);
+    $("azur").textContent = (star > 20 ? "ažurirano " : "uživo · ") + d.azurirano.slice(11, 16);
+    $("prat").textContent = d.pratitelja ? `👥 ${Number(d.pratitelja).toLocaleString("de-DE")} pratitelja` : "";
     danas(d); signal(d); rezultati(d); kalk();
     $("upoz").textContent = d.upozorenje;
     const L = d.linkovi || {};
