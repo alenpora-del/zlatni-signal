@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-19T04:47",
+ "azurirano": "2026-11-19T04:48",
  "danas": {
-  "server_vrijeme": "2026-11-19 05:47",
-  "cijena": 3713.09,
+  "server_vrijeme": "2026-11-19 05:48",
+  "cijena": 3715.18,
   "status": "Bilježim azijski raspon (1:00-10:00 server)",
   "raspon": {
    "gornja": 3758.45,
