@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-19T13:15",
+ "azurirano": "2026-11-19T13:24",
  "danas": {
-  "server_vrijeme": "2026-11-19 14:15",
-  "cijena": 3715.02,
+  "server_vrijeme": "2026-11-19 14:24",
+  "cijena": 3716.46,
   "status": "Moguća prilika uskoro",
   "status_kod": "prilika",
   "raspon": null,
@@ -341,9 +341,9 @@
    {
     "t": "14:15",
     "o": 3716.2,
-    "h": 3716.2,
-    "l": 3714.98,
-    "c": 3715.02
+    "h": 3717.78,
+    "l": 3713.71,
+    "c": 3716.46
    }
   ],
   "dan": {
@@ -372,8 +372,8 @@
   "prosjek_R": 0.16,
   "napomena": "Rezultati iz prošlosti ne jamče buduće rezultate."
  },
- "upozorenje": "Ovo nije financijski savjet. Trgovanje zlatom s polugom nosi visok rizik gubitka. Riskiraj samo novac koji si spreman izgubiti.",
- "upozorenje_en": "Not financial advice. Leveraged gold trading carries a high risk of loss. Only risk money you can afford to lose.",
+ "upozorenje": "Signali su besplatne smjernice, ne financijski savjet – odluka je tvoja. Trgovanje zlatom s polugom nosi visok rizik gubitka. Riskiraj samo novac koji si spreman izgubiti.",
+ "upozorenje_en": "Signals are free guidelines, not financial advice – the decision is yours. Leveraged gold trading carries a high risk of loss. Only risk money you can afford to lose.",
  "linkovi": {
   "kanal": "https://t.me/zlatni_signal_ba",
   "kontakt": null
