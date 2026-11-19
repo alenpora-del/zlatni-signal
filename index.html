@@ -392,6 +392,8 @@ async function donacije() {
     $("don-tekst").textContent = d.tekst || "";
     $("k-don").style.display = ""; $("hdr-don").style.display = "";
     $("hdr-don").onclick = $("don-otvori").onclick = otvoriDon;
+    const sp = (tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new URLSearchParams(location.search).get("tgWebAppStartParam");
+    if (sp === "doniraj") setTimeout(otvoriDon, 1800);
     $("sloj").onclick = zatvoriDon;
   } catch (e) {}
 }
