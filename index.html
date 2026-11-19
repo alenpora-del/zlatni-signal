@@ -2,196 +2,470 @@
 <html lang="bs">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>Zlatni signal</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="icon" href="logo_192.jpg"><link rel="apple-touch-icon" href="logo_192.jpg">
+<meta name="theme-color" content="#07080b">
 <style>
-  :root{--bg:#0f1115;--kartica:#181b22;--linija:#262a33;--tekst:#e8e6e1;--siva:#8b8f98;--zlato:#d4a537;--zeleno:#2fbf71;--crveno:#e5484d}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--tekst);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding-bottom:78px}
-  header{padding:18px 16px 10px;display:flex;justify-content:space-between;align-items:baseline}
-  h1{font-size:20px;font-weight:700;letter-spacing:.2px}
-  h1 span{color:var(--zlato)}
-  .mali{color:var(--siva);font-size:12px}
-  main{padding:0 12px}
-  .kartica{background:var(--kartica);border:1px solid var(--linija);border-radius:14px;padding:14px;margin-bottom:12px}
-  .naslov{font-size:12px;color:var(--siva);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
-  .status{font-size:18px;font-weight:700}
-  .red{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--linija)}
-  .red:last-child{border-bottom:0}
-  .red b{font-variant-numeric:tabular-nums}
-  .buy{color:var(--zeleno)} .sell{color:var(--crveno)}
-  .znacka{display:inline-block;padding:2px 10px;border-radius:99px;font-weight:700;font-size:14px}
-  .znacka.buy{background:rgba(47,191,113,.15)} .znacka.sell{background:rgba(229,72,77,.15)}
-  .skala{position:relative;height:56px;margin:10px 4px 2px}
-  .skala .traka{position:absolute;top:24px;left:0;right:0;height:8px;border-radius:4px;background:linear-gradient(90deg,rgba(47,191,113,.35),rgba(255,255,255,.08),rgba(229,72,77,.35))}
-  .skala .cij{position:absolute;top:14px;width:3px;height:28px;background:var(--zlato);border-radius:2px;transform:translateX(-1px)}
-  .skala .oz{position:absolute;top:44px;font-size:12px;color:var(--siva)}
-  .dnevnik div{font-size:13px;color:var(--siva);padding:4px 0;border-bottom:1px dashed var(--linija)}
-  .dnevnik div:last-child{border:0}
-  .mreza{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .broj{background:#11141a;border-radius:10px;padding:10px}
-  .broj b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
-  .broj span{font-size:12px;color:var(--siva)}
-  label{display:block;font-size:13px;color:var(--siva);margin:10px 0 4px}
-  input{width:100%;background:#11141a;border:1px solid var(--linija);color:var(--tekst);border-radius:10px;padding:11px;font-size:16px}
-  .rez{margin-top:12px;padding:12px;border-radius:10px;background:#11141a}
-  .rez b{font-size:22px;color:var(--zlato)}
-  .upoz{color:#f0b429;font-size:13px;margin-top:8px}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  td,th{padding:7px 4px;text-align:left;border-bottom:1px solid var(--linija)}
-  th{color:var(--siva);font-weight:500}
-  td.br{text-align:right;font-variant-numeric:tabular-nums}
-  svg{width:100%;height:120px;display:block}
-  nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#12151b;border-top:1px solid var(--linija);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
-  nav button{flex:1;background:none;border:0;color:var(--siva);font-size:12px;padding:6px 2px;border-radius:10px}
-  nav button.akt{color:var(--zlato);background:rgba(212,165,55,.1)}
-  nav button i{display:block;font-style:normal;font-size:19px}
-  .skriveno{display:none}
-  footer{font-size:11px;color:var(--siva);padding:6px 16px 14px}
+  #splash{position:fixed;inset:0;z-index:100;background:radial-gradient(60% 45% at 50% 40%,#2a1d07 0%,#07080b 70%);
+          display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s}
+  #splash.skrij{opacity:0;visibility:hidden}
+  .sp-krug{position:relative;width:232px;height:232px}
+  .sp-krug img{width:100%;height:100%;border-radius:50%;animation:sp-ulaz 1s cubic-bezier(.2,.8,.2,1) both,sp-sjaj 2.4s ease-in-out 1s infinite}
+  .sp-krug svg{position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);transform:rotate(-90deg);overflow:visible}
+  .sp-krug svg .poz{fill:none;stroke:rgba(255,255,255,.07);stroke-width:4}
+  .sp-krug svg .pun{fill:none;stroke:url(#spg);stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(242,199,92,.8));transition:stroke-dashoffset .35s ease-out}
+  .sp-post{margin-top:10px;font:700 13px/1 -apple-system,"Segoe UI",sans-serif;color:#f2c75c;letter-spacing:1px;font-variant-numeric:tabular-nums;animation:sp-ulaz 1s .5s both}
+  .sp-naziv{margin-top:26px;font:800 26px/1 Georgia,serif;letter-spacing:1px;color:#f2c75c;animation:sp-ulaz 1s .25s both}
+  .sp-pod{margin-top:8px;font:500 13px/1 -apple-system,"Segoe UI",sans-serif;color:#8d929c;animation:sp-ulaz 1s .4s both}
+  @keyframes sp-ulaz{from{opacity:0;transform:scale(.92) translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes sp-sjaj{0%,100%{box-shadow:0 0 30px rgba(242,199,92,.25)}50%{box-shadow:0 0 70px rgba(242,199,92,.55)}}
+</style>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<style>
+  :root{
+    --bg:#07080b;--p1:rgba(255,255,255,.045);--p2:rgba(255,255,255,.07);--rub:rgba(255,255,255,.08);
+    --t:#f4f1ea;--s:#8d929c;--s2:#5d626c;--z:#e9b949;--z2:#b8862b;--g:#34d399;--r:#f87171;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--t);font:15px/1.45 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;
+       padding-bottom:96px;min-height:100vh;overflow-x:hidden}
+  body:before{content:"";position:fixed;inset:-20% -30% auto;height:70vh;z-index:-1;
+       background:radial-gradient(60% 60% at 30% 20%,rgba(233,185,73,.22),transparent 70%),
+                  radial-gradient(50% 50% at 85% 10%,rgba(120,90,255,.12),transparent 70%)}
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  header{padding:22px 18px 6px;display:flex;align-items:center;gap:12px}
+  .logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#1b1406;
+        background:linear-gradient(135deg,#ffe29a,var(--z) 45%,var(--z2));box-shadow:0 6px 24px rgba(233,185,73,.35)}
+  header h1{font-size:19px;font-weight:750;letter-spacing:-.2px}
+  header .pod{font-size:12px;color:var(--s);display:flex;align-items:center;gap:6px}
+  .tocka{width:7px;height:7px;border-radius:50%;background:var(--g);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:puls 2s infinite}
+  .tocka.off{background:var(--s2);animation:none}
+  @keyframes puls{70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  main{padding:10px 14px 0}
+  .k{background:linear-gradient(180deg,var(--p2),var(--p1));border:1px solid var(--rub);border-radius:22px;padding:18px;margin-bottom:14px;
+     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);animation:ulaz .45s ease both}
+  @keyframes ulaz{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .nas{font-size:11px;color:var(--s);text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-bottom:10px}
+  .hero .cij{font-size:40px;font-weight:780;letter-spacing:-1px;line-height:1.05}
+  .hero .cij small{font-size:15px;color:var(--s);font-weight:600;margin-left:6px;letter-spacing:0}
+  .chip{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:99px;font-size:13px;font-weight:650;margin-top:12px;
+        background:rgba(255,255,255,.06);border:1px solid var(--rub)}
+  .chip.buy{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.3);color:var(--g)}
+  .chip.sell{background:rgba(248,113,113,.12);border-color:rgba(248,113,113,.3);color:var(--r)}
+  .chip.cek{color:var(--z);background:rgba(233,185,73,.1);border-color:rgba(233,185,73,.28)}
+  .skala{position:relative;height:74px;margin:6px 0 4px}
+  .zona{position:absolute;top:30px;height:14px;border-radius:7px;background:linear-gradient(90deg,rgba(248,113,113,.55),rgba(255,255,255,.12) 50%,rgba(52,211,153,.55))}
+  .vani{position:absolute;top:36px;height:2px;background:repeating-linear-gradient(90deg,var(--s2) 0 4px,transparent 4px 8px);left:0;right:0}
+  .marker{position:absolute;top:14px;transform:translateX(-50%);transition:left .8s cubic-bezier(.2,.8,.2,1)}
+  .marker b{display:block;font-size:11px;background:var(--z);color:#1b1406;padding:2px 7px;border-radius:7px;font-weight:750;white-space:nowrap}
+  .marker i{display:block;width:2px;height:24px;background:var(--z);margin:2px auto 0;box-shadow:0 0 12px var(--z)}
+  .oz{position:absolute;top:52px;font-size:11px;color:var(--s);transform:translateX(-50%)}
+  .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
+  .mini{background:rgba(0,0,0,.25);border:1px solid var(--rub);border-radius:14px;padding:10px}
+  .mini span{display:block;font-size:11px;color:var(--s)}
+  .mini b{font-size:16px}
+  .tl{list-style:none;position:relative;margin-left:6px}
+  .tl:before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:var(--rub)}
+  .tl li{position:relative;padding:0 0 12px 20px;font-size:13px;color:#c9ccd2}
+  .tl li:last-child{padding-bottom:0}
+  .tl li:before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;background:#1a1d24;border:2px solid var(--s2)}
+  .tl li:last-child:before{border-color:var(--z);background:var(--z)}
+  .sig-top{display:flex;justify-content:space-between;align-items:center}
+  .smj{font-size:30px;font-weight:800;letter-spacing:-.5px}
+  .rr{font-size:22px;font-weight:750}
+  .razine{margin-top:14px;display:grid;gap:8px}
+  .raz{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.25);border:1px solid var(--rub)}
+  .raz span{color:var(--s);font-size:13px}
+  .raz b{font-size:17px}
+  .prog{height:8px;border-radius:4px;background:rgba(255,255,255,.07);margin-top:14px;position:relative;overflow:hidden}
+  .prog i{position:absolute;top:0;bottom:0;border-radius:4px}
+  .prazno{text-align:center;padding:26px 6px}
+  .prazno .ik{font-size:40px;margin-bottom:8px}
+  .prazno p{color:var(--s);font-size:13px;margin-top:6px}
+  .prsten{display:flex;align-items:center;gap:16px}
+  .prsten svg{width:92px;height:92px;flex:none}
+  .prsten p{color:var(--s);font-size:13px}
+  label{display:block;font-size:12px;color:var(--s);margin:14px 0 6px;font-weight:600}
+  input[type=number]{width:100%;background:rgba(0,0,0,.3);border:1px solid var(--rub);color:var(--t);border-radius:14px;padding:14px;font-size:18px;font-weight:650;outline:none}
+  input[type=number]:focus{border-color:rgba(233,185,73,.6)}
+  .seg{display:flex;gap:6px}
+  .seg button{flex:1;padding:11px 0;border-radius:12px;border:1px solid var(--rub);background:rgba(0,0,0,.25);color:var(--t);font-weight:650;font-size:14px}
+  .seg button.akt{background:var(--z);color:#1b1406;border-color:var(--z)}
+  .lot{margin-top:16px;padding:18px;border-radius:18px;text-align:center;background:linear-gradient(135deg,rgba(233,185,73,.16),rgba(233,185,73,.04));border:1px solid rgba(233,185,73,.3)}
+  .lot span{font-size:12px;color:var(--s)}
+  .lot b{display:block;font-size:44px;font-weight:800;color:var(--z);letter-spacing:-1px}
+  .upoz{margin-top:12px;padding:12px;border-radius:12px;background:rgba(248,180,41,.08);border:1px solid rgba(248,180,41,.25);color:#f8c55a;font-size:13px}
+  .stat4{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .stat4 .mini b{font-size:22px}
+  svg.graf{width:100%;height:150px;display:block;margin-top:12px}
+  .mj{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .mj::-webkit-scrollbar{display:none}
+  .mj div{flex:none;min-width:76px;padding:10px;border-radius:14px;background:rgba(0,0,0,.25);border:1px solid var(--rub);text-align:center}
+  .mj span{display:block;font-size:11px;color:var(--s)}
+  .mj b{font-size:15px}
+  .lista .st{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--rub)}
+  .lista .st:last-child{border:0}
+  .ikon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+  .ikon.buy{background:rgba(52,211,153,.14);color:var(--g)} .ikon.sell{background:rgba(248,113,113,.14);color:var(--r)}
+  .lista .sr{flex:1} .lista .sr b{font-size:14px} .lista .sr span{display:block;font-size:12px;color:var(--s)}
+  .g{color:var(--g)} .c{color:var(--r)} .zl{color:var(--z)}
+  nav{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:flex;padding:6px;border-radius:22px;
+      background:rgba(20,22,28,.78);border:1px solid var(--rub);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 10px 40px rgba(0,0,0,.5)}
+  nav button{flex:1;background:none;border:0;color:var(--s);font-size:11px;font-weight:600;padding:8px 2px;border-radius:16px;transition:.2s}
+  nav button svg{display:block;margin:0 auto 3px;width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  nav button.akt{color:#1b1406;background:var(--z)}
+  .sk{display:none}
+  .korak{display:flex;gap:12px;padding:10px 0}
+  .korak .br{width:28px;height:28px;border-radius:9px;background:rgba(233,185,73,.14);color:var(--z);display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
+  .korak p{font-size:14px;color:#d4d6db} .korak p b{color:var(--t)}
+  details{border-bottom:1px solid var(--rub);padding:12px 0}
+  details:last-child{border:0}
+  summary{list-style:none;cursor:pointer;font-weight:650;font-size:14px;display:flex;justify-content:space-between;gap:10px}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";color:var(--z);font-size:18px;line-height:1;transition:.2s}
+  details[open] summary:after{transform:rotate(45deg)}
+  details p{color:#c3c6cc;font-size:13.5px;margin-top:8px}
+  .shema{width:100%;height:auto;display:block;margin:4px 0 6px}
+  .gumbi{display:grid;gap:8px}
+  .don{padding:12px;border-radius:14px;background:rgba(0,0,0,.25);border:1px solid var(--rub);margin-top:8px}
+  .don .gl{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .don b{font-size:14px} .don .mreza{font-size:11px;color:var(--z);background:rgba(233,185,73,.1);padding:2px 8px;border-radius:99px}
+  .don code{display:block;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#d4d6db;word-break:break-all;margin:8px 0}
+  .hdr-don{margin-left:auto;padding:9px 14px;border-radius:12px;border:1px solid rgba(233,185,73,.4);background:rgba(233,185,73,.12);color:var(--z);font-weight:750;font-size:13px}
+  .sloj{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:50;opacity:0;pointer-events:none;transition:.25s}
+  .sloj.otv{opacity:1;pointer-events:auto}
+  .list{position:fixed;left:0;right:0;bottom:0;z-index:51;background:#121419;border-top:1px solid var(--rub);border-radius:24px 24px 0 0;
+        padding:10px 18px calc(22px + env(safe-area-inset-bottom));max-height:88vh;overflow-y:auto;transform:translateY(105%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+  .list.otv{transform:none}
+  .rucka{width:40px;height:5px;border-radius:3px;background:#2c3038;margin:0 auto 14px}
+  .list h2{font-size:20px;font-weight:780;margin-bottom:4px}
+  .list .op{color:var(--s);font-size:13px;margin-bottom:12px}
+  .mreze{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .mreze button{padding:12px 10px;border-radius:14px;border:1px solid var(--rub);background:rgba(255,255,255,.04);color:var(--t);text-align:left}
+  .mreze button b{display:block;font-size:15px} .mreze button span{font-size:11px;color:var(--s)}
+  .mreze button.akt{border-color:var(--z);background:rgba(233,185,73,.12)}
+  .iznosi{display:flex;gap:6px;margin-bottom:8px}
+  .iznosi button{flex:1;padding:11px 0;border-radius:12px;border:1px solid var(--rub);background:rgba(255,255,255,.04);color:var(--t);font-weight:700}
+  .iznosi button.akt{background:var(--z);color:#1b1406;border-color:var(--z)}
+  .dalje{width:100%;margin-top:16px;padding:15px;border-radius:15px;border:0;background:var(--z);color:#1b1406;font-weight:800;font-size:16px}
+  .dalje:disabled{opacity:.4}
+  .upl{text-align:center}
+  .upl .izn{font-size:30px;font-weight:800;color:var(--z);margin:6px 0 2px;letter-spacing:-.5px}
+  .upl .eur{color:var(--s);font-size:13px}
+  .qr{width:184px;height:184px;margin:14px auto;background:#fff;border-radius:16px;padding:10px;display:grid;place-items:center}
+  .qr img,.qr canvas{width:164px;height:164px;image-rendering:pixelated}
+  .koraci{text-align:left;margin-top:12px;font-size:13.5px;color:#d4d6db}
+  .koraci li{margin:0 0 8px 18px}
+  .kop{width:100%;padding:10px;border-radius:11px;border:1px solid rgba(233,185,73,.35);background:rgba(233,185,73,.1);color:var(--z);font-weight:700;font-size:13px}
+  .gumb{display:block;text-align:center;padding:13px;border-radius:14px;font-weight:700;text-decoration:none;color:#1b1406;background:var(--z)}
+  .gumb.sek{background:rgba(255,255,255,.06);color:var(--t);border:1px solid var(--rub)}
+  footer{font-size:11px;color:var(--s2);padding:4px 20px 16px;text-align:center}
 </style>
 </head>
 <body>
-<header><h1>Zlatni <span>signal</span></h1><div class="mali" id="azur">učitavam…</div></header>
+<div id="splash"><div class="sp-krug"><img src="logo.jpg" alt="Zlatni signal">
+    <svg viewBox="0 0 260 260"><defs><linearGradient id="spg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset=".5" stop-color="#f2c75c"/><stop offset="1" stop-color="#b8862b"/></linearGradient></defs>
+      <circle class="poz" cx="130" cy="130" r="126"/><circle class="pun" id="sp-pun" cx="130" cy="130" r="126" stroke-dasharray="791.7" stroke-dashoffset="791.7"/></svg></div>
+  <div class="sp-naziv">ZLATNI SIGNAL</div><div class="sp-pod">Azijski proboj · XAU/USD</div><div class="sp-post" id="sp-post">0%</div></div>
+<header>
+  <img class="logo" src="logo_192.jpg" alt="" style="border-radius:50%;padding:0;border:1.5px solid rgba(242,199,92,.6);object-fit:cover">
+  <div><h1>Zlatni signal</h1><div class="pod"><span class="tocka off" id="tocka"></span><span id="azur">učitavam…</span></div></div>
+  <button class="hdr-don" id="hdr-don" style="display:none">❤️ Doniraj</button>
+</header>
 <main>
   <section id="t-danas">
-    <div class="kartica"><div class="naslov">Status danas</div><div class="status" id="status">—</div>
-      <div class="mali" id="cijena"></div></div>
-    <div class="kartica" id="k-raspon"><div class="naslov">Azijski raspon</div>
+    <div class="k hero">
+      <div class="nas">XAU/USD · zlato</div>
+      <div class="cij num" id="cijena">—</div>
+      <div id="chip" class="chip">—</div>
+    </div>
+    <div class="k">
+      <div class="nas">Azijski raspon</div>
       <div class="skala" id="skala"></div>
-      <div class="red"><span>Gornja granica (proboj gore → BUY)</span><b id="gornja">—</b></div>
-      <div class="red"><span>Donja granica (proboj dolje → SELL)</span><b id="donja">—</b></div>
-      <div class="red"><span>Širina raspona</span><b id="sirina">—</b></div></div>
-    <div class="kartica"><div class="naslov">Što bot radi</div><div class="dnevnik" id="dnevnik"></div></div>
-  </section>
-
-  <section id="t-signal" class="skriveno">
-    <div class="kartica" id="k-signal"></div>
-    <div class="kartica"><div class="naslov">Šansa (povijesni test)</div>
-      <div class="mreza">
-        <div class="broj"><b id="s-win">—</b><span>dobitnih signala</span></div>
-        <div class="broj"><b id="s-r">—</b><span>prosjek po signalu</span></div>
+      <div class="tri">
+        <div class="mini"><span>Donja · SELL</span><b class="num c" id="donja">—</b></div>
+        <div class="mini"><span>Gornja · BUY</span><b class="num g" id="gornja">—</b></div>
+        <div class="mini"><span>Širina</span><b class="num" id="sirina">—</b></div>
       </div>
-      <p class="mali" style="margin-top:8px" id="s-opis"></p></div>
+    </div>
+    <div class="k"><div class="nas">Što bot radi danas</div><ul class="tl" id="dnevnik"></ul></div>
   </section>
 
-  <section id="t-kalk" class="skriveno">
-    <div class="kartica"><div class="naslov">Kalkulator rizika</div>
+  <section id="t-signal" class="sk">
+    <div class="k" id="k-signal"></div>
+    <div class="k"><div class="nas">Šansa · povijesni test</div>
+      <div class="prsten"><svg viewBox="0 0 100 100" id="prsten"></svg>
+        <div><b class="rr num zl" id="s-r">—</b><p id="s-opis"></p></div></div>
+    </div>
+  </section>
+
+  <section id="t-kalk" class="sk">
+    <div class="k"><div class="nas">Kalkulator rizika</div>
       <label>Stanje računa ($)</label><input id="k-racun" type="number" inputmode="decimal" value="1000">
-      <label>Rizik po signalu (%)</label><input id="k-rizik" type="number" inputmode="decimal" value="1">
-      <label>Udaljenost stopa ($ cijene zlata)</label><input id="k-stop" type="number" inputmode="decimal" value="20">
-      <div class="rez" id="k-rez"></div>
-      <p class="mali" style="margin-top:8px">Na zlatu 0.01 lota = 1$ po 1$ pomaka cijene. Najmanji lot je 0.01.</p></div>
+      <label>Rizik po signalu</label>
+      <div class="seg" id="seg"><button data-v="0.5">0.5%</button><button data-v="1" class="akt">1%</button><button data-v="2">2%</button><button data-v="5">5%</button></div>
+      <label>Udaljenost stopa ($ cijene)</label><input id="k-stop" type="number" inputmode="decimal" value="20">
+      <div class="lot"><span>Preporučeni lot</span><b class="num" id="k-lot">—</b><span id="k-iznos"></span></div>
+      <div id="k-upoz"></div>
+      <p style="color:var(--s);font-size:12px;margin-top:12px">Na zlatu 0.01 lota = 1$ po 1$ pomaka cijene. Najmanji lot je 0.01.</p>
+    </div>
   </section>
 
-  <section id="t-rez" class="skriveno">
-    <div class="kartica"><div class="naslov">Stvarni rezultati signala</div>
-      <div class="mreza" id="stat"></div>
-      <svg id="graf" viewBox="0 0 300 120" preserveAspectRatio="none"></svg>
-      <p class="mali">Krivulja u R: 1R = iznos koji riskiraš po signalu.</p></div>
-    <div class="kartica"><div class="naslov">Po mjesecima</div><table id="mj"></table></div>
-    <div class="kartica"><div class="naslov">Zadnji signali</div><table id="pov"></table></div>
+  <section id="t-rez" class="sk">
+    <div class="k"><div class="nas">Stvarni rezultati</div>
+      <div class="stat4" id="stat"></div>
+      <svg class="graf" id="graf" viewBox="0 0 320 150" preserveAspectRatio="none"></svg>
+      <p style="color:var(--s);font-size:12px">1R = iznos koji riskiraš po signalu</p></div>
+    <div class="k"><div class="nas">Po mjesecima</div><div class="mj" id="mj"></div></div>
+    <div class="k lista"><div class="nas">Zadnji signali</div><div id="pov"></div></div>
+  </section>
+  <section id="t-info" class="sk">
+    <div class="k" style="text-align:center"><img src="logo.jpg" alt="Zlatni signal" style="width:150px;height:150px;border-radius:50%;box-shadow:0 0 40px rgba(242,199,92,.35)">
+      <p style="color:var(--s);font-size:13px;margin-top:10px">Automatski signali za zlato · svi rezultati javni</p></div>
+    <div class="k"><div class="nas">Kako radi</div>
+      <svg class="shema" viewBox="0 0 320 150">
+        <rect x="10" y="60" width="190" height="44" rx="6" fill="rgba(233,185,73,.12)"/>
+        <line x1="10" x2="310" y1="60" y2="60" stroke="#34d399" stroke-dasharray="5 5" opacity=".7"/>
+        <line x1="10" x2="310" y1="104" y2="104" stroke="#f87171" stroke-dasharray="5 5" opacity=".7"/>
+        <polyline points="14,86 40,74 64,96 92,70 120,92 150,72 180,90 205,76 230,52 262,34 300,18" fill="none" stroke="#e9b949" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="222" cy="60" r="6" fill="#34d399"/>
+        <text x="16" y="124" fill="#8d929c" font-size="11">01–10h azijski raspon</text>
+        <text x="214" y="124" fill="#34d399" font-size="11" font-weight="700">proboj → BUY</text>
+        <text x="16" y="54" fill="#34d399" font-size="10">gornja granica</text>
+        <text x="16" y="146" fill="#f87171" font-size="10">donja granica → proboj dolje = SELL</text>
+      </svg>
+      <div class="korak"><div class="br">1</div><p><b>Noću (01–10h po serveru)</b> bot bilježi najvišu i najnižu cijenu zlata – azijski raspon.</p></div>
+      <div class="korak"><div class="br">2</div><p><b>Od 10h</b> čeka da cijena probije gornju (BUY) ili donju granicu (SELL).</p></div>
+      <div class="korak"><div class="br">3</div><p><b>Signal</b> ima ulaz, stop (sredina raspona) i cilj. Dio dobiti se uzima ranije, a stop se pomakne na ulaz.</p></div>
+      <div class="korak"><div class="br">4</div><p><b>Filteri</b> preskaču dane s velikim vijestima, prekasne proboje i razdoblja kad strategija ne radi. Najviše 1 signal dnevno, sve zatvoreno do 22h.</p></div>
+    </div>
+    <div class="k"><div class="nas">Česta pitanja</div>
+      <details><summary>Što je R?</summary><p>R je iznos koji riskiraš po signalu. Ako riskiraš 10$, +2R znači +20$, a −1R znači −10$. Tako rezultati vrijede za svaku veličinu računa.</p></details>
+      <details><summary>Zašto danas nema signala?</summary><p>Nema proboja raspona, proboj je bio prekasno ili prejak, ili je dan s važnim američkim vijestima. Dani bez signala su normalni – bolje ne trgovati nego trgovati loše.</p></details>
+      <details><summary>Koliki račun mi treba?</summary><p>Upiši svoj račun u kalkulator (Rizik). Ako i najmanji lot (0.01) riskira previše, koristi cent račun ili samo prati signale.</p></details>
+      <details><summary>Koliko signala dobijem?</summary><p>Najviše jedan dnevno, u prosjeku 3–4 tjedno. Strategija čeka dobre prilike, ne trguje stalno.</p></details>
+      <details><summary>Koliko se dobiva?</summary><p>Oko polovice signala je dobitno, ali dobitni su u prosjeku veći od gubitnih. Ima i tjedana u minusu. Svi stvarni rezultati su na ekranu Rezultati – ništa se ne briše.</p></details>
+      <details><summary>Kojeg brokera koristiti?</summary><p>Bilo kojeg reguliranog brokera s XAU/USD. Cijene se malo razlikuju između brokera, pa ulaz i stop prilagodi svojoj platformi.</p></details>
+      <details><summary>Je li ovo financijski savjet?</summary><p>Nije. Ovo su informacije o radu automatske strategije. Trgovanje s polugom nosi visok rizik – riskiraj samo novac koji si spreman izgubiti.</p></details>
+    </div>
+    <div class="k" id="k-don" style="display:none"><div class="nas">❤️ Podrži projekat</div>
+      <p style="font-size:14px;color:#d4d6db" id="don-tekst"></p>
+      <button class="dalje" id="don-otvori">❤️ Doniraj</button></div>
+    <div class="k gumbi" id="gumbi"></div>
   </section>
 </main>
 <footer id="upoz"></footer>
+<div class="sloj" id="sloj"></div>
+<div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <nav>
-  <button data-t="danas" class="akt"><i>☀️</i>Danas</button>
-  <button data-t="signal"><i>📈</i>Signal</button>
-  <button data-t="kalk"><i>🧮</i>Rizik</button>
-  <button data-t="rez"><i>📊</i>Rezultati</button>
+  <button data-t="danas" class="akt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Danas</button>
+  <button data-t="signal"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>Signal</button>
+  <button data-t="kalk"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 11h2M14 11h2M8 15h2M14 15h2M8 19h2M14 19h2"/></svg>Rizik</button>
+  <button data-t="rez"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Rezultati</button>
+  <button data-t="info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Info</button>
 </nav>
 <script>
-const tg = window.Telegram && Telegram.WebApp; if (tg) { tg.ready(); tg.expand(); }
+const tg = window.Telegram && Telegram.WebApp;
+if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor("#07080b"); tg.setBackgroundColor("#07080b"); } catch(e){} }
 const $ = id => document.getElementById(id);
-const f2 = x => (x==null||isNaN(x)) ? "—" : Number(x).toFixed(2);
+const f2 = x => (x==null||isNaN(x)) ? "—" : Number(x).toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2});
 const sgn = x => (x>0?"+":"") + f2(x);
-let D = null;
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+let rizik = 1;
 
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
   document.querySelectorAll("nav button").forEach(x => x.classList.remove("akt")); b.classList.add("akt");
-  document.querySelectorAll("main section").forEach(s => s.classList.add("skriveno"));
-  $("t-" + b.dataset.t).classList.remove("skriveno");
+  document.querySelectorAll("main section").forEach(s => s.classList.add("sk"));
+  const s = $("t-" + b.dataset.t); s.classList.remove("sk");
+  s.querySelectorAll(".k").forEach(k => { k.style.animation = "none"; k.offsetHeight; k.style.animation = ""; });
   if (tg && tg.HapticFeedback) tg.HapticFeedback.selectionChanged();
+});
+document.querySelectorAll("#seg button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("#seg button").forEach(x => x.classList.remove("akt")); b.classList.add("akt");
+  rizik = +b.dataset.v; kalk(); if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred("light");
 });
 
 function danas(d) {
-  const t = d.danas;
-  $("status").textContent = t.status;
-  $("status").className = "status" + (t.signal ? (t.signal.smjer === "BUY" ? " buy" : " sell") : "");
-  $("cijena").textContent = `Zlato ${f2(t.cijena)} · server ${t.server_vrijeme.slice(11)}`;
+  const t = d.danas, s = t.signal;
+  $("cijena").innerHTML = f2(t.cijena) + "<small>USD</small>";
+  const chip = $("chip");
+  if (s) { chip.className = "chip " + (s.smjer === "BUY" ? "buy" : "sell"); chip.textContent = (s.smjer === "BUY" ? "▲ " : "▼ ") + "Signal aktivan · " + s.smjer; }
+  else { chip.className = "chip" + (/Čekam|Bilježim/.test(t.status) ? " cek" : ""); chip.textContent = t.status; }
   if (t.raspon) {
-    $("gornja").textContent = f2(t.raspon.gornja); $("donja").textContent = f2(t.raspon.donja);
-    $("sirina").textContent = f2(t.raspon.sirina) + " $";
-    const lo = t.raspon.donja - t.raspon.sirina*0.5, hi = t.raspon.gornja + t.raspon.sirina*0.5;
-    const pos = x => Math.max(0, Math.min(100, (x - lo) / (hi - lo) * 100));
-    $("skala").innerHTML = `<div class="traka" style="left:${pos(t.raspon.donja)}%;right:${100-pos(t.raspon.gornja)}%"></div>
-      <div class="cij" style="left:${pos(t.cijena)}%"></div>
-      <div class="oz" style="left:${pos(t.raspon.donja)}%;transform:translateX(-50%)">${f2(t.raspon.donja)}</div>
-      <div class="oz" style="left:${pos(t.raspon.gornja)}%;transform:translateX(-50%)">${f2(t.raspon.gornja)}</div>`;
-  } else { $("k-raspon").querySelector(".skala").innerHTML = '<p class="mali">Raspon se još bilježi.</p>'; }
-  $("dnevnik").innerHTML = (t.dnevnik.length ? t.dnevnik : ["Nema novih događaja danas."]).map(x => `<div>${x.replace(/</g,"&lt;")}</div>`).join("");
+    const R = t.raspon; $("gornja").textContent = f2(R.gornja); $("donja").textContent = f2(R.donja); $("sirina").textContent = f2(R.sirina) + "$";
+    const lo = Math.min(R.donja - R.sirina*0.6, t.cijena - R.sirina*0.1), hi = Math.max(R.gornja + R.sirina*0.6, t.cijena + R.sirina*0.1);
+    const p = x => Math.max(3, Math.min(97, (x - lo) / (hi - lo) * 100));
+    $("skala").innerHTML = `<div class="vani"></div><div class="zona" style="left:${p(R.donja)}%;width:${p(R.gornja)-p(R.donja)}%"></div>
+      <div class="oz num" style="left:${p(R.donja)}%">${f2(R.donja)}</div><div class="oz num" style="left:${p(R.gornja)}%">${f2(R.gornja)}</div>
+      <div class="marker" style="left:${p(t.cijena)}%"><b class="num">${f2(t.cijena)}</b><i></i></div>`;
+  } else { $("skala").innerHTML = '<p style="color:var(--s);font-size:13px;padding-top:24px">Raspon se još bilježi (01–10h server).</p>'; }
+  $("dnevnik").innerHTML = (t.dnevnik.length ? t.dnevnik : ["Nema novih događaja danas."]).map(x => `<li>${esc(x)}</li>`).join("");
 }
 
 function signal(d) {
   const s = d.danas.signal;
   if (!s) {
-    $("k-signal").innerHTML = `<div class="naslov">Aktivni signal</div><div class="status">Trenutno nema signala</div>
-      <p class="mali" style="margin-top:6px">Signal dolazi kad cijena probije azijski raspon (najčešće između 10 i 17h po serveru). Dobit ćeš obavijest u Telegramu.</p>`;
+    $("k-signal").innerHTML = `<div class="prazno"><div class="ik">⏳</div><b>Trenutno nema signala</b>
+      <p>Signal dolazi kad cijena probije azijski raspon, najčešće između 10 i 17h po serveru. Obavijest stiže u Telegram kanal.</p></div>`;
   } else {
-    const k = s.smjer === "BUY" ? "buy" : "sell";
-    $("k-signal").innerHTML = `<div class="naslov">Aktivni signal · ${s.otvoren.slice(11)}</div>
-      <div style="margin-bottom:8px"><span class="znacka ${k}">${s.smjer} XAU/USD</span></div>
-      <div class="red"><span>Ulaz</span><b>${f2(s.ulaz)}</b></div>
-      <div class="red"><span>Stop</span><b class="sell">${f2(s.stop)}</b></div>
-      <div class="red"><span>Cilj</span><b class="buy">${f2(s.cilj)}</b></div>
-      <div class="red"><span>Trenutno</span><b class="${s.trenutno_R>=0?"buy":"sell"}">${sgn(s.trenutno_R)} R</b></div>`;
-    if (s.stop_udaljenost) $("k-stop").value = s.stop_udaljenost;
+    const buy = s.smjer === "BUY", k = buy ? "g" : "c";
+    const lo = Math.min(s.stop, s.cilj), hi = Math.max(s.stop, s.cilj), raz = hi - lo || 1;
+    const pe = (s.ulaz - lo) / raz * 100, tr = s.trenutno_R ?? 0, pc = Math.max(0, Math.min(100, pe + (buy?1:-1) * tr * (s.stop_udaljenost||0) / raz * 100));
+    $("k-signal").innerHTML = `<div class="nas">Aktivni signal · otvoren ${s.otvoren.slice(11)}</div>
+      <div class="sig-top"><div class="smj ${k}">${buy ? "▲ BUY" : "▼ SELL"}</div><div class="rr num ${tr>=0?"g":"c"}">${sgn(tr)}R</div></div>
+      <div class="prog"><i style="left:${Math.min(pe,pc)}%;width:${Math.abs(pc-pe)}%;background:${tr>=0?"var(--g)":"var(--r)"}"></i></div>
+      <div class="razine">
+        <div class="raz"><span>Cilj</span><b class="num g">${f2(s.cilj)}</b></div>
+        <div class="raz"><span>Ulaz</span><b class="num">${f2(s.ulaz)}</b></div>
+        <div class="raz"><span>Stop</span><b class="num c">${f2(s.stop)}</b></div></div>`;
+    if (s.stop_udaljenost) { $("k-stop").value = s.stop_udaljenost; }
   }
-  $("s-win").textContent = d.test.dobitnih_pct + "%";
-  $("s-r").textContent = sgn(d.test.prosjek_R) + " R";
-  $("s-opis").textContent = `Test na ${d.test.trejdova} signala (${d.test.razdoblje}). Dobitni signali su u prosjeku veći od gubitnih, zato strategija zarađuje i s oko 50% pogodaka. ${d.test.napomena}`;
+  const w = d.test.dobitnih_pct, C = 2*Math.PI*40;
+  $("prsten").innerHTML = `<circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"/>
+    <circle cx="50" cy="50" r="40" stroke="#e9b949" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="${C*w/100} ${C}" transform="rotate(-90 50 50)"/>
+    <text x="50" y="55" text-anchor="middle" fill="#f4f1ea" font-size="20" font-weight="800">${w}%</text>`;
+  $("s-r").textContent = sgn(d.test.prosjek_R) + "R po signalu";
+  $("s-opis").textContent = `${d.test.trejdova} signala u testu (${d.test.razdoblje}). Dobici su u prosjeku veći od gubitaka. ${d.test.napomena}`;
 }
 
 function kalk() {
-  const racun = +$("k-racun").value, rizik = +$("k-rizik").value, stop = +$("k-stop").value;
-  if (!(racun > 0 && rizik > 0 && stop > 0)) { $("k-rez").innerHTML = "Upiši sve tri vrijednosti."; return; }
-  const rizikUsd = racun * rizik / 100, lot = Math.floor(rizikUsd / (stop * 100) * 100) / 100;
-  const minRizik = stop * 1, minPct = minRizik / racun * 100;
-  let h = `<div class="mali">Preporučeni lot</div><b>${lot >= 0.01 ? lot.toFixed(2) : "—"}</b>
-    <div class="mali" style="margin-top:6px">Rizik: ${rizikUsd.toFixed(2)} $ po signalu</div>`;
-  if (lot < 0.01) h += `<div class="upoz">⚠️ I najmanji lot (0.01) bi riskirao ${minRizik.toFixed(2)} $ = ${minPct.toFixed(1)}% računa. Za ovaj račun koristi cent račun ili ne prati signal.</div>`;
-  else if (rizik > 2) h += `<div class="upoz">⚠️ Više od 2% po signalu znači velike oscilacije računa.</div>`;
-  $("k-rez").innerHTML = h;
+  const racun = +$("k-racun").value, stop = +$("k-stop").value;
+  if (!(racun > 0 && stop > 0)) { $("k-lot").textContent = "—"; $("k-iznos").textContent = ""; $("k-upoz").innerHTML = ""; return; }
+  const iznos = racun * rizik / 100, lot = Math.floor(iznos / (stop * 100) * 100) / 100, min = stop;
+  $("k-lot").textContent = lot >= 0.01 ? lot.toFixed(2) : "—";
+  $("k-iznos").textContent = `rizik ${f2(iznos)} $ po signalu`;
+  $("k-upoz").innerHTML = lot < 0.01
+    ? `<div class="upoz">⚠️ I najmanji lot (0.01) riskira ${f2(min)} $ = ${(min/racun*100).toFixed(1)}% računa. Za ovaj račun koristi cent račun ili preskoči signal.</div>`
+    : (rizik > 2 ? `<div class="upoz">⚠️ Više od 2% po signalu znači velike oscilacije računa.</div>` : "");
 }
-["k-racun","k-rizik","k-stop"].forEach(id => $(id).oninput = kalk);
+["k-racun","k-stop"].forEach(id => $(id).oninput = kalk);
 
 function rezultati(d) {
   const s = d.statistika;
-  if (!s.signala) { $("stat").innerHTML = '<p class="mali">Još nema zatvorenih signala.</p>'; return; }
-  $("stat").innerHTML = [["Signala", s.signala], ["Dobitnih", s.dobitnih_pct + "%"], ["Ukupno", sgn(s.ukupno_R) + " R"],
-    ["Najveći pad", f2(s.najveci_pad_R) + " R"]].map(([a,b]) => `<div class="broj"><b>${b}</b><span>${a}</span></div>`).join("");
-  const k = [0, ...s.krivulja_R], mn = Math.min(...k), mx = Math.max(...k), r = (mx - mn) || 1;
-  const pts = k.map((v,i) => `${(i/(k.length-1||1))*300},${110 - (v-mn)/r*100}`).join(" ");
-  const nula = 110 - (0-mn)/r*100;
-  $("graf").innerHTML = `<line x1="0" x2="300" y1="${nula}" y2="${nula}" stroke="#333" stroke-dasharray="3 3"/>
-    <polyline fill="none" stroke="#d4a537" stroke-width="2" points="${pts}"/>`;
-  $("mj").innerHTML = "<tr><th>Mjesec</th><th style='text-align:right'>Rezultat</th></tr>" +
-    Object.entries(s.po_mjesecima).reverse().map(([m,v]) => `<tr><td>${m}</td><td class="br ${v>=0?"buy":"sell"}">${sgn(v)} R</td></tr>`).join("");
-  $("pov").innerHTML = "<tr><th>Datum</th><th>Smjer</th><th style='text-align:right'>Ulaz</th><th style='text-align:right'>R</th></tr>" +
-    d.povijest.slice(0, 30).map(p => `<tr><td>${p.otvoren.slice(5,10)}</td><td class="${p.smjer==="BUY"?"buy":"sell"}">${p.smjer}</td>
-      <td class="br">${f2(p.ulaz)}</td><td class="br ${p.R>=0?"buy":"sell"}">${sgn(p.R)}</td></tr>`).join("");
+  if (!s.signala) { $("stat").innerHTML = '<p style="color:var(--s);font-size:13px">Još nema zatvorenih signala. Povijest se puni automatski.</p>'; $("graf").innerHTML=""; $("mj").innerHTML=""; $("pov").innerHTML=""; return; }
+  $("stat").innerHTML = [["Signala", s.signala, ""], ["Dobitnih", s.dobitnih_pct + "%", ""], ["Ukupno", sgn(s.ukupno_R) + "R", s.ukupno_R>=0?"g":"c"], ["Najveći pad", f2(s.najveci_pad_R) + "R", "c"]]
+    .map(([a,b,k]) => `<div class="mini"><span>${a}</span><b class="num ${k}">${b}</b></div>`).join("");
+  const v = [0, ...s.krivulja_R], mn = Math.min(...v), mx = Math.max(...v), r = (mx - mn) || 1, W = 320, H = 150;
+  const xy = v.map((y,i) => [i/(v.length-1||1)*W, 10 + (1-(y-mn)/r)*(H-20)]);
+  const line = xy.map((p,i) => (i?"L":"M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  const nula = 10 + (1-(0-mn)/r)*(H-20);
+  $("graf").innerHTML = `<defs><linearGradient id="gz" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".35"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>
+    <line x1="0" x2="${W}" y1="${nula}" y2="${nula}" stroke="rgba(255,255,255,.15)" stroke-dasharray="4 4"/>
+    <path d="${line} L ${W} ${H} L 0 ${H} Z" fill="url(#gz)"/>
+    <path d="${line}" fill="none" stroke="#e9b949" stroke-width="2.4" stroke-linejoin="round"/>
+    <circle cx="${xy[xy.length-1][0]}" cy="${xy[xy.length-1][1]}" r="4" fill="#e9b949"/>`;
+  $("mj").innerHTML = Object.entries(s.po_mjesecima).reverse().map(([m,x]) =>
+    `<div><span>${m.slice(5)}/${m.slice(2,4)}</span><b class="num ${x>=0?"g":"c"}">${sgn(x)}R</b></div>`).join("");
+  $("pov").innerHTML = d.povijest.slice(0, 30).map(p => { const b = p.smjer === "BUY";
+    return `<div class="st"><div class="ikon ${b?"buy":"sell"}">${b?"▲":"▼"}</div>
+      <div class="sr"><b>${p.smjer}</b> <span class="num">ulaz ${f2(p.ulaz)} · ${p.otvoren.slice(8,10)}.${p.otvoren.slice(5,7)}. ${p.otvoren.slice(11)}</span></div>
+      <b class="num ${p.R>=0?"g":"c"}">${sgn(p.R)}R</b></div>`; }).join("");
 }
 
 async function ucitaj() {
   try {
     const r = await fetch("signali.json?t=" + Date.now(), {cache: "no-store"});
-    D = await r.json();
-    $("azur").textContent = "ažurirano " + D.azurirano.slice(11, 16);
-    danas(D); signal(D); rezultati(D); kalk();
-    $("upoz").textContent = D.upozorenje;
+    const d = await r.json();
+    const star = (Date.now() - new Date(d.azurirano).getTime()) / 60000;
+    $("tocka").className = "tocka" + (star > 20 ? " off" : "");
+    $("azur").textContent = (star > 20 ? "zadnje ažuriranje " : "uživo · ") + d.azurirano.slice(11, 16);
+    danas(d); signal(d); rezultati(d); kalk();
+    $("upoz").textContent = d.upozorenje;
+    const L = d.linkovi || {};
+    $("gumbi").innerHTML = (L.kanal ? `<a class="gumb" href="${L.kanal}">📢 Telegram kanal sa signalima</a>` : "") +
+      (L.kontakt ? `<a class="gumb sek" href="${L.kontakt}">✉️ Kontakt</a>` : "") || '<p style="color:var(--s);font-size:13px">Pitanja? Piši u komentare kanala.</p>';
+    document.querySelectorAll("#gumbi a").forEach(a => a.onclick = e => { if (tg && a.href.includes("t.me")) { e.preventDefault(); tg.openTelegramLink(a.href); } });
   } catch (e) { $("azur").textContent = "nema veze s podacima"; }
 }
-ucitaj(); setInterval(ucitaj, 60000);
+let DON = null, odabir = {i: null, eur: 5}, cijene = null;
+const DEC = {BTC: 8, ETH: 6, SOL: 4, USDT: 2, BNB: 5, TRX: 2};
+const CG = {BTC: "bitcoin", ETH: "ethereum", SOL: "solana", USDT: "tether", BNB: "binancecoin", TRX: "tron"};
+function oznaka(v) { v = v.toUpperCase(); return v.includes("USDT") ? "USDT" : v.includes("BTC") || v.includes("BITCOIN") ? "BTC" : v.includes("SOL") ? "SOL" : v.includes("BNB") ? "BNB" : v.includes("TRX") || v.includes("TRON") ? "TRX" : "ETH"; }
+async function donacije() {
+  try {
+    const d = await (await fetch("donacije.json?t=" + Date.now(), {cache: "no-store"})).json();
+    const a = (d.adrese || []).filter(x => x.adresa && !x.adresa.includes("OVDJE"));
+    if (!a.length) return;
+    DON = {...d, adrese: a};
+    $("don-tekst").textContent = d.tekst || "";
+    $("k-don").style.display = ""; $("hdr-don").style.display = "";
+    $("hdr-don").onclick = $("don-otvori").onclick = otvoriDon;
+    $("sloj").onclick = zatvoriDon;
+  } catch (e) {}
+}
+function zatvoriDon() { $("sloj").classList.remove("otv"); $("list").classList.remove("otv"); if (tg && tg.BackButton) tg.BackButton.hide(); }
+function otvoriDon() {
+  korak1(); $("sloj").classList.add("otv"); $("list").classList.add("otv");
+  if (tg && tg.BackButton) { tg.BackButton.show(); tg.BackButton.onClick(zatvoriDon); }
+  if (!cijene) fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,tether,binancecoin,tron&vs_currencies=eur")
+    .then(r => r.json()).then(j => cijene = j).catch(() => cijene = {});
+}
+function korak1() {
+  const a = DON.adrese;
+  $("list-sadrzaj").innerHTML = `<h2>❤️ Doniraj</h2><p class="op">${esc(DON.tekst || "")}</p>
+    <label>1. Izaberi valutu i mrežu</label>
+    <div class="mreze">${a.map((x,i) => `<button data-i="${i}" class="${odabir.i===i?"akt":""}"><b>${esc(x.valuta)}</b><span>${esc(x.mreza)}</span></button>`).join("")}</div>
+    <label>2. Koliko želiš donirati (€)</label>
+    <div class="iznosi">${[5,10,20,50].map(v => `<button data-v="${v}" class="${odabir.eur===v?"akt":""}">${v} €</button>`).join("")}</div>
+    <input type="number" id="don-eur" inputmode="decimal" placeholder="drugi iznos u €" value="${[5,10,20,50].includes(odabir.eur)?"":odabir.eur}">
+    <button class="dalje" id="don-dalje" ${odabir.i===null?"disabled":""}>Nastavi →</button>`;
+  document.querySelectorAll(".mreze button").forEach(b => b.onclick = () => { odabir.i = +b.dataset.i; korak1(); haptic(); });
+  document.querySelectorAll(".iznosi button").forEach(b => b.onclick = () => { odabir.eur = +b.dataset.v; korak1(); haptic(); });
+  $("don-eur").oninput = e => { const v = +e.target.value; if (v > 0) { odabir.eur = v; document.querySelectorAll(".iznosi button").forEach(x => x.classList.remove("akt")); } };
+  $("don-dalje").onclick = korak2;
+}
+function haptic() { if (tg && tg.HapticFeedback) tg.HapticFeedback.selectionChanged(); }
+async function korak2() {
+  const x = DON.adrese[odabir.i], v = oznaka(x.valuta);
+  for (let k = 0; k < 20 && !cijene; k++) await new Promise(r => setTimeout(r, 150));
+  const c = cijene && cijene[CG[v]] && cijene[CG[v]].eur;
+  const kol = c ? (odabir.eur / c) : null;
+  const kolTxt = kol ? kol.toFixed(DEC[v]).replace(/\.?0+$/, "") : null;
+  $("list-sadrzaj").innerHTML = `<div class="upl">
+    <h2>Pošalji ${kolTxt ? "≈ " : ""}${odabir.eur} € u ${v}</h2>
+    ${kolTxt ? `<div class="izn">${kolTxt} ${v}</div><div class="eur">po trenutnoj cijeni 1 ${v} ≈ ${f2(c)} €</div>`
+             : `<div class="eur">Cijenu trenutno ne mogu dohvatiti – pošalji iznos u vrijednosti ${odabir.eur} €.</div>`}
+    <div class="qr" id="qr">QR</div>
+    <div class="don"><div class="gl"><b>${esc(x.valuta)}</b><span class="mreza">${esc(x.mreza)}</span></div>
+      <code id="adr">${esc(x.adresa)}</code>
+      <button class="kop" id="kop-adr">Kopiraj adresu</button>
+      ${kolTxt ? `<button class="kop" id="kop-izn" style="margin-top:6px">Kopiraj iznos (${kolTxt})</button>` : ""}</div>
+    <ol class="koraci">
+      <li>Otvori svoj wallet ili mjenjačnicu (Binance, Trust Wallet, MetaMask…).</li>
+      <li>Odaberi <b>${v}</b> → Pošalji / Withdraw.</li>
+      <li>Zalijepi adresu i odaberi mrežu <b>${esc(x.mreza)}</b> – <b>samo tu mrežu!</b></li>
+      <li>Upiši iznos ${kolTxt ? `<b>${kolTxt} ${v}</b>` : `u vrijednosti <b>${odabir.eur} €</b>`} i potvrdi.</li>
+    </ol>
+    <p style="font-size:12px;color:var(--s);margin-top:8px">Mreža naplaćuje malu naknadu. Donacija je dobrovoljna i ne daje nikakva prava ni povrat. Hvala! 🙏</p>
+    <button class="dalje" id="don-natrag" style="background:rgba(255,255,255,.07);color:var(--t)">← Natrag</button></div>`;
+  const kop = async (t, b, lab) => { try { await navigator.clipboard.writeText(t); } catch (e) {
+      const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
+    b.textContent = "✓ Kopirano"; if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred("success"); setTimeout(() => b.textContent = lab, 2000); };
+  $("kop-adr").onclick = e => kop(x.adresa, e.target, "Kopiraj adresu");
+  if (kolTxt) $("kop-izn").onclick = e => kop(kolTxt, e.target, `Kopiraj iznos (${kolTxt})`);
+  $("don-natrag").onclick = korak1;
+  try { const q = qrcode(0, "M"); q.addData(x.adresa); q.make(); $("qr").innerHTML = q.createImgTag(6, 0); }
+  catch (e) { $("qr").style.display = "none"; }
+}
+const T0 = Date.now(); let napredak = 0, gotovo = false, kraj = false;
+function postavi(p) { napredak = Math.max(napredak, Math.min(100, p));
+  $("sp-pun").style.strokeDashoffset = (791.7 * (1 - napredak / 100)).toFixed(1); $("sp-post").textContent = Math.round(napredak) + "%"; }
+// prsten se puni dok se podaci ucitavaju (sporije prema 85%), a kad stignu dopuni se do 100% (najmanje ~1.3 s ukupno)
+const tik = setInterval(() => {
+  const e = Date.now() - T0;
+  if (!gotovo) postavi(85 * (1 - Math.exp(-e / 650)));
+  else postavi(Math.max(napredak + 3, 100 * Math.min(1, e / 1300)));
+  if (gotovo && napredak >= 100 && !kraj) {
+    kraj = true; clearInterval(tik);
+    if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred("soft");
+    setTimeout(() => $("splash").classList.add("skrij"), 350);
+  }
+}, 40);
+function skrijSplash() { gotovo = true; }
+postavi(4); ucitaj().finally(skrijSplash); setTimeout(skrijSplash, 6000);
+donacije(); setInterval(ucitaj, 60000);
 </script>
 </body>
 </html>

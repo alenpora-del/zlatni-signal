@@ -1,0 +1,30 @@
+{
+ "tekst": "Zlatni signal je besplatan. Ako ti pomaže, možeš podržati razvoj projekta – novi alati, bolji server i više tržišta.",
+ "adrese": [
+  {
+   "valuta": "Ethereum (ETH)",
+   "mreza": "ERC20 (Ethereum)",
+   "adresa": "0x830E4Eb061D02673Aad9E25652Fae816926a877e"
+  },
+  {
+   "valuta": "BNB",
+   "mreza": "BEP20 (BNB Smart Chain)",
+   "adresa": "0x830E4Eb061D02673Aad9E25652Fae816926a877e"
+  },
+  {
+   "valuta": "Solana (SOL)",
+   "mreza": "Solana",
+   "adresa": "5S33C1JKf4jYVdAfwouy6oGnNhd1xj478Nw9LyyPRMZa"
+  },
+  {
+   "valuta": "Bitcoin (BTC)",
+   "mreza": "Bitcoin",
+   "adresa": "bc1q69sux4et6lllc9s07atllkwhwz6eygk40xqrgt"
+  },
+  {
+   "valuta": "Tron (TRX)",
+   "mreza": "TRC20 (Tron)",
+   "adresa": "TATF87QScoiL5xtpAgBn1JUwcpq2moxoYv"
+  }
+ ]
+}
