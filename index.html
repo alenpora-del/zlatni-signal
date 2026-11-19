@@ -230,6 +230,8 @@
     </div>
     <div class="k" id="k-prilike" style="display:none"><div class="nas" data-en="💡 Potential trades today">💡 Potencijalne prilike danas</div><div id="prilike"></div>
       <p style="font-size:11px;color:var(--s);margin-top:8px" data-en="Extra trades from the channel – not the main signal and not counted in the bot statistics.">Dodatne prilike iz kanala – nisu glavni signal i ne ulaze u statistiku bota.</p></div>
+    <div class="k" id="k-dodatne" style="display:none;border:1px solid rgba(120,200,255,.35)"><div class="nas" data-en="💎 Extra ideas today">💎 Dodatne preporuke danas</div><div id="dodatne"></div>
+      <p style="font-size:11px;color:var(--s);margin-top:8px" data-en="Optional – not the main signal. Limit entry on a pullback; not triggered = not counted. Separate statistics in Results.">Opciono – nisu glavni signal. Ulaz limitom na povratku; neaktivirane se ne računaju. Zasebna statistika u Rezultatima.</p></div>
     <div class="k"><div class="nas" data-en="Today's activity">Aktivnost danas</div><ul class="tl" id="dnevnik"></ul></div>
   </section>
 
@@ -258,6 +260,9 @@
       <div class="stat4" id="stat"></div>
       <svg class="graf" id="graf" viewBox="0 0 320 150" preserveAspectRatio="none"></svg>
       <p style="color:var(--s);font-size:12px" data-en="1R = the amount you risk per signal">1R = iznos koji riskiraš po signalu</p></div>
+    <div class="k" id="k-dod-stat" style="display:none;border:1px solid rgba(120,200,255,.35)"><div class="nas" data-en="💎 Extra ideas – separate statistics">💎 Dodatne preporuke – zasebna statistika</div>
+      <div class="stat4" id="dod-stat"></div><div id="dod-vrste" style="margin-top:8px"></div>
+      <p style="color:var(--s);font-size:11px;margin-top:8px" id="dod-test"></p></div>
     <div class="k"><div class="nas" data-en="By month">Po mjesecima</div><div class="mj" id="mj"></div></div>
     <div class="k lista"><div class="nas" data-en="Latest signals">Zadnji signali</div><div id="pov"></div></div>
   </section>
@@ -295,6 +300,7 @@
       <details><summary data-en="Why is there no signal today?">Zašto danas nema signala?</summary><p data-en="There was no good enough opportunity, the market was too volatile (e.g. news), or the main signal of the day was already used. Days without a signal are normal.">Nije bilo dovoljno dobre prilike, tržište je bilo previše nemirno (npr. vijesti), ili je glavni signal dana već iskorišten. Dani bez signala su normalni.</p></details>
       <details><summary data-en="How big an account do I need?">Koliki račun mi treba?</summary><p data-en="Enter your balance in the calculator (Risk). If even the smallest lot (0.01) risks too much, use a cent account or just follow the signals.">Upiši svoj račun u kalkulator (Rizik). Ako i najmanji lot (0.01) riskira previše, koristi cent račun ili samo prati signale.</p></details>
       <details><summary data-en="How many signals will I get?">Koliko signala dobijem?</summary><p data-en="At most one main signal per day – on most weekdays one. Sometimes also potential trades. A signal can come at night or early in the morning too.">Najviše jedan glavni signal dnevno – većinu radnih dana po jedan. Uz to ponekad i potencijalne prilike. Signal može doći i noću ili rano ujutro.</p></details>
+      <details><summary data-en="What are extra ideas (💎)?">Što su dodatne preporuke (💎)?</summary><p data-en="Up to 2 optional ideas per day, separate from the main signal: a limit entry with stop, target (1:2) and a time limit. If the price does not reach the entry, or hits the stop first, the idea is cancelled and not counted. They have their own, separate statistics.">Najviše 2 opcione ideje dnevno, odvojene od glavnog signala: ulaz limitom, stop, cilj (1:2) i rok važenja. Ako cijena ne dođe do ulaza ili prvo dotakne stop, ideja se poništava i ne računa. Imaju svoju, zasebnu statistiku.</p></details>
       <details><summary data-en="What are potential trades?">Što su potencijalne prilike?</summary><p data-en="Extra trades after the main signal. They are less reliable, not counted in the statistics and meant for experienced traders – with smaller risk.">Dodatni trejdovi nakon glavnog signala. Manje su pouzdani, ne ulaze u statistiku i namijenjeni su iskusnijima – uz manji rizik.</p></details>
       <details><summary data-en="How much can you make?">Koliko se dobiva?</summary><p data-en="About 4 in 10 signals win, but a win is 2× bigger than a loss. Losing streaks and losing weeks are normal. All real results are on the Results screen – nothing is deleted.">Dobitno je oko 4 od 10 signala, ali dobitak je 2× veći od gubitka. Zato su normalni i nizovi gubitaka, i tjedni u minusu. Svi stvarni rezultati su na ekranu Rezultati – ništa se ne briše.</p></details>
       <details><summary data-en="Which broker should I use?">Kojeg brokera koristiti?</summary><p data-en="Any regulated broker offering XAU/USD. Prices differ slightly between brokers, so adjust entry and stop to your platform.">Bilo kojeg reguliranog brokera s XAU/USD. Cijene se malo razlikuju između brokera, pa ulaz i stop prilagodi svojoj platformi.</p></details>
@@ -314,7 +320,7 @@
   </section>
 </main>
 <footer id="upoz"></footer>
-<div id="verzija" style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v3.7</div>
+<div id="verzija" style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v3.8</div>
 <div class="sloj" id="sloj"></div>
 <div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <nav>
@@ -376,6 +382,17 @@ function danas(d) {
   $("k-prilike").style.display = P.length ? "" : "none";
   $("prilike").innerHTML = P.map(x => `<div class="pril"><div class="ikon ${x.smjer === "BUY" ? "buy" : "sell"}">${x.smjer === "BUY" ? "▲" : "▼"}</div>
     <div class="sr" style="flex:1"><b>${x.smjer} ${T("oko", "near")} <span class="num">${f2(x.ulaz)}</span></b><span style="display:block;font-size:12px;color:var(--s)">${x.vrijeme} · stop ${f2(x.stop)} · ${T("cilj", "target")} ${f2(x.cilj)}</span></div></div>`).join("");
+  const DP = (d.dodatne && d.dodatne.danas) || [];
+  $("k-dodatne").style.display = DP.length ? "" : "none";
+  const STD = {ceka: ["⏳ čeka ulaz do ", "⏳ waiting for entry until "], aktivna: ["▶️ aktivna", "▶️ active"], cilj: ["✅ cilj", "✅ target"],
+    stop: ["❌ stop", "❌ stop"], vrijeme: ["⏱ zatvoreno", "⏱ closed"], istekla: ["⌛ nije aktivirana", "⌛ not triggered"], ponistena: ["🚫 poništena", "🚫 cancelled"]};
+  $("dodatne").innerHTML = DP.map(x => { const b = x.smjer === "BUY"; const s_ = STD[x.status] || ["", ""];
+    const st = T(...s_) + (x.status === "ceka" ? x.do_cet + " CET" : "") + (x.R != null ? ` · <b class="num ${x.R>=0?"g":"c"}">${sgn(x.R)}R</b>` : "");
+    return `<div class="pril" style="flex-wrap:wrap"><div class="ikon ${b?"buy":"sell"}">${b?"▲":"▼"}</div>
+    <div class="sr" style="flex:1"><b>#${x.br} ${x.smjer} LIMIT <span class="num">${f2(x.ulaz)}</span></b>
+    <span style="display:block;font-size:12px;color:var(--s)">${x.vrijeme} · stop ${f2(x.sl)} · ${T("cilj", "target")} ${f2(x.tp)} · 1:${x.rr}</span>
+    <span style="display:block;font-size:12px;margin-top:2px">${st}</span>
+    <span style="display:block;font-size:12px;color:var(--s);margin-top:4px">📌 ${esc(LANG === "en" ? x.razlog_en : x.razlog)}</span></div></div>`; }).join("");
   const dn = (LANG === "en" && t.dnevnik_en) ? t.dnevnik_en : t.dnevnik;
   $("dnevnik").innerHTML = (dn && dn.length ? dn : [T("Nema novih događaja danas.", "No events today yet.")]).map(x => `<li>${esc(x)}</li>`).join("");
 }
@@ -459,7 +476,20 @@ function kalk() {
 }
 ["k-racun","k-stop"].forEach(id => $(id).oninput = kalk);
 
+function dodatneStat(d) {
+  const S = d.dodatne && d.dodatne.stat;
+  $("k-dod-stat").style.display = S ? "" : "none"; if (!S) return;
+  $("dod-stat").innerHTML = [[T("Aktivirano", "Triggered"), (S.zatvoreno || 0) + "/" + (S.izdano || 0), ""], [T("Dobitnih", "Winners"), (S.dobitnih_pct || 0) + "%", ""],
+    [T("Ukupno", "Total"), sgn(S.ukupno_R || 0) + "R", (S.ukupno_R || 0) >= 0 ? "g" : "c"], [T("Najveći pad", "Max drawdown"), f2(S.dd_R || 0) + "R", "c"]]
+    .map(([a,b,k]) => `<div class="mini"><span>${a}</span><b class="num ${k}">${b}</b></div>`).join("");
+  $("dod-vrste").innerHTML = Object.values(S.po_vrsti || {}).map(v => `<div class="st"><div class="sr" style="flex:1"><b style="font-size:13px">${esc(LANG === "en" ? v.naziv_en : v.naziv)}</b>
+    <span class="num" style="display:block;font-size:12px;color:var(--s)">${v.n} ${T("trejdova", "trades")} · ${v.dobitnih_pct}% ${T("dobitnih", "winners")}</span></div><b class="num ${v.ukupno_R>=0?"g":"c"}">${sgn(v.ukupno_R)}R</b></div>`).join("");
+  const t = S.test || {};
+  $("dod-test").textContent = T(`Neaktivirane preporuke se ne računaju. Test na povijesti (${t.razdoblje}): ${t.aktivirano} trejdova, ${t.dobitnih_pct}% dobitnih, ${sgn(t.ukupno_R)}R.`,
+    `Untriggered ideas are not counted. Historical test (${t.razdoblje}): ${t.aktivirano} trades, ${t.dobitnih_pct}% winners, ${sgn(t.ukupno_R)}R.`);
+}
 function rezultati(d) {
+  dodatneStat(d);
   const s = d.statistika;
   if (!s.signala) { $("stat").innerHTML = `<p style="color:var(--s);font-size:13px">${T("Još nema zatvorenih signala. Povijest se puni automatski.", "No closed signals yet. The history fills in automatically.")}</p>`; $("graf").innerHTML=""; $("mj").innerHTML=""; $("pov").innerHTML=""; return; }
   $("stat").innerHTML = [[T("Signala", "Signals"), s.signala, ""], [T("Dobitnih", "Winners"), s.dobitnih_pct + "%", ""], [T("Ukupno", "Total"), sgn(s.ukupno_R) + "R", s.ukupno_R>=0?"g":"c"], [T("Najveći pad", "Max drawdown"), f2(s.najveci_pad_R) + "R", "c"]]
