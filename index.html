@@ -117,6 +117,27 @@
   nav button svg{display:block;margin:0 auto 3px;width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   nav button.akt{color:#1b1406;background:var(--z)}
   .sk{display:none}
+  .chart-k{padding:16px 0 12px;overflow:hidden}
+  .chart-k .nas,.chart-k .gl{padding:0 18px}
+  .gl{display:flex;justify-content:space-between;align-items:baseline}
+  .promjena{font-size:15px;font-weight:750}
+  #graf-zlato{width:100%;height:210px;display:block;margin-top:6px}
+  .crta{stroke-dasharray:2000;stroke-dashoffset:2000;animation:crtaj 1.6s ease-out forwards}
+  @keyframes crtaj{to{stroke-dashoffset:0}}
+  .skener{animation:skeniraj 4s linear infinite}
+  @keyframes skeniraj{from{transform:translateX(0)}to{transform:translateX(320px)}}
+  .puls{animation:puls2 1.6s ease-out infinite;transform-origin:center;transform-box:fill-box}
+  @keyframes puls2{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
+  .ai{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--z);background:rgba(233,185,73,.08);border:1px solid rgba(233,185,73,.25);padding:4px 9px;border-radius:99px}
+  .ai i{width:6px;height:6px;border-radius:50%;background:var(--z);animation:treptaj 1s ease-in-out infinite}
+  @keyframes treptaj{50%{opacity:.2}}
+  .stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px 18px 0}
+  .pril{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--rub)}
+  .pril:last-child{border:0}
+  .niz{display:flex;gap:6px;align-items:center;margin-top:10px}
+  .niz i{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.08)}
+  .niz i.pad{background:var(--r)} .niz i.rast{background:var(--g)} .niz i.ob{background:var(--z);box-shadow:0 0 10px var(--z)}
+  .niz span{font-size:11px;color:var(--s);white-space:nowrap}
   .korak{display:flex;gap:12px;padding:10px 0}
   .korak .br{width:28px;height:28px;border-radius:9px;background:rgba(233,185,73,.14);color:var(--z);display:grid;place-items:center;font-weight:800;font-size:13px;flex:none}
   .korak p{font-size:14px;color:#d4d6db} .korak p b{color:var(--t)}
@@ -133,7 +154,18 @@
   .don .gl{display:flex;justify-content:space-between;align-items:center;gap:8px}
   .don b{font-size:14px} .don .mreza{font-size:11px;color:var(--z);background:rgba(233,185,73,.1);padding:2px 8px;border-radius:99px}
   .don code{display:block;font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:#d4d6db;word-break:break-all;margin:8px 0}
-  .hdr-don{margin-left:auto;padding:9px 14px;border-radius:12px;border:1px solid rgba(233,185,73,.4);background:rgba(233,185,73,.12);color:var(--z);font-weight:750;font-size:13px}
+  .jez-meni{position:fixed;top:72px;right:14px;z-index:60;min-width:250px;padding:8px;border-radius:18px;background:rgba(22,24,30,.96);
+    border:1px solid var(--rub);box-shadow:0 18px 50px rgba(0,0,0,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    opacity:0;transform:translateY(-8px) scale(.97);transform-origin:top right;pointer-events:none;transition:.18s ease}
+  .jez-meni.otv{opacity:1;transform:none;pointer-events:auto}
+  .jez-nas{font-size:11px;color:var(--s);text-transform:uppercase;letter-spacing:1.2px;font-weight:600;padding:6px 10px 8px}
+  .jez-meni button{display:flex;align-items:center;gap:12px;width:100%;padding:12px 10px;border:0;border-radius:12px;background:none;color:var(--t);font-size:15px;text-align:left}
+  .jez-meni button span{font-size:22px} .jez-meni button b{flex:1;font-weight:600}
+  .jez-meni button i{font-style:normal;color:var(--z);font-weight:800;opacity:0}
+  .jez-meni button.akt{background:rgba(233,185,73,.1)} .jez-meni button.akt i{opacity:1}
+  header h1{white-space:nowrap}
+  .hdr-jez{margin-left:auto;padding:8px 10px;font-size:15px !important;border-radius:12px;border:1px solid var(--rub);background:rgba(255,255,255,.05);color:var(--t);font-weight:750;font-size:12px;flex:none}
+  .hdr-don{margin-left:8px;white-space:nowrap;flex:none;padding:9px 14px;border-radius:12px;border:1px solid rgba(233,185,73,.4);background:rgba(233,185,73,.12);color:var(--z);font-weight:750;font-size:13px}
   .sloj{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:50;opacity:0;pointer-events:none;transition:.25s}
   .sloj.otv{opacity:1;pointer-events:auto}
   .list{position:fixed;left:0;right:0;bottom:0;z-index:51;background:#121419;border-top:1px solid var(--rub);border-radius:24px 24px 0 0;
@@ -168,108 +200,124 @@
 <div id="splash"><div class="sp-krug"><img src="logo.jpg" alt="Zlatni signal">
     <svg viewBox="0 0 260 260"><defs><linearGradient id="spg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset=".5" stop-color="#f2c75c"/><stop offset="1" stop-color="#b8862b"/></linearGradient></defs>
       <circle class="poz" cx="130" cy="130" r="126"/><circle class="pun" id="sp-pun" cx="130" cy="130" r="126" stroke-dasharray="791.7" stroke-dashoffset="791.7"/></svg></div>
-  <div class="sp-naziv">ZLATNI SIGNAL</div><div class="sp-pod">Azijski proboj · XAU/USD</div><div class="sp-post" id="sp-post">0%</div></div>
+  <div class="sp-naziv">ZLATNI SIGNAL</div><div class="sp-pod" data-en="Gold signals · XAU/USD">Signali za zlato · XAU/USD</div><div class="sp-post" id="sp-post">0%</div></div>
 <header>
   <img class="logo" src="logo_192.jpg" alt="" style="border-radius:50%;padding:0;border:1.5px solid rgba(242,199,92,.6);object-fit:cover">
-  <div><h1>Zlatni signal</h1><div class="pod"><span class="tocka off" id="tocka"></span><span id="azur">učitavam…</span></div></div>
-  <button class="hdr-don" id="hdr-don" style="display:none">❤️ Doniraj</button>
+  <div><h1>Zlatni signal</h1><div class="pod"><span class="tocka off" id="tocka"></span><span id="azur">učitavam…</span></div><div class="pod" id="prat" style="margin-top:2px"></div></div>
+  <button class="hdr-jez" id="hdr-jez">🇧🇦 ▾</button>
+  <div class="jez-meni" id="jez-meni">
+    <div class="jez-nas" data-en="Language">Jezik</div>
+    <button data-l="bs"><span>🇧🇦</span><b>Bosanski / Hrvatski / Srpski</b><i>✓</i></button>
+    <button data-l="en"><span>🇬🇧</span><b>English</b><i>✓</i></button>
+  </div>
+  <button class="hdr-don" id="hdr-don" style="display:none" data-en="❤️ Donate">❤️ Doniraj</button>
 </header>
 <main>
   <section id="t-danas">
     <div class="k hero">
-      <div class="nas">XAU/USD · zlato</div>
+      <div class="nas" data-en="XAU/USD · gold">XAU/USD · zlato</div>
       <div class="cij num" id="cijena">—</div>
       <div id="chip" class="chip">—</div>
     </div>
-    <div class="k">
-      <div class="nas">Azijski raspon</div>
-      <div class="skala" id="skala"></div>
-      <div class="tri">
-        <div class="mini"><span>Donja · SELL</span><b class="num c" id="donja">—</b></div>
-        <div class="mini"><span>Gornja · BUY</span><b class="num g" id="gornja">—</b></div>
-        <div class="mini"><span>Širina</span><b class="num" id="sirina">—</b></div>
+    <div class="k chart-k">
+      <div class="gl"><div class="nas" style="margin:0" data-en="Gold · last 12 h">Zlato · zadnjih 12 h</div><span class="ai"><i></i><span data-en="Live analysis">Analiza uživo</span></span></div>
+      <svg id="graf-zlato" viewBox="0 0 320 210" preserveAspectRatio="none"></svg>
+      <div class="stat3">
+        <div class="mini"><span data-en="Today high">Danas max</span><b class="num g" id="d-max">—</b></div>
+        <div class="mini"><span data-en="Today low">Danas min</span><b class="num c" id="d-min">—</b></div>
+        <div class="mini"><span data-en="Change">Promjena</span><b class="num" id="d-prom">—</b></div>
       </div>
     </div>
-    <div class="k"><div class="nas">Što bot radi danas</div><ul class="tl" id="dnevnik"></ul></div>
+    <div class="k" id="k-prilike" style="display:none"><div class="nas" data-en="💡 Potential trades today">💡 Potencijalne prilike danas</div><div id="prilike"></div>
+      <p style="font-size:11px;color:var(--s);margin-top:8px" data-en="Extra trades from the channel – not the main signal and not counted in the bot statistics.">Dodatne prilike iz kanala – nisu glavni signal i ne ulaze u statistiku bota.</p></div>
+    <div class="k"><div class="nas" data-en="Today's activity">Aktivnost danas</div><ul class="tl" id="dnevnik"></ul></div>
   </section>
 
   <section id="t-signal" class="sk">
     <div class="k" id="k-signal"></div>
-    <div class="k"><div class="nas">Šansa · povijesni test</div>
+    <div class="k"><div class="nas" data-en="Odds · historical test">Šansa · povijesni test</div>
       <div class="prsten"><svg viewBox="0 0 100 100" id="prsten"></svg>
         <div><b class="rr num zl" id="s-r">—</b><p id="s-opis"></p></div></div>
     </div>
   </section>
 
   <section id="t-kalk" class="sk">
-    <div class="k"><div class="nas">Kalkulator rizika</div>
-      <label>Stanje računa ($)</label><input id="k-racun" type="number" inputmode="decimal" value="1000">
-      <label>Rizik po signalu</label>
+    <div class="k"><div class="nas" data-en="Risk calculator">Kalkulator rizika</div>
+      <label data-en="Account balance ($)">Stanje računa ($)</label><input id="k-racun" type="number" inputmode="decimal" value="1000">
+      <label data-en="Risk per signal">Rizik po signalu</label>
       <div class="seg" id="seg"><button data-v="0.5">0.5%</button><button data-v="1" class="akt">1%</button><button data-v="2">2%</button><button data-v="5">5%</button></div>
-      <label>Udaljenost stopa ($ cijene)</label><input id="k-stop" type="number" inputmode="decimal" value="20">
-      <div class="lot"><span>Preporučeni lot</span><b class="num" id="k-lot">—</b><span id="k-iznos"></span></div>
+      <label data-en="Stop distance ($ of price)">Udaljenost stopa ($ cijene)</label><input id="k-stop" type="number" inputmode="decimal" value="20">
+      <div class="lot"><span data-en="Suggested lot">Preporučeni lot</span><b class="num" id="k-lot">—</b><span id="k-iznos"></span></div>
       <div id="k-upoz"></div>
-      <p style="color:var(--s);font-size:12px;margin-top:12px">Na zlatu 0.01 lota = 1$ po 1$ pomaka cijene. Najmanji lot je 0.01.</p>
+      <p style="color:var(--s);font-size:12px;margin-top:12px" data-en="On gold, 0.01 lot = $1 per $1 price move. The smallest lot is 0.01.">Na zlatu 0.01 lota = 1$ po 1$ pomaka cijene. Najmanji lot je 0.01.</p>
     </div>
   </section>
 
   <section id="t-rez" class="sk">
-    <div class="k"><div class="nas">Stvarni rezultati</div>
+    <div class="k"><div class="nas" data-en="Live results">Stvarni rezultati</div>
       <div class="stat4" id="stat"></div>
       <svg class="graf" id="graf" viewBox="0 0 320 150" preserveAspectRatio="none"></svg>
-      <p style="color:var(--s);font-size:12px">1R = iznos koji riskiraš po signalu</p></div>
-    <div class="k"><div class="nas">Po mjesecima</div><div class="mj" id="mj"></div></div>
-    <div class="k lista"><div class="nas">Zadnji signali</div><div id="pov"></div></div>
+      <p style="color:var(--s);font-size:12px" data-en="1R = the amount you risk per signal">1R = iznos koji riskiraš po signalu</p></div>
+    <div class="k"><div class="nas" data-en="By month">Po mjesecima</div><div class="mj" id="mj"></div></div>
+    <div class="k lista"><div class="nas" data-en="Latest signals">Zadnji signali</div><div id="pov"></div></div>
   </section>
   <section id="t-info" class="sk">
     <div class="k" style="text-align:center"><img src="logo.jpg" alt="Zlatni signal" style="width:150px;height:150px;border-radius:50%;box-shadow:0 0 40px rgba(242,199,92,.35)">
-      <p style="color:var(--s);font-size:13px;margin-top:10px">Automatski signali za zlato · svi rezultati javni</p></div>
-    <div class="k"><div class="nas">Kako radi</div>
-      <svg class="shema" viewBox="0 0 320 150">
-        <rect x="10" y="60" width="190" height="44" rx="6" fill="rgba(233,185,73,.12)"/>
-        <line x1="10" x2="310" y1="60" y2="60" stroke="#34d399" stroke-dasharray="5 5" opacity=".7"/>
-        <line x1="10" x2="310" y1="104" y2="104" stroke="#f87171" stroke-dasharray="5 5" opacity=".7"/>
-        <polyline points="14,86 40,74 64,96 92,70 120,92 150,72 180,90 205,76 230,52 262,34 300,18" fill="none" stroke="#e9b949" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-        <circle cx="222" cy="60" r="6" fill="#34d399"/>
-        <text x="16" y="124" fill="#8d929c" font-size="11">01–10h azijski raspon</text>
-        <text x="214" y="124" fill="#34d399" font-size="11" font-weight="700">proboj → BUY</text>
-        <text x="16" y="54" fill="#34d399" font-size="10">gornja granica</text>
-        <text x="16" y="146" fill="#f87171" font-size="10">donja granica → proboj dolje = SELL</text>
-      </svg>
-      <div class="korak"><div class="br">1</div><p><b>Noću (01–10h po serveru)</b> bot bilježi najvišu i najnižu cijenu zlata – azijski raspon.</p></div>
-      <div class="korak"><div class="br">2</div><p><b>Od 10h</b> čeka da cijena probije gornju (BUY) ili donju granicu (SELL).</p></div>
-      <div class="korak"><div class="br">3</div><p><b>Signal</b> ima ulaz, stop (sredina raspona) i cilj. Dio dobiti se uzima ranije, a stop se pomakne na ulaz.</p></div>
-      <div class="korak"><div class="br">4</div><p><b>Filteri</b> preskaču dane s velikim vijestima, prekasne proboje i razdoblja kad strategija ne radi. Najviše 1 signal dnevno, sve zatvoreno do 22h.</p></div>
+      <p style="color:var(--s);font-size:13px;margin-top:10px" data-en="Gold signals · all results public">Signali za zlato · svi rezultati javni</p></div>
+    <div class="k"><div class="nas" data-en="What you get">Što dobivaš</div>
+      <div class="korak"><div class="br">⚡</div><p data-en="<b>Main signal of the day</b> – at most 1 per day, with entry, stop and target. Only it counts in the statistics."><b>Glavni signal dana</b> – najviše 1 dnevno, s ulazom, stopom i ciljem. Samo on ulazi u statistiku.</p></div>
+      <div class="korak"><div class="br">⚠️</div><p data-en="<b>Heads-up</b> in the channel before the main signal, so you have time to open your platform."><b>Najava</b> u kanalu prije glavnog signala, da stigneš otvoriti platformu.</p></div>
+      <div class="korak"><div class="br">💡</div><p data-en="<b>Potential trades</b> – extra trades for experienced traders. Less reliable, not counted in the statistics."><b>Potencijalne prilike</b> – dodatni trejdovi za iskusne. Manje pouzdani, ne ulaze u statistiku.</p></div>
+      <div class="korak"><div class="br">📊</div><p data-en="<b>All results public</b> – wins and losses, nothing is deleted."><b>Svi rezultati javni</b> – i dobici i gubici, ništa se ne briše.</p></div>
+      <p style="font-size:12px;color:var(--s);margin-top:6px" data-en="Strategy details are not published – but every result is.">Detalji strategije se ne objavljuju – ali svaki rezultat se objavljuje.</p>
     </div>
-    <div class="k"><div class="nas">Česta pitanja</div>
-      <details><summary>Što je R?</summary><p>R je iznos koji riskiraš po signalu. Ako riskiraš 10$, +2R znači +20$, a −1R znači −10$. Tako rezultati vrijede za svaku veličinu računa.</p></details>
-      <details><summary>Zašto danas nema signala?</summary><p>Nema proboja raspona, proboj je bio prekasno ili prejak, ili je dan s važnim američkim vijestima. Dani bez signala su normalni – bolje ne trgovati nego trgovati loše.</p></details>
-      <details><summary>Koliki račun mi treba?</summary><p>Upiši svoj račun u kalkulator (Rizik). Ako i najmanji lot (0.01) riskira previše, koristi cent račun ili samo prati signale.</p></details>
-      <details><summary>Koliko signala dobijem?</summary><p>Najviše jedan dnevno, u prosjeku 3–4 tjedno. Strategija čeka dobre prilike, ne trguje stalno.</p></details>
-      <details><summary>Koliko se dobiva?</summary><p>Oko polovice signala je dobitno, ali dobitni su u prosjeku veći od gubitnih. Ima i tjedana u minusu. Svi stvarni rezultati su na ekranu Rezultati – ništa se ne briše.</p></details>
-      <details><summary>Kojeg brokera koristiti?</summary><p>Bilo kojeg reguliranog brokera s XAU/USD. Cijene se malo razlikuju između brokera, pa ulaz i stop prilagodi svojoj platformi.</p></details>
-      <details><summary>Je li ovo financijski savjet?</summary><p>Nije. Ovo su informacije o radu automatske strategije. Trgovanje s polugom nosi visok rizik – riskiraj samo novac koji si spreman izgubiti.</p></details>
+    <div class="k"><div class="nas" data-en="FAQ">Česta pitanja</div>
+      <details><summary data-en="What is R?">Što je R?</summary><p data-en="R is the amount you risk per signal. If you risk $10, +2R means +$20 and −1R means −$10. That way results apply to any account size.">R je iznos koji riskiraš po signalu. Ako riskiraš 10$, +2R znači +20$, a −1R znači −10$. Tako rezultati vrijede za svaku veličinu računa.</p></details>
+      <details><summary data-en="Why is there no signal today?">Zašto danas nema signala?</summary><p data-en="There was no good enough opportunity, the market was too volatile (e.g. news), or the main signal of the day was already used. Days without a signal are normal.">Nije bilo dovoljno dobre prilike, tržište je bilo previše nemirno (npr. vijesti), ili je glavni signal dana već iskorišten. Dani bez signala su normalni.</p></details>
+      <details><summary data-en="How big an account do I need?">Koliki račun mi treba?</summary><p data-en="Enter your balance in the calculator (Risk). If even the smallest lot (0.01) risks too much, use a cent account or just follow the signals.">Upiši svoj račun u kalkulator (Rizik). Ako i najmanji lot (0.01) riskira previše, koristi cent račun ili samo prati signale.</p></details>
+      <details><summary data-en="How many signals will I get?">Koliko signala dobijem?</summary><p data-en="At most one main signal per day – on most weekdays one. Sometimes also potential trades. A signal can come at night or early in the morning too.">Najviše jedan glavni signal dnevno – većinu radnih dana po jedan. Uz to ponekad i potencijalne prilike. Signal može doći i noću ili rano ujutro.</p></details>
+      <details><summary data-en="What are potential trades?">Što su potencijalne prilike?</summary><p data-en="Extra trades after the main signal. They are less reliable, not counted in the statistics and meant for experienced traders – with smaller risk.">Dodatni trejdovi nakon glavnog signala. Manje su pouzdani, ne ulaze u statistiku i namijenjeni su iskusnijima – uz manji rizik.</p></details>
+      <details><summary data-en="How much can you make?">Koliko se dobiva?</summary><p data-en="About 4 in 10 signals win, but a win is 2× bigger than a loss. Losing streaks and losing weeks are normal. All real results are on the Results screen – nothing is deleted.">Dobitno je oko 4 od 10 signala, ali dobitak je 2× veći od gubitka. Zato su normalni i nizovi gubitaka, i tjedni u minusu. Svi stvarni rezultati su na ekranu Rezultati – ništa se ne briše.</p></details>
+      <details><summary data-en="Which broker should I use?">Kojeg brokera koristiti?</summary><p data-en="Any regulated broker offering XAU/USD. Prices differ slightly between brokers, so adjust entry and stop to your platform.">Bilo kojeg reguliranog brokera s XAU/USD. Cijene se malo razlikuju između brokera, pa ulaz i stop prilagodi svojoj platformi.</p></details>
+      <details><summary data-en="Is this financial advice?">Je li ovo financijski savjet?</summary><p data-en="No. This is information about an automated strategy. Leveraged trading carries high risk – only risk money you can afford to lose.">Nije. Ovo su informacije o radu automatske strategije. Trgovanje s polugom nosi visok rizik – riskiraj samo novac koji si spreman izgubiti.</p></details>
     </div>
-    <div class="k" id="k-don" style="display:none"><div class="nas">❤️ Podrži projekat</div>
+    <div class="k" id="k-don" style="display:none"><div class="nas" data-en="❤️ Support the project">❤️ Podrži projekat</div>
       <p style="font-size:14px;color:#d4d6db" id="don-tekst"></p>
-      <button class="dalje" id="don-otvori">❤️ Doniraj</button></div>
+      <button class="dalje" id="don-otvori" data-en="❤️ Donate">❤️ Doniraj</button></div>
     <div class="k gumbi" id="gumbi"></div>
   </section>
 </main>
 <footer id="upoz"></footer>
+<div id="verzija" style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v3.0</div>
 <div class="sloj" id="sloj"></div>
 <div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <nav>
-  <button data-t="danas" class="akt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Danas</button>
-  <button data-t="signal"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>Signal</button>
-  <button data-t="kalk"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 11h2M14 11h2M8 15h2M14 15h2M8 19h2M14 19h2"/></svg>Rizik</button>
-  <button data-t="rez"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Rezultati</button>
-  <button data-t="info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Info</button>
+  <button data-t="danas" class="akt"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span data-en="Today">Danas</span></button>
+  <button data-t="signal"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><span data-en="Signal">Signal</span></button>
+  <button data-t="kalk"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 11h2M14 11h2M8 15h2M14 15h2M8 19h2M14 19h2"/></svg><span data-en="Risk">Rizik</span></button>
+  <button data-t="rez"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span data-en="Results">Rezultati</span></button>
+  <button data-t="info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span data-en="Info">Info</span></button>
 </nav>
 <script>
 const tg = window.Telegram && Telegram.WebApp;
 if (tg) { tg.ready(); tg.expand(); try { tg.setHeaderColor("#07080b"); tg.setBackgroundColor("#07080b"); } catch(e){} }
 const $ = id => document.getElementById(id);
+let LANG = "bs", ZADNJI = null;
+try { LANG = localStorage.getItem("zs_jezik") || ""; } catch (e) {}
+if (!LANG) { const lc = ((tg && tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.language_code) || navigator.language || "bs").slice(0, 2);
+  LANG = ["bs", "hr", "sr", "sl", "mk", "me"].includes(lc) ? "bs" : "en"; }
+const T = (bs, en) => LANG === "en" ? en : bs;
+const STATUS = {aktivan: ["SIGNAL AKTIVAN", "SIGNAL ACTIVE"], iskoristen: ["Glavni signal dana iskorišten", "Today's main signal used"],
+  prilika: ["Moguća prilika uskoro", "Possible opportunity soon"], analiza: ["Analiziram tržište", "Analysing the market"],
+  vikend: ["Vikend - tržište zatvoreno", "Weekend - market closed"]};
+const RAZLOG = {stop: ["stop", "stop"], cilj: ["cilj", "target"], "22h": ["22h", "22h"]};
+function primijeniJezik() {
+  document.querySelectorAll("[data-en]").forEach(el => { if (el.dataset.bs === undefined) el.dataset.bs = el.innerHTML;
+    el.innerHTML = LANG === "en" ? el.dataset.en : el.dataset.bs; });
+  $("hdr-jez").textContent = (LANG === "en" ? "🇬🇧" : "🇧🇦") + " ▾"; document.documentElement.lang = LANG;
+  document.querySelectorAll("#jez-meni button").forEach(b => b.classList.toggle("akt", b.dataset.l === LANG));
+  if (ZADNJI) prikazi(ZADNJI);
+}
 const f2 = x => (x==null||isNaN(x)) ? "—" : Number(x).toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2});
 const sgn = x => (x>0?"+":"") + f2(x);
 const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
@@ -290,35 +338,76 @@ document.querySelectorAll("#seg button").forEach(b => b.onclick = () => {
 function danas(d) {
   const t = d.danas, s = t.signal;
   $("cijena").innerHTML = f2(t.cijena) + "<small>USD</small>";
-  const chip = $("chip");
-  if (s) { chip.className = "chip " + (s.smjer === "BUY" ? "buy" : "sell"); chip.textContent = (s.smjer === "BUY" ? "▲ " : "▼ ") + "Signal aktivan · " + s.smjer; }
-  else { chip.className = "chip" + (/Čekam|Bilježim/.test(t.status) ? " cek" : ""); chip.textContent = t.status; }
-  if (t.raspon) {
-    const R = t.raspon; $("gornja").textContent = f2(R.gornja); $("donja").textContent = f2(R.donja); $("sirina").textContent = f2(R.sirina) + "$";
-    const lo = Math.min(R.donja - R.sirina*0.6, t.cijena - R.sirina*0.1), hi = Math.max(R.gornja + R.sirina*0.6, t.cijena + R.sirina*0.1);
-    const p = x => Math.max(3, Math.min(97, (x - lo) / (hi - lo) * 100));
-    $("skala").innerHTML = `<div class="vani"></div><div class="zona" style="left:${p(R.donja)}%;width:${p(R.gornja)-p(R.donja)}%"></div>
-      <div class="oz num" style="left:${p(R.donja)}%">${f2(R.donja)}</div><div class="oz num" style="left:${p(R.gornja)}%">${f2(R.gornja)}</div>
-      <div class="marker" style="left:${p(t.cijena)}%"><b class="num">${f2(t.cijena)}</b><i></i></div>`;
-  } else { $("skala").innerHTML = '<p style="color:var(--s);font-size:13px;padding-top:24px">Raspon se još bilježi (01–10h server).</p>'; }
-  $("dnevnik").innerHTML = (t.dnevnik.length ? t.dnevnik : ["Nema novih događaja danas."]).map(x => `<li>${esc(x)}</li>`).join("");
+  const chip = $("chip"); const stT = STATUS[t.status_kod] ? T(...STATUS[t.status_kod]) : t.status;
+  if (s) { chip.className = "chip " + (s.smjer === "BUY" ? "buy" : "sell"); chip.textContent = (s.smjer === "BUY" ? "▲ " : "▼ ") + T("Signal aktivan · ", "Signal active · ") + s.smjer; }
+  else { chip.className = "chip" + (["prilika", "analiza"].includes(t.status_kod) ? " cek" : ""); chip.textContent = stT; }
+  crtajGraf(t);
+  const D = t.dan || {};
+  $("d-max").textContent = f2(D.max); $("d-min").textContent = f2(D.min);
+  if (D.otvaranje) { const pr = (t.cijena - D.otvaranje) / D.otvaranje * 100;
+    $("d-prom").textContent = (pr >= 0 ? "+" : "") + pr.toFixed(2) + "%"; $("d-prom").className = "num " + (pr >= 0 ? "g" : "c"); }
+  const P = t.prilike || [];
+  $("k-prilike").style.display = P.length ? "" : "none";
+  $("prilike").innerHTML = P.map(x => `<div class="pril"><div class="ikon ${x.smjer === "BUY" ? "buy" : "sell"}">${x.smjer === "BUY" ? "▲" : "▼"}</div>
+    <div class="sr" style="flex:1"><b>${x.smjer} ${T("oko", "near")} <span class="num">${f2(x.ulaz)}</span></b><span style="display:block;font-size:12px;color:var(--s)">${x.vrijeme} · stop ${f2(x.stop)} · ${T("cilj", "target")} ${f2(x.cilj)}</span></div></div>`).join("");
+  const dn = (LANG === "en" && t.dnevnik_en) ? t.dnevnik_en : t.dnevnik;
+  $("dnevnik").innerHTML = (dn && dn.length ? dn : [T("Nema novih događaja danas.", "No events today yet.")]).map(x => `<li>${esc(x)}</li>`).join("");
+}
+
+let zadnjiGraf = "";
+function crtajGraf(t) {
+  const sv = t.graf || []; if (sv.length < 2) return;
+  const kljuc = sv.map(x => x.c).join(",") + (t.signal ? t.signal.ulaz : "");
+  const W = 320, H = 210, top = 14, bot = 22;
+  const vals = sv.flatMap(x => [x.h, x.l]).concat(t.signal ? [t.signal.stop, t.signal.cilj] : []);
+  let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
+  const X = i => i / (sv.length - 1) * (W - 54) + 4, Y = v => top + (1 - (v - lo) / (hi - lo)) * (H - top - bot);
+  const pts = sv.map((x, i) => [X(i), Y(x.c)]);
+  let put = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 1; i < pts.length; i++) { const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], mx = (x0 + x1) / 2; put += ` C${mx},${y0} ${mx},${y1} ${x1},${y1}`; }
+  const zad = pts[pts.length - 1], gore = sv[sv.length - 1].c >= sv[0].c, boja = gore ? "#34d399" : "#f87171";
+  const yz = Y(sv[sv.length - 1].c);
+  let grid = ""; for (let k = 0; k <= 4; k++) { const v = lo + (hi - lo) * k / 4, y = Y(v);
+    grid += `<line x1="0" x2="${W - 50}" y1="${y}" y2="${y}" stroke="rgba(255,255,255,.05)"/>` +
+      (Math.abs(y - yz) > 14 ? `<text x="${W - 2}" y="${y + 3}" text-anchor="end" fill="#5d626c" font-size="9">${v.toFixed(0)}</text>` : ""); }
+  const sati = [0, 16, 32, 47].filter(i => i < sv.length).map((i, j) => `<text x="${X(i)}" y="${H - 6}" text-anchor="${j === 0 ? "start" : "middle"}" fill="#5d626c" font-size="9">${sv[i].t}</text>`).join("");
+  const svijece = sv.map((x, i) => { const c = x.c >= x.o ? "rgba(52,211,153,.35)" : "rgba(248,113,113,.35)";
+    return `<line x1="${X(i)}" x2="${X(i)}" y1="${Y(x.h)}" y2="${Y(x.l)}" stroke="${c}" stroke-width="1"/>`; }).join("");
+  let razine = "";
+  if (t.signal) { const s = t.signal;
+    [[T("CILJ", "TARGET"), s.cilj, "#34d399"], [T("ULAZ", "ENTRY"), s.ulaz, "#e9b949"], ["STOP", s.stop, "#f87171"]].forEach(([n, v, c]) => {
+      razine += `<line x1="0" x2="${W - 50}" y1="${Y(v)}" y2="${Y(v)}" stroke="${c}" stroke-dasharray="5 4" opacity=".9"/>
+        <text x="6" y="${Y(v) - 4}" fill="${c}" font-size="9" font-weight="700">${n} ${v.toFixed(2)}</text>`; }); }
+  const animiraj = kljuc !== zadnjiGraf; zadnjiGraf = kljuc;
+  $("graf-zlato").innerHTML = `<defs>
+      <linearGradient id="gpov" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".35"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient>
+      <linearGradient id="gsk" x1="0" x2="1"><stop offset="0" stop-color="#e9b949" stop-opacity="0"/><stop offset="1" stop-color="#e9b949" stop-opacity=".18"/></linearGradient></defs>
+    ${grid}${svijece}${razine}
+    <path d="${put} L${zad[0]},${H - bot} L${pts[0][0]},${H - bot} Z" fill="url(#gpov)"/>
+    <path class="${animiraj ? "crta" : ""}" d="${put}" fill="none" stroke="#e9b949" stroke-width="2.2" stroke-linejoin="round"/>
+    <rect class="skener" x="-40" y="${top}" width="40" height="${H - top - bot}" fill="url(#gsk)"/>
+    <circle class="puls" cx="${zad[0]}" cy="${zad[1]}" r="5" fill="${boja}"/>
+    <circle cx="${zad[0]}" cy="${zad[1]}" r="4" fill="${boja}" stroke="#07080b" stroke-width="1.5"/>
+    <rect x="${W - 50}" y="${zad[1] - 9}" width="48" height="18" rx="5" fill="#e9b949"/>
+    <text x="${W - 26}" y="${zad[1] + 4}" text-anchor="middle" fill="#1b1406" font-size="10" font-weight="800">${t.cijena.toFixed(1)}</text>${sati}`;
 }
 
 function signal(d) {
   const s = d.danas.signal;
   if (!s) {
-    $("k-signal").innerHTML = `<div class="prazno"><div class="ik">⏳</div><b>Trenutno nema signala</b>
-      <p>Signal dolazi kad cijena probije azijski raspon, najčešće između 10 i 17h po serveru. Obavijest stiže u Telegram kanal.</p></div>`;
+    $("k-signal").innerHTML = `<div class="prazno"><div class="ik">⏳</div><b>${T("Trenutno nema signala", "No active signal")}</b>
+      <p>${T("Zlatni signal prati zlato 24/5 i daje najviše 1 glavni signal dnevno. Prije signala u kanalu stiže najava, a signal ima ulaz, stop i cilj.",
+             "Zlatni signal watches gold 24/5 and gives at most 1 main signal per day. A heads-up comes in the channel first; every signal has entry, stop and target.")}</p></div>`;
   } else {
     const buy = s.smjer === "BUY", k = buy ? "g" : "c";
     const lo = Math.min(s.stop, s.cilj), hi = Math.max(s.stop, s.cilj), raz = hi - lo || 1;
     const pe = (s.ulaz - lo) / raz * 100, tr = s.trenutno_R ?? 0, pc = Math.max(0, Math.min(100, pe + (buy?1:-1) * tr * (s.stop_udaljenost||0) / raz * 100));
-    $("k-signal").innerHTML = `<div class="nas">Aktivni signal · otvoren ${s.otvoren.slice(11)}</div>
+    $("k-signal").innerHTML = `<div class="nas">${T("Aktivni signal · otvoren", "Active signal · opened")} ${s.otvoren.slice(11)}</div>
       <div class="sig-top"><div class="smj ${k}">${buy ? "▲ BUY" : "▼ SELL"}</div><div class="rr num ${tr>=0?"g":"c"}">${sgn(tr)}R</div></div>
       <div class="prog"><i style="left:${Math.min(pe,pc)}%;width:${Math.abs(pc-pe)}%;background:${tr>=0?"var(--g)":"var(--r)"}"></i></div>
       <div class="razine">
-        <div class="raz"><span>Cilj</span><b class="num g">${f2(s.cilj)}</b></div>
-        <div class="raz"><span>Ulaz</span><b class="num">${f2(s.ulaz)}</b></div>
+        <div class="raz"><span>${T("Cilj", "Target")}</span><b class="num g">${f2(s.cilj)}</b></div>
+        <div class="raz"><span>${T("Ulaz", "Entry")}</span><b class="num">${f2(s.ulaz)}</b></div>
         <div class="raz"><span>Stop</span><b class="num c">${f2(s.stop)}</b></div></div>`;
     if (s.stop_udaljenost) { $("k-stop").value = s.stop_udaljenost; }
   }
@@ -326,8 +415,9 @@ function signal(d) {
   $("prsten").innerHTML = `<circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"/>
     <circle cx="50" cy="50" r="40" stroke="#e9b949" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="${C*w/100} ${C}" transform="rotate(-90 50 50)"/>
     <text x="50" y="55" text-anchor="middle" fill="#f4f1ea" font-size="20" font-weight="800">${w}%</text>`;
-  $("s-r").textContent = sgn(d.test.prosjek_R) + "R po signalu";
-  $("s-opis").textContent = `${d.test.trejdova} signala u testu (${d.test.razdoblje}). Dobici su u prosjeku veći od gubitaka. ${d.test.napomena}`;
+  $("s-r").textContent = sgn(d.test.prosjek_R) + T("R po signalu", "R per signal");
+  $("s-opis").textContent = T(`${d.test.trejdova} signala u testu (${d.test.razdoblje}). Dobici su u prosjeku veći od gubitaka. ${d.test.napomena}`,
+    `${d.test.trejdova} signals in the test (${d.test.razdoblje}). Wins are on average bigger than losses. Past results do not guarantee future results.`);
 }
 
 function kalk() {
@@ -335,17 +425,18 @@ function kalk() {
   if (!(racun > 0 && stop > 0)) { $("k-lot").textContent = "—"; $("k-iznos").textContent = ""; $("k-upoz").innerHTML = ""; return; }
   const iznos = racun * rizik / 100, lot = Math.floor(iznos / (stop * 100) * 100) / 100, min = stop;
   $("k-lot").textContent = lot >= 0.01 ? lot.toFixed(2) : "—";
-  $("k-iznos").textContent = `rizik ${f2(iznos)} $ po signalu`;
+  $("k-iznos").textContent = T(`rizik ${f2(iznos)} $ po signalu`, `risk $${f2(iznos)} per signal`);
   $("k-upoz").innerHTML = lot < 0.01
-    ? `<div class="upoz">⚠️ I najmanji lot (0.01) riskira ${f2(min)} $ = ${(min/racun*100).toFixed(1)}% računa. Za ovaj račun koristi cent račun ili preskoči signal.</div>`
-    : (rizik > 2 ? `<div class="upoz">⚠️ Više od 2% po signalu znači velike oscilacije računa.</div>` : "");
+    ? `<div class="upoz">⚠️ ${T(`I najmanji lot (0.01) riskira ${f2(min)} $ = ${(min/racun*100).toFixed(1)}% računa. Za ovaj račun koristi cent račun ili preskoči signal.`,
+        `Even the smallest lot (0.01) risks $${f2(min)} = ${(min/racun*100).toFixed(1)}% of the account. Use a cent account or skip the signal.`)}</div>`
+    : (rizik > 2 ? `<div class="upoz">⚠️ ${T("Više od 2% po signalu znači velike oscilacije računa.", "More than 2% per signal means big swings in your account.")}</div>` : "");
 }
 ["k-racun","k-stop"].forEach(id => $(id).oninput = kalk);
 
 function rezultati(d) {
   const s = d.statistika;
-  if (!s.signala) { $("stat").innerHTML = '<p style="color:var(--s);font-size:13px">Još nema zatvorenih signala. Povijest se puni automatski.</p>'; $("graf").innerHTML=""; $("mj").innerHTML=""; $("pov").innerHTML=""; return; }
-  $("stat").innerHTML = [["Signala", s.signala, ""], ["Dobitnih", s.dobitnih_pct + "%", ""], ["Ukupno", sgn(s.ukupno_R) + "R", s.ukupno_R>=0?"g":"c"], ["Najveći pad", f2(s.najveci_pad_R) + "R", "c"]]
+  if (!s.signala) { $("stat").innerHTML = `<p style="color:var(--s);font-size:13px">${T("Još nema zatvorenih signala. Povijest se puni automatski.", "No closed signals yet. The history fills in automatically.")}</p>`; $("graf").innerHTML=""; $("mj").innerHTML=""; $("pov").innerHTML=""; return; }
+  $("stat").innerHTML = [[T("Signala", "Signals"), s.signala, ""], [T("Dobitnih", "Winners"), s.dobitnih_pct + "%", ""], [T("Ukupno", "Total"), sgn(s.ukupno_R) + "R", s.ukupno_R>=0?"g":"c"], [T("Najveći pad", "Max drawdown"), f2(s.najveci_pad_R) + "R", "c"]]
     .map(([a,b,k]) => `<div class="mini"><span>${a}</span><b class="num ${k}">${b}</b></div>`).join("");
   const v = [0, ...s.krivulja_R], mn = Math.min(...v), mx = Math.max(...v), r = (mx - mn) || 1, W = 320, H = 150;
   const xy = v.map((y,i) => [i/(v.length-1||1)*W, 10 + (1-(y-mn)/r)*(H-20)]);
@@ -360,7 +451,7 @@ function rezultati(d) {
     `<div><span>${m.slice(5)}/${m.slice(2,4)}</span><b class="num ${x>=0?"g":"c"}">${sgn(x)}R</b></div>`).join("");
   $("pov").innerHTML = d.povijest.slice(0, 30).map(p => { const b = p.smjer === "BUY";
     return `<div class="st"><div class="ikon ${b?"buy":"sell"}">${b?"▲":"▼"}</div>
-      <div class="sr"><b>${p.smjer}</b> <span class="num">ulaz ${f2(p.ulaz)} · ${p.otvoren.slice(8,10)}.${p.otvoren.slice(5,7)}. ${p.otvoren.slice(11)}</span></div>
+      <div class="sr"><b>${p.smjer}</b> <span class="num">${T("ulaz", "entry")} ${f2(p.ulaz)} · ${p.otvoren.slice(8,10)}.${p.otvoren.slice(5,7)}. ${p.otvoren.slice(11)}</span></div>
       <b class="num ${p.R>=0?"g":"c"}">${sgn(p.R)}R</b></div>`; }).join("");
 }
 
@@ -368,16 +459,22 @@ async function ucitaj() {
   try {
     const r = await fetch("signali.json?t=" + Date.now(), {cache: "no-store"});
     const d = await r.json();
+    ZADNJI = d; prikazi(d);
+  } catch (e) { $("azur").textContent = T("nema veze s podacima", "no data connection"); }
+}
+function prikazi(d) {
+  {
     const star = (Date.now() - new Date(d.azurirano).getTime()) / 60000;
     $("tocka").className = "tocka" + (star > 20 ? " off" : "");
-    $("azur").textContent = (star > 20 ? "zadnje ažuriranje " : "uživo · ") + d.azurirano.slice(11, 16);
+    $("azur").textContent = (star > 20 ? T("ažurirano ", "updated ") : T("uživo · ", "live · ")) + d.azurirano.slice(11, 16);
+    $("prat").textContent = d.pratitelja ? `👥 ${Number(d.pratitelja).toLocaleString("de-DE")} ${T("pratitelja", "followers")}` : "";
     danas(d); signal(d); rezultati(d); kalk();
-    $("upoz").textContent = d.upozorenje;
+    $("upoz").textContent = T(d.upozorenje, d.upozorenje_en || "Not financial advice. Leveraged gold trading carries a high risk of loss. Only risk money you can afford to lose.");
     const L = d.linkovi || {};
-    $("gumbi").innerHTML = (L.kanal ? `<a class="gumb" href="${L.kanal}">📢 Telegram kanal sa signalima</a>` : "") +
-      (L.kontakt ? `<a class="gumb sek" href="${L.kontakt}">✉️ Kontakt</a>` : "") || '<p style="color:var(--s);font-size:13px">Pitanja? Piši u komentare kanala.</p>';
+    $("gumbi").innerHTML = (L.kanal ? `<a class="gumb" href="${L.kanal}">📢 ${T("Telegram kanal sa signalima", "Telegram channel with signals")}</a>` : "") +
+      (L.kontakt ? `<a class="gumb sek" href="${L.kontakt}">✉️ ${T("Kontakt", "Contact")}</a>` : "") || `<p style="color:var(--s);font-size:13px">${T("Pitanja? Piši u komentare kanala.", "Questions? Write in the channel comments.")}</p>`;
     document.querySelectorAll("#gumbi a").forEach(a => a.onclick = e => { if (tg && a.href.includes("t.me")) { e.preventDefault(); tg.openTelegramLink(a.href); } });
-  } catch (e) { $("azur").textContent = "nema veze s podacima"; }
+  }
 }
 let DON = null, odabir = {i: null, eur: 5}, cijene = null;
 const DEC = {BTC: 8, ETH: 6, SOL: 4, USDT: 2, BNB: 5, TRX: 2};
@@ -389,9 +486,11 @@ async function donacije() {
     const a = (d.adrese || []).filter(x => x.adresa && !x.adresa.includes("OVDJE"));
     if (!a.length) return;
     DON = {...d, adrese: a};
-    $("don-tekst").textContent = d.tekst || "";
+    $("don-tekst").textContent = T(d.tekst || "", d.tekst_en || "Zlatni signal is free. If it helps you, you can support the project.");
     $("k-don").style.display = ""; $("hdr-don").style.display = "";
     $("hdr-don").onclick = $("don-otvori").onclick = otvoriDon;
+    const sp = (tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new URLSearchParams(location.search).get("tgWebAppStartParam");
+    if (sp === "doniraj") setTimeout(otvoriDon, 1800);
     $("sloj").onclick = zatvoriDon;
   } catch (e) {}
 }
@@ -404,13 +503,13 @@ function otvoriDon() {
 }
 function korak1() {
   const a = DON.adrese;
-  $("list-sadrzaj").innerHTML = `<h2>❤️ Doniraj</h2><p class="op">${esc(DON.tekst || "")}</p>
-    <label>1. Izaberi valutu i mrežu</label>
+  $("list-sadrzaj").innerHTML = `<h2>❤️ ${T("Doniraj", "Donate")}</h2><p class="op">${esc(T(DON.tekst || "", DON.tekst_en || "Zlatni signal is free. If it helps you, you can support the project."))}</p>
+    <label>${T("1. Izaberi valutu i mrežu", "1. Choose currency and network")}</label>
     <div class="mreze">${a.map((x,i) => `<button data-i="${i}" class="${odabir.i===i?"akt":""}"><b>${esc(x.valuta)}</b><span>${esc(x.mreza)}</span></button>`).join("")}</div>
-    <label>2. Koliko želiš donirati (€)</label>
+    <label>${T("2. Koliko želiš donirati (€)", "2. How much do you want to donate (€)")}</label>
     <div class="iznosi">${[5,10,20,50].map(v => `<button data-v="${v}" class="${odabir.eur===v?"akt":""}">${v} €</button>`).join("")}</div>
-    <input type="number" id="don-eur" inputmode="decimal" placeholder="drugi iznos u €" value="${[5,10,20,50].includes(odabir.eur)?"":odabir.eur}">
-    <button class="dalje" id="don-dalje" ${odabir.i===null?"disabled":""}>Nastavi →</button>`;
+    <input type="number" id="don-eur" inputmode="decimal" placeholder="${T("drugi iznos u €", "other amount in €")}" value="${[5,10,20,50].includes(odabir.eur)?"":odabir.eur}">
+    <button class="dalje" id="don-dalje" ${odabir.i===null?"disabled":""}>${T("Nastavi →", "Continue →")}</button>`;
   document.querySelectorAll(".mreze button").forEach(b => b.onclick = () => { odabir.i = +b.dataset.i; korak1(); haptic(); });
   document.querySelectorAll(".iznosi button").forEach(b => b.onclick = () => { odabir.eur = +b.dataset.v; korak1(); haptic(); });
   $("don-eur").oninput = e => { const v = +e.target.value; if (v > 0) { odabir.eur = v; document.querySelectorAll(".iznosi button").forEach(x => x.classList.remove("akt")); } };
@@ -424,31 +523,39 @@ async function korak2() {
   const kol = c ? (odabir.eur / c) : null;
   const kolTxt = kol ? kol.toFixed(DEC[v]).replace(/\.?0+$/, "") : null;
   $("list-sadrzaj").innerHTML = `<div class="upl">
-    <h2>Pošalji ${kolTxt ? "≈ " : ""}${odabir.eur} € u ${v}</h2>
-    ${kolTxt ? `<div class="izn">${kolTxt} ${v}</div><div class="eur">po trenutnoj cijeni 1 ${v} ≈ ${f2(c)} €</div>`
-             : `<div class="eur">Cijenu trenutno ne mogu dohvatiti – pošalji iznos u vrijednosti ${odabir.eur} €.</div>`}
+    <h2>${T("Pošalji", "Send")} ${kolTxt ? "≈ " : ""}${odabir.eur} € ${T("u", "in")} ${v}</h2>
+    ${kolTxt ? `<div class="izn">${kolTxt} ${v}</div><div class="eur">${T("po trenutnoj cijeni", "at current price")} 1 ${v} ≈ ${f2(c)} €</div>`
+             : `<div class="eur">${T(`Cijenu trenutno ne mogu dohvatiti – pošalji iznos u vrijednosti ${odabir.eur} €.`, `Price unavailable right now – send the equivalent of ${odabir.eur} €.`)}</div>`}
     <div class="qr" id="qr">QR</div>
     <div class="don"><div class="gl"><b>${esc(x.valuta)}</b><span class="mreza">${esc(x.mreza)}</span></div>
       <code id="adr">${esc(x.adresa)}</code>
-      <button class="kop" id="kop-adr">Kopiraj adresu</button>
-      ${kolTxt ? `<button class="kop" id="kop-izn" style="margin-top:6px">Kopiraj iznos (${kolTxt})</button>` : ""}</div>
+      <button class="kop" id="kop-adr">${T("Kopiraj adresu", "Copy address")}</button>
+      ${kolTxt ? `<button class="kop" id="kop-izn" style="margin-top:6px">${T("Kopiraj iznos", "Copy amount")} (${kolTxt})</button>` : ""}</div>
     <ol class="koraci">
-      <li>Otvori svoj wallet ili mjenjačnicu (Binance, Trust Wallet, MetaMask…).</li>
-      <li>Odaberi <b>${v}</b> → Pošalji / Withdraw.</li>
-      <li>Zalijepi adresu i odaberi mrežu <b>${esc(x.mreza)}</b> – <b>samo tu mrežu!</b></li>
-      <li>Upiši iznos ${kolTxt ? `<b>${kolTxt} ${v}</b>` : `u vrijednosti <b>${odabir.eur} €</b>`} i potvrdi.</li>
+      <li>${T("Otvori svoj wallet ili mjenjačnicu (Binance, Trust Wallet, MetaMask…).", "Open your wallet or exchange (Binance, Trust Wallet, MetaMask…).")}</li>
+      <li>${T("Odaberi", "Choose")} <b>${v}</b> → ${T("Pošalji / Withdraw.", "Send / Withdraw.")}</li>
+      <li>${T("Zalijepi adresu i odaberi mrežu", "Paste the address and choose network")} <b>${esc(x.mreza)}</b> – <b>${T("samo tu mrežu!", "only this network!")}</b></li>
+      <li>${T("Upiši iznos", "Enter amount")} ${kolTxt ? `<b>${kolTxt} ${v}</b>` : `${T("u vrijednosti", "worth")} <b>${odabir.eur} €</b>`} ${T("i potvrdi.", "and confirm.")}</li>
     </ol>
-    <p style="font-size:12px;color:var(--s);margin-top:8px">Mreža naplaćuje malu naknadu. Donacija je dobrovoljna i ne daje nikakva prava ni povrat. Hvala! 🙏</p>
-    <button class="dalje" id="don-natrag" style="background:rgba(255,255,255,.07);color:var(--t)">← Natrag</button></div>`;
+    <p style="font-size:12px;color:var(--s);margin-top:8px">${T("Mreža naplaćuje malu naknadu. Donacija je dobrovoljna i ne daje nikakva prava ni povrat. Hvala! 🙏", "The network charges a small fee. Donations are voluntary and give no rights or refunds. Thank you! 🙏")}</p>
+    <button class="dalje" id="don-natrag" style="background:rgba(255,255,255,.07);color:var(--t)">${T("← Natrag", "← Back")}</button></div>`;
   const kop = async (t, b, lab) => { try { await navigator.clipboard.writeText(t); } catch (e) {
       const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove(); }
-    b.textContent = "✓ Kopirano"; if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred("success"); setTimeout(() => b.textContent = lab, 2000); };
-  $("kop-adr").onclick = e => kop(x.adresa, e.target, "Kopiraj adresu");
-  if (kolTxt) $("kop-izn").onclick = e => kop(kolTxt, e.target, `Kopiraj iznos (${kolTxt})`);
+    b.textContent = T("✓ Kopirano", "✓ Copied"); if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred("success"); setTimeout(() => b.textContent = lab, 2000); };
+  $("kop-adr").onclick = e => kop(x.adresa, e.target, T("Kopiraj adresu", "Copy address"));
+  if (kolTxt) $("kop-izn").onclick = e => kop(kolTxt, e.target, `${T("Kopiraj iznos", "Copy amount")} (${kolTxt})`);
   $("don-natrag").onclick = korak1;
   try { const q = qrcode(0, "M"); q.addData(x.adresa); q.make(); $("qr").innerHTML = q.createImgTag(6, 0); }
   catch (e) { $("qr").style.display = "none"; }
 }
+$("hdr-jez").onclick = e => { e.stopPropagation(); $("jez-meni").classList.toggle("otv"); if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred("light"); };
+document.addEventListener("click", e => { if (!$("jez-meni").contains(e.target)) $("jez-meni").classList.remove("otv"); });
+document.querySelectorAll("#jez-meni button").forEach(b => b.onclick = () => {
+  LANG = b.dataset.l; try { localStorage.setItem("zs_jezik", LANG); } catch (e) {}
+  if (tg && tg.HapticFeedback) tg.HapticFeedback.selectionChanged();
+  primijeniJezik(); setTimeout(() => $("jez-meni").classList.remove("otv"), 150);
+  if (DON) $("don-tekst").textContent = T(DON.tekst || "", DON.tekst_en || "Zlatni signal is free. If it helps you, you can support the project."); });
+primijeniJezik();
 const T0 = Date.now(); let napredak = 0, gotovo = false, kraj = false;
 function postavi(p) { napredak = Math.max(napredak, Math.min(100, p));
   $("sp-pun").style.strokeDashoffset = (791.7 * (1 - napredak / 100)).toFixed(1); $("sp-post").textContent = Math.round(napredak) + "%"; }
