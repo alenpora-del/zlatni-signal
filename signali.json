@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-20T19:46",
+ "azurirano": "2026-11-20T19:57",
  "danas": {
-  "server_vrijeme": "2026-11-20 20:46",
-  "cijena": 3506.26,
+  "server_vrijeme": "2026-11-20 20:57",
+  "cijena": 3537.89,
   "status": "Moguća prilika uskoro",
   "status_kod": "prilika",
   "raspon": null,
@@ -341,14 +341,14 @@
    {
     "t": "20:45",
     "o": 3506.44,
-    "h": 3507.23,
-    "l": 3504.27,
-    "c": 3506.26
+    "h": 3542.22,
+    "l": 3502.8,
+    "c": 3537.89
    }
   ],
   "dan": {
    "max": 3595.09,
-   "min": 3504.27,
+   "min": 3502.8,
    "otvaranje": 3560.54
   },
   "gotov": false,
