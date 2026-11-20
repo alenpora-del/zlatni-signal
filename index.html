@@ -295,6 +295,7 @@
       <div class="korak"><div class="br">6</div><p data-en="<b>Start on demo or cent</b> – Follow signals 2–4 weeks without real money."><b>Prvo demo ili cent račun</b> – 2–4 tjedna prati signale bez pravog novca.</p></div>
     </div>
     <div class="k"><div class="nas" data-en="FAQ">Česta pitanja</div>
+      <details><summary data-en="What does 🔒 profit locked mean?">Što znači 🔒 zaključan profit?</summary><p data-en="When a trade reaches +1R (profit equal to the stop distance), the stop moves into profit (+0.5R), so the trade can no longer end in a loss. Every further half-stop, the stop moves up again. That way more trades end in profit.">Kad trejd dođe do +1R (dobit jednaka udaljenosti stopa), stop se pomiče u plus (+0,5R), pa trejd više ne može završiti u minusu. Svakih sljedećih pola stopa stop ide još gore. Tako više trejdova završi u plusu.</p></details>
       <details><summary data-en="Why is it free?">Zašto je besplatno?</summary><p data-en="The goal is to help people trade with a clear plan and sensible risk – not to sell signals. There will never be a paid or VIP version. The project is kept alive by voluntary donations.">Cilj je pomoći ljudima da trguju s jasnim planom i razumnim rizikom – a ne prodavati signale. Plaćene ili VIP verzije nikad neće biti. Projekt održavaju dobrovoljne donacije.</p></details>
       <details><summary data-en="What is R?">Što je R?</summary><p data-en="R is the amount you risk per signal. If you risk $10, +2R means +$20 and −1R means −$10. That way results apply to any account size.">R je iznos koji riskiraš po signalu. Ako riskiraš 10$, +2R znači +20$, a −1R znači −10$. Tako rezultati vrijede za svaku veličinu računa.</p></details>
       <details><summary data-en="Why is there no signal today?">Zašto danas nema signala?</summary><p data-en="There was no good enough opportunity, the market was too volatile (e.g. news), or the main signal of the day was already used. Days without a signal are normal.">Nije bilo dovoljno dobre prilike, tržište je bilo previše nemirno (npr. vijesti), ili je glavni signal dana već iskorišten. Dani bez signala su normalni.</p></details>
@@ -319,7 +320,7 @@
   </section>
 </main>
 <footer id="upoz"></footer>
-<div id="verzija" style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v3.9</div>
+<div id="verzija" style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v4.0</div>
 <div class="sloj" id="sloj"></div>
 <div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <nav>
@@ -448,9 +449,11 @@ function signal(d) {
       <div class="sig-top"><div class="smj ${k}">${buy ? "▲ BUY" : "▼ SELL"}</div><div class="rr num ${tr>=0?"g":"c"}">${sgn(tr)}R</div></div>
       <div class="prog"><i style="left:${Math.min(pe,pc)}%;width:${Math.abs(pc-pe)}%;background:${tr>=0?"var(--g)":"var(--r)"}"></i></div>
       <div class="razine">
-        <div class="raz"><span>${T("Cilj", "Target")}</span><b class="num g">${f2(s.cilj)}</b></div>
+        <div class="raz"><span>${s.stepenice ? T("Cilj ~ (stepenice)", "Target ~ (steps)") : T("Cilj", "Target")}</span><b class="num g">${f2(s.cilj)}</b></div>
         <div class="raz"><span>${T("Ulaz", "Entry")}</span><b class="num">${f2(s.ulaz)}</b></div>
-        <div class="raz"><span>Stop</span><b class="num c">${f2(s.stop)}</b></div></div>`;
+        <div class="raz"><span>Stop${((buy ? s.stop > s.ulaz : s.stop < s.ulaz) ? " 🔒" : "")}</span><b class="num ${((buy ? s.stop > s.ulaz : s.stop < s.ulaz) ? "g" : "c")}">${f2(s.stop)}</b></div></div>
+      ${(buy ? s.stop > s.ulaz : s.stop < s.ulaz) ? `<p style="font-size:12px;color:var(--g);margin-top:8px">${T("🔒 Stop je u plusu – profit je zaključan, pratimo dalje.", "🔒 Stop is in profit – profit locked, letting it run.")}</p>`
+        : (s.stepenice ? `<p style="font-size:12px;color:var(--s);margin-top:8px">${T("Kod +1R stop ide u plus, pa stepenicama dalje.", "At +1R the stop moves into profit, then step by step.")}</p>` : "")}`;
     if (s.stop_udaljenost) { $("k-stop").value = s.stop_udaljenost; }
   }
   const w = d.test.dobitnih_pct, C = 2*Math.PI*40;
