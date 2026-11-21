@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>Zlatni signal</title>
 <link rel="icon" href="logo_192.jpg"><link rel="apple-touch-icon" href="logo_192.jpg">
-<meta name="theme-color" content="#07080b">
+<meta name="theme-color" content="#08090B">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   #splash{position:fixed;inset:0;z-index:100;background:radial-gradient(60% 45% at 50% 40%,#2a1d07 0%,#07080b 70%);
           display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s}
@@ -18,16 +20,17 @@
   .sp-post{margin-top:10px;font:700 13px/1 -apple-system,"Segoe UI",sans-serif;color:#f2c75c;letter-spacing:1px;font-variant-numeric:tabular-nums;animation:sp-ulaz 1s .5s both}
   .sp-naziv{margin-top:26px;font:800 26px/1 Georgia,serif;letter-spacing:1px;color:#f2c75c;animation:sp-ulaz 1s .25s both}
   .sp-pod{margin-top:8px;font:500 13px/1 -apple-system,"Segoe UI",sans-serif;color:#8d929c;animation:sp-ulaz 1s .4s both}
+  .sp-boot{margin-top:14px;font:600 12px ui-monospace,Menlo,monospace;color:#20D879;min-height:16px;text-shadow:0 0 8px rgba(32,216,121,.6)}
   @keyframes sp-ulaz{from{opacity:0;transform:scale(.92) translateY(8px)}to{opacity:1;transform:none}}
   @keyframes sp-sjaj{0%,100%{box-shadow:0 0 30px rgba(242,199,92,.25)}50%{box-shadow:0 0 70px rgba(242,199,92,.55)}}
 </style>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 <style>
-  :root{--bg:#07080b;--p1:rgba(255,255,255,.035);--p2:rgba(255,255,255,.065);--rub:rgba(255,255,255,.08);--zrub:rgba(233,185,73,.22);
-    --t:#f4f1ea;--s:#8d929c;--s2:#5d626c;--z:#e9b949;--z2:#b8862b;--g:#34d399;--r:#f87171;--y:#fbbf24;--b:#60a5fa}
+  :root{--bg:#08090B;--p1:rgba(20,20,22,.92);--p2:rgba(30,29,27,.95);--rub:rgba(214,166,56,.16);--zrub:rgba(214,166,56,.35);
+    --t:#F5F2EA;--s:#92949C;--s2:#5d626c;--z:#D6A638;--z2:#805B16;--zs:#FFD978;--g:#20D879;--r:#FF5252;--y:#fbbf24;--b:#60a5fa}
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  body{background:var(--bg);color:var(--t);font:15px/1.45 "SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;
+  body{background:var(--bg);color:var(--t);font:15px/1.45 "Inter","SF Pro Text",-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,sans-serif;
        padding-bottom:104px;min-height:100vh;overflow-x:hidden}
   body:before{content:"";position:fixed;inset:-20% -30% auto;height:75vh;z-index:-2;pointer-events:none;
        background:radial-gradient(55% 55% at 25% 18%,rgba(233,185,73,.20),transparent 70%),radial-gradient(45% 45% at 88% 8%,rgba(120,90,255,.10),transparent 70%)}
@@ -283,6 +286,166 @@
   .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;z-index:70;padding:10px 16px;border-radius:99px;
      background:rgba(20,30,24,.95);border:1px solid rgba(52,211,153,.5);color:#a7f3d0;font-weight:700;font-size:13px;transition:.3s;pointer-events:none;white-space:nowrap}
   .toast.otv{opacity:1;transform:translate(-50%,0)}
+  /* lux radar */
+  .lux{padding:16px 14px 14px;border-color:rgba(242,199,92,.45);background:radial-gradient(90% 70% at 50% 35%,rgba(242,199,92,.13),rgba(255,255,255,.02) 70%);
+       box-shadow:0 0 50px rgba(242,199,92,.12),0 10px 30px rgba(0,0,0,.4)}
+  .lux:before{background:linear-gradient(140deg,rgba(255,226,154,.7),rgba(242,199,92,.15) 30%,transparent 55%,rgba(242,199,92,.35))}
+  .lux-sred{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:2px}
+  .lux-str{width:74px;text-align:center;flex:none}
+  .lux-str span{display:block;font-size:11px;color:var(--s);font-weight:700;letter-spacing:1px}
+  .lux-str b{font-size:20px;font-weight:850}
+  .lux-str.buy b{color:var(--g)} .lux-str.sell b{color:var(--r)}
+  .lux-str small{display:block;font-size:10.5px;color:var(--s);margin-top:-2px}
+  .trak{height:6px;border-radius:3px;background:rgba(255,255,255,.08);margin-top:8px;overflow:hidden}
+  .trak i{display:block;height:100%;width:0;border-radius:3px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+  .lux-str.buy .trak i{background:linear-gradient(90deg,#0f8f4f,var(--g));box-shadow:0 0 10px var(--g)}
+  .lux-str.sell .trak i{background:linear-gradient(90deg,#a12a2a,var(--r));box-shadow:0 0 10px var(--r);margin-left:auto}
+  .lux-met{display:grid;grid-template-columns:repeat(3,1fr);margin-top:12px;border:1px solid var(--zrub);border-radius:16px;background:rgba(0,0,0,.3)}
+  .lux-met div{padding:9px 6px;text-align:center;min-width:0} .lux-met div+div{border-left:1px solid var(--rub)}
+  .lux-met div>span{display:block;font-size:10.5px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .lux-met span span{display:inline}
+  .lux-met b{font-size:13.5px}
+  .k{background:linear-gradient(180deg,var(--p2),var(--p1))}
+  .gumb,.dalje,nav .ind,.seg button.akt{background:linear-gradient(135deg,var(--zs),var(--z) 50%,var(--z2))!important}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .grid2 .k{margin:0}
+  .kan2{text-align:left;padding:14px;border-color:var(--zrub)} .kan2 b{display:block;color:var(--zs);font-size:13.5px;margin-top:6px}
+  .kan2 p{font-size:11.5px;color:var(--s);margin:2px 0 10px} .kan2 button{width:100%;padding:9px;border:0;border-radius:12px;font-weight:800;font-size:13px;color:#1b1406;background:linear-gradient(135deg,var(--zs),var(--z) 50%,var(--z2))}
+  .vij2{padding:14px;border-color:rgba(96,165,250,.35);background:linear-gradient(160deg,rgba(30,58,138,.35),rgba(20,20,22,.95))}
+  .vij2 span{font-size:10.5px;color:#93c5fd;font-weight:800;letter-spacing:.8px;text-transform:uppercase} .vij2 b{display:block;font-size:13.5px;margin-top:4px}
+  .vij2 em{font-style:normal;color:var(--zs);font-size:12.5px;font-weight:700}
+  .odbr{margin-right:38px;margin-top:8px;padding:7px;border-radius:12px;text-align:center;border:1px solid var(--zrub);background:rgba(0,0,0,.35);font-size:20px;font-weight:850;color:var(--zs);letter-spacing:1px}
+  .tri3.tri4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+  .tri4 .mini3{padding:11px 4px} .tri4 .mini3 b{font-size:15px}
+  .lux-krug{position:relative;width:min(190px,48vw);aspect-ratio:1;flex:none}
+  .lux-krug svg{width:100%;height:100%;display:block}
+  .lux-krug .mah{transform-origin:100px 100px;animation:vrti 6s linear infinite}
+  .lux-krug .luk{transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+  .lux-br{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+  .lux-br b{font-size:40px;font-weight:850;letter-spacing:-1px;line-height:1;text-shadow:0 0 22px rgba(52,211,153,.35)}
+  .lux-br span{font-size:12px;color:var(--s)}
+  .lux-kv{margin:10px auto 0;width:max-content;max-width:100%;padding:7px 14px;border-radius:99px;border:1px solid rgba(242,199,92,.5);background:rgba(0,0,0,.3);font-size:12.5px;color:#e8d9b0}
+  .lux-kv b{font-weight:850}
+  .lux-cij{display:flex;align-items:baseline;justify-content:center;gap:10px;margin-top:12px}
+  .lux-cij span{font-size:12px;color:var(--s);font-weight:700}
+  .lux-cij .cij{font-size:26px} .lux-cij .cij small{display:none}
+  .lux-cij #d-prom{font-size:13px} .lux-cij #d-prom span{display:none}
+  .mini3 span span{display:inline}
+  .racun-k{border-color:rgba(242,199,92,.35)}
+  .racun-g{display:flex;align-items:center;gap:12px}
+  .poluge-svg{width:64px;height:46px;flex:none;filter:drop-shadow(0 4px 12px rgba(214,166,56,.45))}
+  .racun-g .nov{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,rgba(242,199,92,.35),rgba(184,134,43,.15));flex:none}
+  .racun-izn{display:block;font-size:25px;font-weight:850;letter-spacing:-.5px}
+  .racun-izn small{font-size:13px;color:var(--s);font-weight:600;margin-left:4px}
+  .tri3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+  .mini3{margin:0;padding:12px 8px;text-align:center;border-radius:18px}
+  .mini3 span{display:block;font-size:11px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mini3 b{display:block;font-size:17px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mini3 small{display:block;font-size:10.5px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .zatv-k{display:flex;align-items:center;gap:12px;padding:14px 16px;border-color:rgba(242,199,92,.4);background:linear-gradient(135deg,rgba(242,199,92,.12),rgba(0,0,0,.2))}
+  .zatv-k .ik{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--z);color:var(--z);font-size:18px;flex:none}
+  .zatv-k b{color:#f6d77d;font-size:15px} .zatv-k p{font-size:12.5px;color:#cfd2d8}
+  .zatv-k .poluge{font-size:34px;filter:drop-shadow(0 0 12px rgba(242,199,92,.6))}
+  .pod .sys{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:99px;border:1px solid rgba(52,211,153,.45);background:rgba(52,211,153,.1);color:var(--g);font-weight:750;font-size:10.5px;letter-spacing:.5px}
+  .pod .sys.off{border-color:var(--rub);background:rgba(255,255,255,.05);color:var(--s)}
+  .pod .sys.cr{border-color:rgba(248,113,113,.45);background:rgba(248,113,113,.1);color:var(--r)}
+  /* ===== premium sloj ===== */
+  .hdr-b{gap:4px} .hb{padding:7px 8px} .logo-w{width:46px!important;height:46px!important}
+  #poz{position:fixed;inset:0;z-index:-2;pointer-events:none} #poz svg{width:100%;height:100%}
+  body:before{display:none}
+  .k{border:0;box-shadow:0 0 18px rgba(214,166,56,.16),0 12px 32px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,233,168,.08);
+     background:radial-gradient(120% 90% at 50% -10%,rgba(214,166,56,.10),transparent 55%),linear-gradient(180deg,#1a1917,#101012)}
+  .k:before{padding:1.5px;background:linear-gradient(160deg,#FFE9A8 0%,#D6A638 18%,#5a3f0e 45%,#805B16 62%,#D6A638 82%,#FFD978 100%)!important;opacity:.85}
+  .k:after{content:"";position:absolute;left:12%;right:12%;top:-1px;height:2px;border-radius:2px;pointer-events:none;
+     background:linear-gradient(90deg,transparent,#FFF1C2,transparent);filter:blur(.5px);opacity:.9}
+  .lux{box-shadow:0 0 34px rgba(214,166,56,.3),0 0 2px #FFD978,0 14px 40px rgba(0,0,0,.6)}
+  .lux-nas{position:relative;margin:-6px auto 10px;width:max-content;padding:8px 22px;border-radius:0 0 18px 18px;border:1px solid var(--zrub);border-top:0;
+     background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(30,25,15,.8));font-weight:800;letter-spacing:1.5px;color:var(--zs);font-size:14px;text-shadow:0 0 10px rgba(214,166,56,.5)}
+  .lux-svijece{position:absolute;top:56px;width:34%;height:120px;opacity:.22;pointer-events:none}
+  .lux-svijece.l{left:6px} .lux-svijece.d{right:6px}
+  .lux-krug .sweep{transform-origin:100px 100px;animation:vrti 4s linear infinite}
+  .lux-krug .blip{animation:blip 2.2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  header h1{white-space:nowrap;font:700 16.5px/1.1 Georgia,"Times New Roman",serif;letter-spacing:1px;text-transform:uppercase;
+     background:linear-gradient(180deg,#FFF1C2,#FFD978 40%,#D6A638 70%,#9c7020);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 6px rgba(214,166,56,.35))}
+  header .slogan{font-size:11px;color:#d9cfb5;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .logo-w{width:52px;height:52px;box-shadow:0 0 0 2px #D6A638,0 0 0 4px rgba(0,0,0,.6),0 0 0 5.5px rgba(214,166,56,.55),0 0 26px rgba(214,166,56,.55)}
+  .ikonica{display:block;width:30px;height:30px;margin:0 auto 4px;filter:drop-shadow(0 0 6px rgba(214,166,56,.45))}
+  .mini3{background:radial-gradient(90% 70% at 50% 0%,rgba(214,166,56,.13),transparent 60%),linear-gradient(180deg,#1a1917,#0f0f11)}
+  .kan2{background:radial-gradient(80% 80% at 20% 30%,rgba(214,166,56,.22),transparent 60%),linear-gradient(180deg,#1c1a16,#0f0f11)}
+  .vij2{background:linear-gradient(115deg,rgba(13,27,62,.95) 0%,rgba(17,38,92,.9) 55%,rgba(120,20,30,.35) 100%),#0d1b3e!important;box-shadow:0 0 18px rgba(96,165,250,.25),0 12px 32px rgba(0,0,0,.55)}
+  .vij2:before{background:linear-gradient(160deg,#bcd3ff,#3b6fd8 30%,#1e3a8a 60%,#93c5fd)!important}
+  .vij2 .zvono{position:absolute;right:12px;bottom:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:15px;
+     background:radial-gradient(circle,#FFE9A8,#D6A638);box-shadow:0 0 12px rgba(214,166,56,.7)}
+  .vij2{overflow:hidden} .vij2 .zastava{position:absolute;right:-10px;top:0;bottom:0;width:45%;opacity:.16;pointer-events:none;
+     background:repeating-linear-gradient(180deg,#fff 0 6px,#c8102e 6px 12px);-webkit-mask:linear-gradient(90deg,transparent,#000);mask:linear-gradient(90deg,transparent,#000)}
+  .racun-k{background:radial-gradient(60% 120% at 10% 50%,rgba(214,166,56,.25),transparent 60%),linear-gradient(180deg,#1a1917,#0f0f11)}
+  .poluge-svg{width:84px;height:60px}
+  nav{border:0;box-shadow:0 0 0 1.5px rgba(214,166,56,.7),0 0 22px rgba(214,166,56,.3),0 10px 40px rgba(0,0,0,.6);background:linear-gradient(180deg,rgba(26,24,20,.92),rgba(12,12,14,.95))}
+  /* ===== zivost: odsjaji, sjaj, rotacije ===== */
+  @keyframes odsjaj2{0%,62%{transform:translateX(-130%) skewX(-20deg)}100%{transform:translateX(330%) skewX(-20deg)}}
+  @keyframes rubsjaj{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+  @keyframes zlatotekst{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+  @keyframes disanje{0%,100%{box-shadow:0 0 18px rgba(214,166,56,.16),0 12px 32px rgba(0,0,0,.55)}50%{box-shadow:0 0 28px rgba(214,166,56,.3),0 12px 32px rgba(0,0,0,.55)}}
+  @keyframes lebdi{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @keyframes rotacija{to{transform:rotate(360deg)}} @keyframes rotacija2{to{transform:rotate(-360deg)}}
+  @keyframes pulsglow{0%,100%{filter:drop-shadow(0 0 6px rgba(32,216,121,.5))}50%{filter:drop-shadow(0 0 16px rgba(32,216,121,.95))}}
+  @keyframes val{0%{transform:translateX(0)}100%{transform:translateX(-40px)}}
+  @keyframes ripple{to{transform:scale(3.2);opacity:0}}
+  .k:before{background-size:300% 100%!important;animation:rubsjaj 9s linear infinite}
+  .k{animation:ulaz .5s cubic-bezier(.2,.8,.2,1) both,disanje 6s ease-in-out 1s infinite}
+  .gumb,.dalje,.kan2 button,.idi,.uv-dal,.seg button.akt,nav .ind,.kop{position:relative;overflow:hidden}
+  .gumb:after,.dalje:after,.kan2 button:after,.idi:after,.uv-dal:after,.seg button.akt:after,nav .ind:after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:35%;
+     background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:odsjaj2 3.6s ease-in-out infinite;pointer-events:none}
+  header h1{background:linear-gradient(90deg,#9c7020,#FFD978 20%,#FFF6D6 30%,#FFD978 40%,#D6A638 60%,#9c7020 80%,#FFD978)!important;background-size:200% 100%!important;
+     -webkit-background-clip:text!important;background-clip:text!important;animation:zlatotekst 5s linear infinite}
+  .lux-nas{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(30,25,15,.8));overflow:hidden}
+  .lux-nas:after{content:"";position:absolute;top:0;bottom:0;left:0;width:30%;background:linear-gradient(90deg,transparent,rgba(255,233,168,.35),transparent);animation:odsjaj2 4.5s ease-in-out infinite}
+  .logo-w{position:relative;overflow:visible!important}
+  .logo-w img{border-radius:50%;position:relative;z-index:1}
+  .logo-w:before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 70%,#FFF1C2 80%,#D6A638 88%,transparent 95%);
+     animation:rotacija 3.5s linear infinite;z-index:0}
+  .logo-w:after{display:none}
+  .lux-krug:before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px dashed rgba(214,166,56,.45);animation:rotacija 30s linear infinite}
+  .lux-krug:after{content:"";position:absolute;inset:-13px;border-radius:50%;border:1px solid transparent;border-top-color:#FFD978;border-bottom-color:rgba(32,216,121,.8);animation:rotacija2 6s linear infinite;filter:drop-shadow(0 0 4px #D6A638)}
+  #lx-luk{animation:pulsglow 2.4s ease-in-out infinite}
+  .ikonica{animation:lebdi 3.2s ease-in-out infinite} .mini3:nth-child(2) .ikonica{animation-delay:.4s} .mini3:nth-child(3) .ikonica{animation-delay:.8s} .mini3:nth-child(4) .ikonica{animation-delay:1.2s}
+  .poluge-svg{animation:lebdi 4s ease-in-out infinite}
+  .kan2 svg{animation:lebdi 2.6s ease-in-out infinite}
+  .zvono{animation:zvoni 2.8s ease-in-out infinite} @keyframes zvoni{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(14deg)}80%{transform:rotate(-12deg)}85%{transform:rotate(8deg)}90%{transform:rotate(-5deg)}}
+  .gauge{animation:pulsglow 3s ease-in-out infinite}
+  .chip.pov i,.chip.buy i{box-shadow:0 0 8px currentColor}
+  .rip{position:absolute;border-radius:50%;width:40px;height:40px;margin:-20px 0 0 -20px;pointer-events:none;z-index:5;
+     background:radial-gradient(circle,rgba(255,217,120,.55),rgba(214,166,56,.15) 60%,transparent 70%);animation:ripple .65s ease-out forwards}
+  .racun-izn{background:linear-gradient(90deg,#F5F2EA,#FFF6D6 45%,#FFD978 50%,#F5F2EA 60%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:zlatotekst 6s linear infinite}
+  .odbr{animation:disanje 2s ease-in-out infinite}
+  #poz svg g:first-of-type{animation:val 14s ease-in-out infinite alternate}
+  @media (prefers-reduced-motion:reduce){.racun-izn{color:var(--t)}}
+  /* ===== motor bota ===== */
+  .motor{padding:14px 14px 12px;overflow:hidden}
+  .mot-gl{display:flex;align-items:center;gap:10px;position:relative}
+  .zupcanik{width:42px;height:42px;flex:none;animation:rotacija 4s linear infinite;filter:drop-shadow(0 0 8px rgba(214,166,56,.6))}
+  .zupcanik.mali{position:absolute;left:30px;top:24px;width:22px;height:22px;animation:rotacija2 2.2s linear infinite}
+  .motor.stoji .zupcanik{animation-play-state:paused;filter:grayscale(.8) brightness(.6)}
+  .motor.stoji .ekv i{animation:none;height:3px!important;opacity:.4}
+  .mot-nas{font-size:10.5px;letter-spacing:1.4px;color:var(--s);font-weight:800;margin-left:16px}
+  .mot-gl b{display:block;margin-left:16px;font-size:14.5px;color:var(--g);text-shadow:0 0 10px rgba(32,216,121,.5)}
+  .motor.stoji .mot-gl b{color:var(--s);text-shadow:none}
+  .ekv{display:flex;align-items:flex-end;gap:3px;height:26px}
+  .ekv i{width:4px;border-radius:2px;background:linear-gradient(var(--zs),var(--z2));animation:ekv 1s ease-in-out infinite alternate}
+  .ekv i:nth-child(2){animation-duration:.7s}.ekv i:nth-child(3){animation-duration:1.2s}.ekv i:nth-child(4){animation-duration:.55s}.ekv i:nth-child(5){animation-duration:.9s}.ekv i:nth-child(6){animation-duration:.65s}.ekv i:nth-child(7){animation-duration:1.1s}
+  @keyframes ekv{from{height:4px}to{height:26px}}
+  .terminal{margin-top:12px;border-radius:14px;background:#050806;border:1px solid rgba(32,216,121,.25);box-shadow:inset 0 0 24px rgba(32,216,121,.08);overflow:hidden}
+  .term-gl{display:flex;align-items:center;gap:5px;padding:7px 10px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(32,216,121,.15)}
+  .term-gl i{width:8px;height:8px;border-radius:50%;background:#FF5252}.term-gl i:nth-child(2){background:#fbbf24}.term-gl i:nth-child(3){background:#20D879}
+  .term-gl span{margin-left:6px;font:600 10.5px ui-monospace,Menlo,monospace;color:var(--s)} .term-gl em{margin-left:auto;font:700 10.5px ui-monospace,Menlo,monospace;color:var(--g);font-style:normal}
+  #mt-log{height:118px;padding:8px 10px;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#9ff0c4;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;
+     background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 1px,transparent 1px 3px)}
+  #mt-log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:sek .3s ease}
+  #mt-log .z{color:var(--zs)} #mt-log .s{color:var(--s)} #mt-log .c{color:var(--r)}
+  #mt-log .kursor:after{content:"▌";animation:treptaj 1s steps(1) infinite;color:var(--g)}
+  .mot-traka{height:3px;margin-top:10px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden}
+  .mot-traka i{display:block;height:100%;width:30%;background:linear-gradient(90deg,transparent,var(--g),var(--zs),transparent);animation:traka 1.8s linear infinite}
+  .motor.stoji .mot-traka i{animation:none;opacity:0}
+  @keyframes traka{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
   /* uvod */
   .uvod-k{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;border-color:rgba(242,199,92,.4);background:linear-gradient(135deg,rgba(242,199,92,.16),rgba(242,199,92,.03))}
   .uvod-k .ik{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:rgba(242,199,92,.2);flex:none}
@@ -313,16 +476,23 @@
 </style>
 </head>
 <body>
+<div id="poz" aria-hidden="true"><svg viewBox="0 0 400 860" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="pvg" x1="0" x2="1"><stop offset="0" stop-color="#805B16" stop-opacity="0"/><stop offset=".45" stop-color="#FFD978"/><stop offset="1" stop-color="#D6A638" stop-opacity="0"/></linearGradient>
+  <radialGradient id="pvr" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#D6A638" stop-opacity=".35"/><stop offset="1" stop-color="#D6A638" stop-opacity="0"/></radialGradient>
+  <filter id="pvb"><feGaussianBlur stdDeviation="1.2"/></filter></defs>
+  <ellipse cx="70" cy="780" rx="220" ry="120" fill="url(#pvr)"/><ellipse cx="380" cy="40" rx="160" ry="90" fill="url(#pvr)"/>
+  <g filter="url(#pvb)"><path d="M-40 700 C 120 550, 220 820, 420 640 S 700 520, 900 600" stroke="url(#pvg)" stroke-width="2.2" fill="none" opacity="0.25"/><path d="M-40 714 C 120 600, 220 814, 420 652 S 700 528, 900 610" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.32"/><path d="M-40 728 C 120 559, 220 808, 420 664 S 700 536, 900 620" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.39"/><path d="M-40 742 C 120 585, 220 802, 420 676 S 700 544, 900 630" stroke="url(#pvg)" stroke-width="2.2" fill="none" opacity="0.46"/><path d="M-40 756 C 120 611, 220 796, 420 688 S 700 552, 900 640" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.25"/><path d="M-40 770 C 120 583, 220 790, 420 700 S 700 560, 900 650" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.32"/><path d="M-40 784 C 120 594, 220 784, 420 712 S 700 568, 900 660" stroke="url(#pvg)" stroke-width="2.2" fill="none" opacity="0.39"/><path d="M-40 798 C 120 652, 220 778, 420 724 S 700 576, 900 670" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.46"/><path d="M-40 812 C 120 644, 220 772, 420 736 S 700 584, 900 680" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.25"/><path d="M260 -40 C 330 40, 360 110, 460 90" stroke="url(#pvg)" stroke-width="2" fill="none" opacity="0.25"/><path d="M260 -30 C 330 54, 360 116, 460 102" stroke="url(#pvg)" stroke-width="1.2" fill="none" opacity="0.33"/><path d="M260 -20 C 330 68, 360 122, 460 114" stroke="url(#pvg)" stroke-width="2" fill="none" opacity="0.41000000000000003"/><path d="M260 -10 C 330 82, 360 128, 460 126" stroke="url(#pvg)" stroke-width="1.2" fill="none" opacity="0.25"/><path d="M260 0 C 330 96, 360 134, 460 138" stroke="url(#pvg)" stroke-width="2" fill="none" opacity="0.33"/><path d="M260 10 C 330 110, 360 140, 460 150" stroke="url(#pvg)" stroke-width="1.2" fill="none" opacity="0.41000000000000003"/><path d="M260 20 C 330 124, 360 146, 460 162" stroke="url(#pvg)" stroke-width="2" fill="none" opacity="0.25"/></g><g><path d="M-40 700 C 120 550, 220 820, 420 640 S 700 520, 900 600" stroke="url(#pvg)" stroke-width="2.2" fill="none" opacity="0.25"/><path d="M-40 714 C 120 600, 220 814, 420 652 S 700 528, 900 610" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.32"/><path d="M-40 728 C 120 559, 220 808, 420 664 S 700 536, 900 620" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.39"/><path d="M-40 742 C 120 585, 220 802, 420 676 S 700 544, 900 630" stroke="url(#pvg)" stroke-width="2.2" fill="none" opacity="0.46"/><path d="M-40 756 C 120 611, 220 796, 420 688 S 700 552, 900 640" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.25"/><path d="M-40 770 C 120 583, 220 790, 420 700 S 700 560, 900 650" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.32"/><path d="M-40 784 C 120 594, 220 784, 420 712 S 700 568, 900 660" stroke="url(#pvg)" stroke-width="2.2" fill="none" opacity="0.39"/><path d="M-40 798 C 120 652, 220 778, 420 724 S 700 576, 900 670" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.46"/><path d="M-40 812 C 120 644, 220 772, 420 736 S 700 584, 900 680" stroke="url(#pvg)" stroke-width="1.4" fill="none" opacity="0.25"/></g>
+  <g fill="#D6A638" opacity=".28"><circle cx="174" cy="70" r="1.1"/><circle cx="377" cy="26" r="1.1"/><circle cx="171" cy="50" r="1.1"/><circle cx="210" cy="66" r="1.1"/><circle cx="165" cy="68" r="1.1"/><circle cx="205" cy="67" r="1.1"/><circle cx="183" cy="50" r="1.1"/><circle cx="285" cy="69" r="1.1"/><circle cx="290" cy="82" r="1.1"/><circle cx="176" cy="69" r="1.1"/><circle cx="328" cy="68" r="1.1"/><circle cx="305" cy="60" r="1.1"/><circle cx="283" cy="93" r="1.1"/><circle cx="240" cy="30" r="1.1"/><circle cx="170" cy="36" r="1.1"/><circle cx="274" cy="41" r="1.1"/><circle cx="262" cy="73" r="1.1"/><circle cx="168" cy="61" r="1.1"/><circle cx="191" cy="41" r="1.1"/><circle cx="383" cy="51" r="1.1"/><circle cx="290" cy="95" r="1.1"/><circle cx="355" cy="41" r="1.1"/><circle cx="238" cy="60" r="1.1"/><circle cx="333" cy="37" r="1.1"/><circle cx="294" cy="82" r="1.1"/><circle cx="261" cy="86" r="1.1"/><circle cx="372" cy="42" r="1.1"/><circle cx="385" cy="43" r="1.1"/><circle cx="303" cy="59" r="1.1"/><circle cx="205" cy="34" r="1.1"/><circle cx="335" cy="48" r="1.1"/><circle cx="379" cy="60" r="1.1"/><circle cx="192" cy="48" r="1.1"/><circle cx="258" cy="66" r="1.1"/><circle cx="321" cy="46" r="1.1"/><circle cx="188" cy="79" r="1.1"/><circle cx="196" cy="34" r="1.1"/><circle cx="186" cy="64" r="1.1"/><circle cx="302" cy="38" r="1.1"/><circle cx="335" cy="55" r="1.1"/><circle cx="320" cy="67" r="1.1"/><circle cx="250" cy="47" r="1.1"/><circle cx="270" cy="48" r="1.1"/><circle cx="292" cy="64" r="1.1"/><circle cx="244" cy="76" r="1.1"/><circle cx="270" cy="37" r="1.1"/><circle cx="335" cy="57" r="1.1"/><circle cx="323" cy="62" r="1.1"/><circle cx="240" cy="83" r="1.1"/><circle cx="225" cy="77" r="1.1"/><circle cx="239" cy="27" r="1.1"/><circle cx="285" cy="60" r="1.1"/><circle cx="199" cy="29" r="1.1"/><circle cx="200" cy="59" r="1.1"/><circle cx="348" cy="57" r="1.1"/><circle cx="198" cy="73" r="1.1"/><circle cx="331" cy="42" r="1.1"/><circle cx="176" cy="56" r="1.1"/><circle cx="234" cy="58" r="1.1"/><circle cx="236" cy="77" r="1.1"/><circle cx="247" cy="85" r="1.1"/><circle cx="258" cy="76" r="1.1"/><circle cx="330" cy="56" r="1.1"/><circle cx="266" cy="79" r="1.1"/><circle cx="189" cy="66" r="1.1"/><circle cx="337" cy="17" r="1.1"/><circle cx="203" cy="60" r="1.1"/><circle cx="341" cy="39" r="1.1"/><circle cx="286" cy="100" r="1.1"/><circle cx="354" cy="62" r="1.1"/><circle cx="344" cy="73" r="1.1"/><circle cx="344" cy="18" r="1.1"/><circle cx="185" cy="74" r="1.1"/><circle cx="321" cy="64" r="1.1"/><circle cx="174" cy="54" r="1.1"/><circle cx="200" cy="33" r="1.1"/><circle cx="277" cy="97" r="1.1"/><circle cx="277" cy="30" r="1.1"/><circle cx="281" cy="105" r="1.1"/><circle cx="373" cy="24" r="1.1"/><circle cx="262" cy="50" r="1.1"/><circle cx="248" cy="38" r="1.1"/><circle cx="318" cy="51" r="1.1"/><circle cx="203" cy="36" r="1.1"/><circle cx="242" cy="30" r="1.1"/><circle cx="184" cy="56" r="1.1"/><circle cx="317" cy="27" r="1.1"/><circle cx="251" cy="51" r="1.1"/><circle cx="241" cy="41" r="1.1"/><circle cx="265" cy="84" r="1.1"/><circle cx="246" cy="62" r="1.1"/><circle cx="387" cy="49" r="1.1"/><circle cx="284" cy="62" r="1.1"/><circle cx="274" cy="39" r="1.1"/><circle cx="302" cy="27" r="1.1"/><circle cx="307" cy="64" r="1.1"/><circle cx="201" cy="53" r="1.1"/><circle cx="318" cy="32" r="1.1"/><circle cx="279" cy="29" r="1.1"/><circle cx="262" cy="79" r="1.1"/><circle cx="286" cy="107" r="1.1"/><circle cx="393" cy="37" r="1.1"/><circle cx="204" cy="28" r="1.1"/><circle cx="332" cy="17" r="1.1"/><circle cx="306" cy="106" r="1.1"/><circle cx="316" cy="46" r="1.1"/><circle cx="300" cy="83" r="1.1"/><circle cx="241" cy="39" r="1.1"/><circle cx="204" cy="22" r="1.1"/><circle cx="220" cy="79" r="1.1"/><circle cx="186" cy="70" r="1.1"/><circle cx="248" cy="36" r="1.1"/><circle cx="346" cy="72" r="1.1"/><circle cx="274" cy="34" r="1.1"/><circle cx="278" cy="52" r="1.1"/><circle cx="325" cy="61" r="1.1"/><circle cx="292" cy="98" r="1.1"/><circle cx="244" cy="54" r="1.1"/><circle cx="216" cy="55" r="1.1"/><circle cx="281" cy="89" r="1.1"/><circle cx="362" cy="28" r="1.1"/><circle cx="339" cy="28" r="1.1"/><circle cx="312" cy="55" r="1.1"/><circle cx="378" cy="34" r="1.1"/><circle cx="200" cy="72" r="1.1"/><circle cx="233" cy="78" r="1.1"/><circle cx="183" cy="58" r="1.1"/><circle cx="272" cy="85" r="1.1"/><circle cx="221" cy="56" r="1.1"/><circle cx="287" cy="37" r="1.1"/><circle cx="171" cy="57" r="1.1"/></g></svg></div>
 <canvas id="cestice"></canvas>
 <div id="splash"><div class="sp-krug"><img src="logo.jpg" alt="Zlatni signal">
     <svg viewBox="0 0 260 260"><defs><linearGradient id="spg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset=".5" stop-color="#f2c75c"/><stop offset="1" stop-color="#b8862b"/></linearGradient></defs>
       <circle class="poz" cx="130" cy="130" r="126"/><circle class="pun" id="sp-pun" cx="130" cy="130" r="126" stroke-dasharray="791.7" stroke-dashoffset="791.7"/></svg></div>
-  <div class="sp-naziv">ZLATNI SIGNAL</div><div class="sp-pod" data-en="Gold signals · XAU/USD">Signali za zlato · XAU/USD</div><div class="sp-post" id="sp-post">0%</div></div>
+  <div class="sp-naziv">ZLATNI SIGNAL</div><div class="sp-pod" data-en="Gold signals · XAU/USD">Signali za zlato · XAU/USD</div><div class="sp-post" id="sp-post">0%</div><div class="sp-boot" id="sp-boot">&gt; pokretanje…</div></div>
 <header>
   <div class="logo-w"><img src="logo_192.jpg" alt=""></div>
-  <div style="min-width:0"><h1>Zlatni signal</h1><div class="pod"><span class="tocka off" id="tocka"></span><span id="azur">učitavam…</span></div><div class="pod" id="prat"></div></div>
+  <div style="min-width:0"><h1>Zlatni signal</h1><div class="slogan" data-en="Free gold signals">Besplatni signali za zlato</div><div class="pod"><span class="tocka off" id="tocka" style="display:none"></span><span id="azur">učitavam…</span></div><div class="pod" id="prat"></div></div>
   <div class="hdr-b">
-    <button class="hb kan" id="hdr-kan" style="display:none">📢 <span data-en="Channel">Kanal</span></button>
+    <button class="hb kan" id="hdr-kan" style="display:none" aria-label="Kanal">📢</button>
     <button class="hb don" id="hdr-don" style="display:none">❤️</button>
     <button class="hb" id="hdr-jez">🇧🇦 ▾</button>
   </div>
@@ -336,35 +506,76 @@
   <!-- ===================== DANAS ===================== -->
   <section id="t-danas">
     <div id="baner"></div>
-    <div class="k kanal-k" id="k-kanal" style="display:none">
-      <div class="ik">📢</div>
-      <div style="min-width:0"><b data-en="Signal channel">Kanal sa signalima</b><p data-en="Signals arrive there first – turn on notifications 🔔">Signali tamo stižu prvi – uključi obavijesti 🔔</p></div>
-      <button class="idi" id="kanal-idi" data-en="Join">Pridruži se</button>
+    <div class="k lux">
+      <div class="lux-nas">◎ MARKET RADAR</div>
+      <svg class="lux-svijece l" viewBox="0 0 112 120" preserveAspectRatio="none"><g stroke="#20D879" fill="#20D879"><line x1="6" x2="6" y1="50" y2="95"/><rect x="3" y="67" width="6" height="18"/></g><g stroke="#20D879" fill="#20D879"><line x1="17" x2="17" y1="49" y2="80"/><rect x="14" y="61" width="6" height="21"/></g><g stroke="#20D879" fill="#20D879"><line x1="28" x2="28" y1="52" y2="86"/><rect x="25" y="65" width="6" height="17"/></g><g stroke="#20D879" fill="#20D879"><line x1="39" x2="39" y1="38" y2="77"/><rect x="36" y="53" width="6" height="10"/></g><g stroke="#20D879" fill="#20D879"><line x1="50" x2="50" y1="40" y2="68"/><rect x="47" y="50" width="6" height="17"/></g><g stroke="#20D879" fill="#20D879"><line x1="61" x2="61" y1="37" y2="80"/><rect x="58" y="55" width="6" height="16"/></g><g stroke="#20D879" fill="#20D879"><line x1="72" x2="72" y1="36" y2="77"/><rect x="69" y="48" width="6" height="12"/></g><g stroke="#20D879" fill="#20D879"><line x1="83" x2="83" y1="26" y2="63"/><rect x="80" y="40" width="6" height="16"/></g><g stroke="#20D879" fill="#20D879"><line x1="94" x2="94" y1="24" y2="56"/><rect x="91" y="37" width="6" height="15"/></g><g stroke="#20D879" fill="#20D879"><line x1="105" x2="105" y1="22" y2="53"/><rect x="102" y="30" width="6" height="22"/></g></svg>
+      <svg class="lux-svijece d" viewBox="0 0 112 120" preserveAspectRatio="none"><g stroke="#FF5252" fill="#FF5252"><line x1="6" x2="6" y1="20" y2="53"/><rect x="3" y="29" width="6" height="16"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="17" x2="17" y1="17" y2="53"/><rect x="14" y="34" width="6" height="15"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="28" x2="28" y1="19" y2="63"/><rect x="25" y="33" width="6" height="14"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="39" x2="39" y1="31" y2="61"/><rect x="36" y="39" width="6" height="11"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="50" x2="50" y1="43" y2="79"/><rect x="47" y="51" width="6" height="14"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="61" x2="61" y1="26" y2="64"/><rect x="58" y="44" width="6" height="13"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="72" x2="72" y1="47" y2="83"/><rect x="69" y="59" width="6" height="18"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="83" x2="83" y1="43" y2="77"/><rect x="80" y="56" width="6" height="22"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="94" x2="94" y1="47" y2="90"/><rect x="91" y="60" width="6" height="16"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="105" x2="105" y1="57" y2="95"/><rect x="102" y="65" width="6" height="22"/></g></svg>
+      <div style="text-align:center;margin-bottom:4px"><span class="chip siv" id="chip-trz"><i></i>—</span></div>
+      <div class="lux-sred">
+        <div class="lux-str buy"><span>BUY</span><b class="num" id="lx-buy">—</b><small data-en="buyers">kupci</small><div class="trak"><i id="lx-bb"></i></div></div>
+        <div class="lux-krug"><svg viewBox="0 0 200 200" id="lx-svg"></svg><div class="lux-br"><b class="num" id="lx-oc">—</b><span>/100</span></div></div>
+        <div class="lux-str sell"><span>SELL</span><b class="num" id="lx-sell">—</b><small data-en="sellers">prodavači</small><div class="trak"><i id="lx-sb"></i></div></div>
+      </div>
+      <div class="lux-kv" id="lx-kv">🎯 <span data-en="Market quality">Kvaliteta tržišta</span>: <b id="lx-kvt">—</b></div>
+      <div class="lux-met">
+        <div><span>📶 <span data-en="Volatility">Volatilnost</span></span><b id="lm-vol">—</b></div>
+        <div><span>📈 <span data-en="Trend (4h)">Trend (4h)</span></span><b id="lm-tr">—</b></div>
+        <div><span>〰️ <span data-en="Momentum (1h)">Momentum (1h)</span></span><b id="lm-mo">—</b></div>
+      </div>
+      <div class="lux-cij"><span>XAU/USD</span><b class="cij num skel" id="cijena">0000,00</b><b class="num" id="d-prom">—</b></div>
+      <div class="cipovi" style="margin-top:10px;justify-content:center"><span class="chip siv" id="chip-bot"><i></i>—</span></div>
+      <div class="poruka" id="poruka"><b>📡</b><span class="skel" style="flex:1">…</span></div>
+      <p class="info-t" style="text-align:center" data-en="Score = market quality from bot data (activity, news, structure). BUY/SELL = buyer vs seller pressure over the last 4 h.">Ocjena = kvaliteta tržišta iz podataka bota (živost, vijesti, struktura). BUY/SELL = pritisak kupaca i prodavača zadnja 4 h.</p>
     </div>
+    <div class="k motor" id="k-motor">
+      <div class="mot-gl">
+        <svg class="zupcanik" id="mt-zup" viewBox="0 0 48 48"><defs><linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".5" stop-color="#D6A638"/><stop offset="1" stop-color="#805B16"/></linearGradient></defs>
+          <path fill="url(#zg)" d="M27 3l1.4 5.2a16 16 0 0 1 4.2 1.8l4.7-2.7 3.4 3.4-2.7 4.7a16 16 0 0 1 1.8 4.2L45 21v6l-5.2 1.4a16 16 0 0 1-1.8 4.2l2.7 4.7-3.4 3.4-4.7-2.7a16 16 0 0 1-4.2 1.8L27 45h-6l-1.4-5.2a16 16 0 0 1-4.2-1.8l-4.7 2.7-3.4-3.4 2.7-4.7a16 16 0 0 1-1.8-4.2L3 27v-6l5.2-1.4a16 16 0 0 1 1.8-4.2L7.3 10.7l3.4-3.4 4.7 2.7a16 16 0 0 1 4.2-1.8L21 3z"/>
+          <circle cx="24" cy="24" r="7" fill="#101012" stroke="#FFD978" stroke-width="2"/></svg>
+        <svg class="zupcanik mali" id="mt-zup2" viewBox="0 0 48 48"><path fill="url(#zg)" d="M27 3l1.4 5.2a16 16 0 0 1 4.2 1.8l4.7-2.7 3.4 3.4-2.7 4.7a16 16 0 0 1 1.8 4.2L45 21v6l-5.2 1.4a16 16 0 0 1-1.8 4.2l2.7 4.7-3.4 3.4-4.7-2.7a16 16 0 0 1-4.2 1.8L27 45h-6l-1.4-5.2a16 16 0 0 1-4.2-1.8l-4.7 2.7-3.4-3.4 2.7-4.7a16 16 0 0 1-1.8-4.2L3 27v-6l5.2-1.4a16 16 0 0 1 1.8-4.2L7.3 10.7l3.4-3.4 4.7 2.7a16 16 0 0 1 4.2-1.8L21 3z"/><circle cx="24" cy="24" r="7" fill="#101012" stroke="#FFD978" stroke-width="2"/></svg>
+        <div style="flex:1;min-width:0"><div class="mot-nas" data-en="TRADING ENGINE">MOTOR BOTA</div><b id="mt-st">—</b></div>
+        <div class="ekv" id="mt-ekv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="terminal"><div class="term-gl"><i></i><i></i><i></i><span>zlatni-signal@mt5</span><em id="mt-puls">—</em></div><div id="mt-log"></div></div>
+      <div class="mot-traka"><i id="mt-tr"></i></div>
+    </div>
+    <div class="k radar-k" id="k-radar"></div>
+    <div id="k-sig-w"></div>
+    <div class="k racun-k" id="k-racun" style="display:none">
+      <div class="racun-g"><svg class="poluge-svg" viewBox="0 0 80 56"><defs><linearGradient id="zp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD978"/><stop offset=".55" stop-color="#D6A638"/><stop offset="1" stop-color="#805B16"/></linearGradient>
+        <linearGradient id="zt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3c4"/><stop offset="1" stop-color="#E9B949"/></linearGradient></defs>
+        <g stroke="#805B16" stroke-width=".8"><path d="M6 50 L12 36 H36 L42 50 Z" fill="url(#zp)"/><path d="M12 36 L16 32 H32 L36 36 Z" fill="url(#zt)"/>
+        <path d="M38 50 L44 36 H68 L74 50 Z" fill="url(#zp)"/><path d="M44 36 L48 32 H64 L68 36 Z" fill="url(#zt)"/>
+        <path d="M22 32 L28 18 H52 L58 32 Z" fill="url(#zp)"/><path d="M28 18 L32 14 H48 L52 18 Z" fill="url(#zt)"/></g></svg>
+        <div style="min-width:0;flex:1"><span class="sv" style="font-size:11px;letter-spacing:1px;text-transform:uppercase" data-en="Bot account (demo)">Račun bota (demo)</span>
+          <b class="num racun-izn" id="rc-eq">—</b></div>
+        <div class="dprom"><b class="num" id="rc-pr">—</b><span id="rc-pr2"></span></div></div>
+      <svg class="graf" id="rc-graf" viewBox="0 0 320 56" preserveAspectRatio="none" style="height:56px;margin-top:8px"></svg>
+    </div>
+    <div class="tri3 tri4">
+      <div class="k mini3"><svg class="ikonica" viewBox="0 0 32 32"><path d="M16 3l11 4v8c0 7-5 12-11 14C10 27 5 22 5 15V7z" fill="#0d3b23" stroke="#20D879" stroke-width="2"/><path d="M11 16l4 4 7-8" stroke="#7CFFB2" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg><span><span data-en="Daily risk">Dnevni rizik</span></span><b class="num" id="tl-riz">—</b><small id="tl-riz2"></small></div>
+      <div class="k mini3"><svg class="ikonica" viewBox="0 0 32 32"><rect x="5" y="17" width="6" height="10" rx="1.5" fill="#D6A638"/><rect x="13" y="11" width="6" height="16" rx="1.5" fill="#FFD978"/><rect x="21" y="5" width="6" height="22" rx="1.5" fill="#D6A638"/></svg><span><span data-en="Trades today">Trejdovi danas</span></span><b class="num" id="tl-tr">—</b><small data-en="max. one">maks. jedan</small></div>
+      <div class="k mini3"><svg class="ikonica" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="none" stroke="#D6A638" stroke-width="2.4"/><path d="M16 9v7l5 3" stroke="#FFD978" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><span><span data-en="Session">Sesija</span></span><b id="tl-ses">—</b><small id="tl-ses2"></small></div>
+      <div class="k mini3"><svg class="ikonica" viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="3" fill="none" stroke="#D6A638" stroke-width="2.2"/><path d="M5 13h22M11 4v6M21 4v6" stroke="#D6A638" stroke-width="2.2"/><g fill="#FFD978"><rect x="9" y="16" width="3" height="3"/><rect x="15" y="16" width="3" height="3"/><rect x="21" y="16" width="3" height="3"/><rect x="9" y="21" width="3" height="3"/><rect x="15" y="21" width="3" height="3"/></g></svg><span><span data-en="Next news">Vijest</span></span><b id="tl-vij">—</b><small id="tl-vij2"></small></div>
+    </div>
+    <div class="k zatv-k" id="k-zatv" style="display:none"><div class="ik">ℹ️</div><div style="flex:1;min-width:0"><b id="zv-n"></b><p id="zv-p"></p></div><div class="poluge">🪙</div></div>
+    <div class="k"><div class="tri">
+      <div class="mini"><span data-en="Main signal today">Glavni signal danas</span><b class="num" id="t-sig">—</b></div>
+      <div class="mini"><span data-en="Result today">Rezultat danas</span><b class="num" id="t-rdan">—</b></div>
+      <div class="mini"><span id="t-sat-n" data-en="Entries possible for">Ulaz moguć još</span><b class="num" id="t-sat">—</b></div>
+    </div><div id="t-vij" hidden></div><div id="t-vij2" hidden></div></div>
+    <div class="k" id="k-dodatne" style="display:none;border-color:rgba(96,165,250,.35)"><div class="nas" data-en="💎 Extra ideas today">💎 Dodatne preporuke danas</div><div class="lst" id="dodatne"></div>
+      <p class="info-t" data-en="Optional – not the main signal. Limit entry on a pullback; not triggered = not counted. Separate statistics in Results.">Opciono – nisu glavni signal. Ulaz limitom na povratku; neaktivirane se ne računaju. Zasebna statistika u Rezultatima.</p></div>
     <div class="k uvod-k" onclick="otvoriUvod()">
       <div class="ik">🎓</div>
       <div style="min-width:0"><b data-en="New here? How Zlatni signal works">Novi ste? Kako radi Zlatni signal</b><p data-en="1-minute intro: what you get, how to use it, what to expect">Uvod od 1 minute: što dobivaš, kako koristiti, što očekivati</p></div>
       <span class="str">›</span>
     </div>
-    <div class="k hero">
-      <div class="nas"><span data-en="My trading day · XAU/USD">Moj trading dan · XAU/USD</span></div>
-      <div class="red">
-        <div class="cij num skel" id="cijena">0000,00</div>
-        <div class="dprom"><b class="num" id="d-prom">—</b><span data-en="today">danas</span></div>
-      </div>
-      <div class="cipovi" style="margin-top:12px"><span class="chip siv" id="chip-trz"><i></i>—</span><span class="chip siv" id="chip-bot"><i></i>—</span></div>
-      <div class="poruka" id="poruka"><b>📡</b><span class="skel" style="flex:1">…</span></div>
+    <div class="grid2">
+      <div class="k kan2" id="k-kanal" style="display:none"><svg viewBox="0 0 48 36" style="width:46px;height:34px;filter:drop-shadow(0 0 8px rgba(214,166,56,.6))"><defs><linearGradient id="mg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".6" stop-color="#D6A638"/><stop offset="1" stop-color="#805B16"/></linearGradient></defs><path d="M4 14h8l18-10v28L12 22H4z" fill="url(#mg1)"/><path d="M8 22l3 10h5l-2-10" fill="#b8862b"/><path d="M36 10l6-4M37 18h8M36 26l6 4" stroke="#FFD978" stroke-width="2.4" stroke-linecap="round"/></svg><b data-en="ZLATNI SIGNAL CHANNEL">ZLATNI SIGNAL KANAL</b>
+        <p data-en="Signals, news and results">Signali, vijesti i rezultati</p><button id="kanal-idi" data-en="Join ➤">Pridruži se ➤</button></div>
+      <div class="k vij2" id="k-vij2" style="display:none"><div class="zastava"></div><div class="zvono">🔔</div><span>🇺🇸 <span data-en="Next event">Sljedeći događaj</span></span><b id="ev-n">—</b><em id="ev-t"></em><div class="odbr num" id="ev-odb">--:--:--</div></div>
     </div>
-    <div class="k radar-k" id="k-radar"></div>
-    <div id="k-sig-w"></div>
-    <div class="k"><div class="tile4">
-      <div class="mini"><span data-en="Main signal today">Glavni signal danas</span><b class="num" id="t-sig">—</b></div>
-      <div class="mini"><span data-en="Result today">Rezultat danas</span><b class="num" id="t-rdan">—</b></div>
-      <div class="mini"><span id="t-sat-n" data-en="Entries possible for">Ulaz moguć još</span><b class="num" id="t-sat">—</b></div>
-      <div class="mini"><span data-en="Next major news">Sljedeća važna vijest</span><b id="t-vij" style="font-size:14px">—</b><small id="t-vij2"></small></div>
-    </div></div>
-    <div class="k" id="k-dodatne" style="display:none;border-color:rgba(96,165,250,.35)"><div class="nas" data-en="💎 Extra ideas today">💎 Dodatne preporuke danas</div><div class="lst" id="dodatne"></div>
-      <p class="info-t" data-en="Optional – not the main signal. Limit entry on a pullback; not triggered = not counted. Separate statistics in Results.">Opciono – nisu glavni signal. Ulaz limitom na povratku; neaktivirane se ne računaju. Zasebna statistika u Rezultatima.</p></div>
     <div class="k"><div class="nas" data-en="Today's activity">Aktivnost danas</div><ul class="tl" id="dnevnik"></ul></div>
   </section>
 
@@ -444,7 +655,7 @@
         <div class="mini"><span data-en="Win streak">Niz dobitaka</span><b class="num" id="s-nd">—</b></div>
       </div>
       <svg class="graf" id="graf" viewBox="0 0 320 150" preserveAspectRatio="none" style="height:150px;margin-top:12px"></svg>
-      <p class="info-t" data-en="Equity curve in R · 1R = the amount you risk per signal">Krivulja kapitala u R · 1R = iznos koji riskiraš po signalu</p></div>
+      <p class="info-t" data-en="Equity curve in R · 1R = the amount you risk per signal. Results are in R so they don't depend on account size: the demo bot risks 2%, for real money we recommend 1% (then +10R ≈ +10%).">Krivulja kapitala u R · 1R = iznos koji riskiraš po signalu. Rezultati su u R da ne ovise o veličini računa: demo bot riskira 2%, za pravi novac preporučujemo 1% (tada je +10R ≈ +10%).</p></div>
     <div class="k"><div class="kal-h"><button id="kal-l">‹</button><b id="kal-nas"></b><button id="kal-d">›</button></div>
       <div class="kal" id="kal"></div>
       <div class="leg"><span><i style="background:var(--g)"></i><span data-en="profit">profit</span></span><span><i style="background:var(--r)"></i><span data-en="loss">gubitak</span></span>
@@ -455,6 +666,11 @@
     <div class="k"><div class="nas"><span data-en="⭐ My progress">⭐ Moj napredak</span><span class="tag p des" data-en="only you see this">vidiš samo ti</span></div>
       <div class="tile4" id="moj"></div>
       <p class="info-t" data-en="Mark each signal below: ✅ I entered · ⏭ I skipped. Saved in your Telegram – not visible to anyone else.">Označi signale ispod: ✅ ušao sam · ⏭ preskočio. Sprema se u tvoj Telegram – nitko drugi to ne vidi.</p></div>
+    <div class="k lst"><div class="nas"><span data-en="📖 Log of every day">📖 Dnevnik svih dana</span><span class="tag p des" data-en="nothing hidden">ništa skriveno</span></div>
+      <div class="tri" id="dd-sum" style="margin-bottom:6px"></div><div id="dd-lista"></div>
+      <p class="info-t" data-en="Every trading day is here – winners, losers and days without a trade with the reason. A day without a trade is the system protecting the account.">Ovdje je svaki trgovački dan – dobitni, gubitni i dani bez trejda s razlogom. Dan bez trejda znači da sustav čuva račun.</p></div>
+    <div class="k" id="k-ghost" style="display:none"><div class="nas"><span data-en="👻 Skipped signals (30 days)">👻 Preskočeni signali (30 dana)</span><span class="tag p des" data-en="what if">da je ušao</span></div>
+      <div class="tri" id="gh-sum"></div><p class="info-t" id="gh-txt"></p></div>
     <div class="k lst"><div class="nas" data-en="Latest signals">Zadnji signali</div><div id="pov"></div></div>
     <div class="k" id="k-dod-stat" style="display:none;border-color:rgba(96,165,250,.35)"><div class="nas" data-en="💎 Extra ideas – separate statistics">💎 Dodatne preporuke – zasebna statistika</div>
       <div class="tile4" id="dod-stat"></div><div class="lst" id="dod-vrste" style="margin-top:8px"></div>
@@ -469,6 +685,14 @@
       <p class="sv" style="font-size:13px;margin-top:12px" data-en="Free gold trading guidelines · all results public">Besplatne smjernice za zlato · svi rezultati javni</p>
       <div class="gumbi" style="margin-top:14px"><button class="gumb" onclick="otvoriUvod()" data-en="🎓 How it works – 1-minute intro">🎓 Kako radi – uvod od 1 minute</button></div>
       <div class="gumbi" id="gumbi" style="margin-top:8px"></div></div>
+<div class="k vjer"><div class="nas" data-en="🛡 Why trust us">🛡 Zašto nam vjerovati</div>
+      <div class="korak"><div class="br">📊</div><p data-en="<b>Every result is public</b> – losses and losing weeks too. Nothing is deleted."><b>Svaki rezultat je javan</b> – i gubici i lošiji tjedni. Ništa se ne briše.</p></div>
+      <div class="korak"><div class="br">📰</div><p data-en="<b>No trading on major US news days</b> (CPI, NFP, PCE, FOMC)."><b>Nema trgovanja na dan velikih US vijesti</b> (CPI, NFP, PCE, FOMC).</p></div>
+      <div class="korak"><div class="br">⭐</div><p data-en="<b>Entry only at quality 80+/100</b> – weak setups are rejected and you see why."><b>Ulaz samo uz kvalitetu 80+/100</b> – slabi signali se odbijaju i vidiš zašto.</p></div>
+      <div class="korak"><div class="br">🔒</div><p data-en="<b>Profit protection with steps</b> and mandatory close by 21:00 CET."><b>Zaštita profita stepenicama</b> i obavezno zatvaranje najkasnije u 21:00 CET.</p></div>
+      <div class="korak"><div class="br">🛡</div><p data-en="<b>Checks with the broker</b>: no duplicate trades, stop-loss always set, daily loss limit."><b>Provjere kod brokera</b>: nema duplih trejdova, stop-loss uvijek postavljen, dnevni limit gubitka.</p></div>
+      <div class="korak"><div class="br">📅</div><p data-en="<b>Realistic expectations</b>: a trade on ~44% of days; losing streaks happen (the test shows drawdowns of 10–16R in bad periods)."><b>Realna očekivanja</b>: trejd u ~44% dana; nizovi gubitaka se događaju (test pokazuje padove od 10–16R u lošim razdobljima).</p></div>
+    </div>
     <div class="k" style="border-color:rgba(242,199,92,.45);background:linear-gradient(160deg,rgba(242,199,92,.12),rgba(242,199,92,.02))">
       <div class="nas" data-en="🤝 Our mission">🤝 Naša misija</div>
       <p style="font-size:15px;line-height:1.5" data-en="Zlatni signal is and <b>always will be free</b>. No subscription, no VIP group, no paid signals.">Zlatni signal je i <b>uvijek će biti besplatan</b>. Bez pretplate, bez VIP grupe, bez plaćenih signala.</p>
@@ -513,7 +737,7 @@
   </section>
 </main>
 <footer id="upoz"></footer>
-<div style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v5.0</div>
+<div style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v6.0</div>
 <div class="sloj" id="sloj"></div>
 <div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <div class="toast" id="toast"></div>
@@ -604,6 +828,15 @@ async function kopiraj(txt, btn) {
 }
 document.addEventListener("click", e => { const b = e.target.closest("[data-kop]"); if (b) kopiraj(b.dataset.kop, b); });
 
+/* ---------- ripple: zlatni val na dodir ---------- */
+document.addEventListener("pointerdown", e => {
+  if (MANJE) return;
+  const el = e.target.closest("button, .k, .gumb, a"); if (!el) return;
+  const r = el.getBoundingClientRect(), s = document.createElement("span"); s.className = "rip";
+  s.style.left = (e.clientX - r.left) + "px"; s.style.top = (e.clientY - r.top) + "px";
+  if (getComputedStyle(el).position === "static") el.style.position = "relative";
+  el.style.overflow = el.classList.contains("logo-w") ? "" : "hidden"; el.appendChild(s); setTimeout(() => s.remove(), 700);
+}, {passive: true});
 /* ---------- zajedničko ---------- */
 const STATUS = {aktivan: ["SIGNAL AKTIVAN", "SIGNAL ACTIVE"], iskoristen: ["Glavni signal dana iskorišten", "Today's main signal used"],
   prilika: ["Moguća prilika uskoro", "Possible opportunity soon"], analiza: ["Analiziram tržište", "Analysing the market"],
@@ -682,6 +915,7 @@ function danas(d, tiho) {
   else if (star > 20 && !["vikend", "praznik"].includes(t.status_kod)) ban = `<div class="baner">⚠️ ${T("Podaci nisu ažurni – zadnje ažuriranje", "Data is not up to date – last update")} ${d.azurirano.slice(11, 16)}. ${T("Signali u kanalu vrijede.", "Channel signals still apply.")}</div>`;
   else if (bot.ziv === false) ban = `<div class="baner cr">⚠️ ${T("Bot trenutno ne šalje podatke – prikaz možda nije ažuran.", "The bot is not sending data right now – the view may be outdated.")}</div>`;
   $("baner").innerHTML = ban;
+  lux(d, mir); racunIPlocice(d, mir); motor(d, mir);
   radar(mir ? {...t, radar: {faza: "miruje"}, status_kod: t.status_kod === "ugasen" ? "ugasen" : t.status_kod, _mir: mir} : t, tiho);
   signalKartica(d, tiho);
   // plocice
@@ -710,6 +944,131 @@ function danas(d, tiho) {
   const dnv = (LANG === "en" && t.dnevnik_en) ? t.dnevnik_en : t.dnevnik;
   $("dnevnik").innerHTML = (dnv && dnv.length ? dnv : [T("Nema novih događaja danas.", "No events today yet.")]).map(x => `<li>${esc(x)}</li>`).join("");
 }
+
+/* ---------- LUX RADAR, RACUN, PLOCICE ---------- */
+function lux(d, mir) {
+  const t = d.danas, p = t.puls;
+  const oc = p ? p.ocjena : null, pr = p && p.pritisak;
+  const boja = oc == null || mir ? "#8d929c" : oc >= 80 ? "#34d399" : oc >= 60 ? "#e9b949" : "#f87171";
+  const C = 2 * Math.PI * 50;
+  if (!$("lx-svg").dataset.ok) {
+    $("lx-svg").dataset.ok = 1;
+    $("lx-svg").innerHTML = `<defs><radialGradient id="lxg"><stop offset="0" stop-color="#20D879" stop-opacity=".28"/><stop offset=".7" stop-color="#0b5a32" stop-opacity=".18"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+      <linearGradient id="lxm" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#20D879" stop-opacity="0"/><stop offset="1" stop-color="#7CFFB2" stop-opacity=".75"/></linearGradient>
+      <linearGradient id="lxz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".5" stop-color="#D6A638"/><stop offset="1" stop-color="#805B16"/></linearGradient></defs>
+      <circle cx="100" cy="100" r="97" fill="#03120a" stroke="url(#lxz)" stroke-width="2.5" style="filter:drop-shadow(0 0 8px rgba(214,166,56,.7))"/>
+      <circle cx="100" cy="100" r="94" fill="url(#lxg)"/>
+      ${[30, 52, 74].map(r => `<circle cx="100" cy="100" r="${r}" fill="none" stroke="#20D879" stroke-opacity=".28"/>`).join("")}
+      <g stroke="#20D879" stroke-opacity=".22"><path d="M100 4V196M4 100H196M32 32L168 168M168 32L32 168"/></g>
+      <g class="sweep"><path d="M100 100 L100 6 A94 94 0 0 1 181 53 Z" fill="url(#lxm)"/><line x1="100" y1="100" x2="181" y2="53" stroke="#9dffc6" stroke-width="2" style="filter:drop-shadow(0 0 4px #20D879)"/></g>
+      ${[[140, 52, 0], [62, 70, .7], [150, 140, 1.3], [74, 150, 1.8]].map(([x, y, d]) => `<circle cx="${x}" cy="${y}" r="2.6" fill="#7CFFB2"/><circle class="blip" cx="${x}" cy="${y}" r="2.6" fill="#7CFFB2" style="animation-delay:${d}s"/>`).join("")}
+      <circle cx="100" cy="100" r="50" fill="rgba(0,0,0,.72)" stroke="rgba(255,255,255,.08)" stroke-width="7"/>
+      <circle id="lx-luk" class="luk" cx="100" cy="100" r="50" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}" transform="rotate(-90 100 100)"/>`;
+  }
+  const luk = $("lx-luk"); luk.setAttribute("stroke", boja); luk.style.filter = `drop-shadow(0 0 8px ${boja})`;
+  requestAnimationFrame(() => requestAnimationFrame(() => luk.style.strokeDashoffset = C * (1 - (oc || 0) / 100)));
+  const bEl = $("lx-oc"); bEl.style.color = boja; if (oc == null) bEl.textContent = "—"; else broji(bEl, oc, v => Math.round(v), 1200);
+  $("lx-kvt").textContent = oc == null ? "—" : mir ? T("tržište zatvoreno", "market closed") : oc >= 80 ? T("ODLIČNA", "EXCELLENT") : oc >= 60 ? T("DOBRA", "GOOD") : oc >= 40 ? T("SLABA", "WEAK") : T("LOŠA", "POOR");
+  $("lx-kvt").style.color = mir ? "var(--s)" : boja;
+  const bu = pr ? pr.buy : null, se = pr ? pr.sell : null;
+  $("lx-buy").textContent = bu == null ? "—" : bu + "% ▲"; $("lx-sell").textContent = se == null ? "—" : "▼ " + se + "%";
+  $("lx-buy").textContent = bu == null ? "—" : bu + "%"; $("lx-sell").textContent = se == null ? "—" : se + "%";
+  requestAnimationFrame(() => { $("lx-bb").style.width = (bu || 0) + "%"; $("lx-sb").style.width = (se || 0) + "%"; });
+  const zv = p ? p.zivost_pct : null, pm = p ? p.promjena || {} : {};
+  $("lm-vol").textContent = zv == null ? "—" : zv >= 200 ? T("Ekstremna", "Extreme") : zv >= 115 ? T("Visoka", "High") : zv >= 85 ? T("Umjerena", "Moderate") : T("Niska", "Low");
+  const t4 = pm["240"], m1 = pm["60"];
+  $("lm-tr").innerHTML = t4 == null ? "—" : t4 > 3 ? `<span class="g">${T("Uzlazni", "Up")}</span>` : t4 < -3 ? `<span class="c">${T("Silazni", "Down")}</span>` : T("Bočni", "Sideways");
+  $("lm-mo").innerHTML = m1 == null ? "—" : m1 > 1 ? `<span class="g">${T("Pozitivan", "Positive")}</span>` : m1 < -1 ? `<span class="c">${T("Negativan", "Negative")}</span>` : T("Neutralan", "Neutral");
+}
+let ODB = null;
+function odbrojavanje() { if (!ODB) return; let s = Math.max(0, Math.floor((new Date(ODB).getTime() - sad()) / 1000));
+  const d = Math.floor(s / 86400); s %= 86400; const p = n => String(n).padStart(2, "0");
+  $("ev-odb").textContent = (d ? d + T("d ", "d ") : "") + p(Math.floor(s / 3600)) + ":" + p(Math.floor(s % 3600 / 60)) + ":" + p(s % 60); }
+setInterval(odbrojavanje, 1000);
+function sesija() {
+  const s = new Date().toLocaleString("en-GB", {timeZone: "Europe/London", hour: "2-digit", minute: "2-digit", hour12: false}).split(":").map(Number);
+  const m = s[0] * 60 + s[1], cet = n => lokSat(new Date(Date.UTC(2026, 0, 1, n, 0)).toISOString());
+  if (m >= 13 * 60 + 30 && m < 21 * 60) return ["New York", m < 16 * 60 ? T("+ London", "+ London") : ""];
+  if (m >= 8 * 60 && m < 16 * 60 + 30) return ["London", ""];
+  if (m >= 0 && m < 8 * 60) return [T("Azija", "Asia"), "Tokyo"];
+  return [T("Azija", "Asia"), T("otvaranje", "opening")];
+}
+function racunIPlocice(d, mir) {
+  const t = d.danas, r = d.danas.racun || d.racun;
+  $("k-racun").style.display = r ? "" : "none";
+  if (r) {
+    const el = $("rc-eq"); el.innerHTML = f2(r.equity) + `<small>${esc(r.valuta || "USD")}</small>`;
+    $("rc-pr").textContent = (r.promjena_pct >= 0 ? "▲ +" : "▼ ") + f2(r.promjena_pct) + "%"; $("rc-pr").className = "num " + (r.promjena_pct >= 0 ? "g" : "c");
+    $("rc-pr2").textContent = sgn(r.promjena) + " " + (r.valuta || "USD") + " " + T("danas", "today");
+    const v = (r.povijest || []).concat([]); if (v.length < 2) v.unshift(r.equity - r.promjena);
+    const mn = Math.min(...v), mx = Math.max(...v), W = 320, H = 56, X = i => i / (v.length - 1) * (W - 8) + 4, Y = y => 6 + (1 - (y - mn) / ((mx - mn) || 1)) * (H - 14);
+    const put = v.map((y, i) => (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(y).toFixed(1)).join(" ");
+    $("rc-graf").innerHTML = `<defs><linearGradient id="rcg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".3"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>
+      <path d="${put} L${X(v.length - 1)} ${H} L4 ${H} Z" fill="url(#rcg)"/><path class="crta" d="${put}" fill="none" stroke="#e9b949" stroke-width="2"/>
+      <circle cx="${X(v.length - 1)}" cy="${Y(v[v.length - 1])}" r="3.5" fill="#fff1c2" style="filter:drop-shadow(0 0 4px #e9b949)"/>`;
+  }
+  const rp = r && r.rizik_pct;
+  $("tl-riz").textContent = rp ? f2(rp) + "%" : "1–2%";
+  $("tl-riz2").textContent = rp && r ? "≈ " + f2(r.equity * rp / 100) + " " + (r.valuta || "USD") : T("po signalu", "per signal");
+  const dn = t.server_vrijeme.slice(0, 10), n = (d.povijest || []).filter(x => x.otvoren.slice(0, 10) === dn).length + (t.signal ? 1 : 0);
+  $("tl-tr").textContent = `${Math.min(n, 1)} / 1`;
+  const [ses, ses2] = mir ? [T("Zatvoreno", "Closed"), ""] : sesija();
+  $("tl-ses").textContent = ses; $("tl-ses2").textContent = ses2 || (mir ? "" : T("aktivna", "active"));
+  const sl = (d.vijesti || []).filter(v => new Date(v.utc).getTime() > sad() - 5 * 60000).sort((a, b) => a.utc < b.utc ? -1 : 1)[0];
+  $("tl-vij").textContent = sl ? sl.naziv.split(" ")[0] : "—"; $("tl-vij2").textContent = sl ? lokSat(sl.utc) : T("nema", "none");
+  $("k-vij2").style.display = sl ? "" : "none";
+  if (sl) { $("ev-n").textContent = sl.naziv; $("ev-t").textContent = lokDan(sl.utc) + " · " + lokSat(sl.utc); ODB = sl.utc; odbrojavanje(); }
+  $("k-zatv").style.display = mir ? "" : "none";
+  if (mir) { $("zv-n").textContent = T("Tržište zatvoreno", "Market closed") + " · " + mir.naziv;
+    $("zv-p").textContent = mir.doD ? T("Nastavak rada: ", "Back on: ") + mir.doD : T("Bot miruje do otvaranja tržišta.", "The bot rests until the market opens."); }
+}
+
+/* ---------- MOTOR BOTA: stvarno stanje kao terminal ---------- */
+let MOT = {red: [], i: 0, t: null, kljuc: ""};
+function motorRedovi(d, mir) {
+  const t = d.danas, p = t.puls || {}, bot = t.bot || {}, rd = t.radar || {}, r = t.racun || d.racun || {};
+  const sl = (d.vijesti || []).filter(v => new Date(v.utc).getTime() > sad()).sort((a, b) => a.utc < b.utc ? -1 : 1)[0];
+  const R = [];
+  if (mir) return [["s", T(`> ${mir.naziv}: tržište zatvoreno`, `> ${mir.naziv}: market closed`)], ["s", T("> motor u stanju mirovanja", "> engine on standby")],
+    ["z", mir.doD ? T(`> ponovno pokretanje: ${mir.doD}`, `> restart: ${mir.doD}`) : T("> čeka otvaranje tržišta", "> waiting for market open")]];
+  if (bot.ziv === false) return [["c", T("> veza s botom prekinuta", "> connection to bot lost")], ["s", T("> čekam ponovno spajanje…", "> waiting to reconnect…")]];
+  R.push(["", T("> MT5 veza ............ aktivna ✓", "> MT5 link ............ active ✓")]);
+  R.push(["", `> XAU/USD ............. ${f2(t.cijena)}`]);
+  if (p.ocjena != null) R.push(["z", T(`> kvaliteta tržišta ... ${p.ocjena}/100`, `> market quality ...... ${p.ocjena}/100`)]);
+  if (p.zivost_pct != null) R.push(["", T(`> živost tržišta ...... ${p.zivost_pct}%`, `> market activity ..... ${p.zivost_pct}%`)]);
+  R.push(["", p.vijesti_danas ? T("> vijesti danas ....... VAŽNE – bez ulaza", "> news today ......... MAJOR – no entries") : T("> vijesti danas ....... mirno ✓", "> news today ......... calm ✓")]);
+  if (sl) R.push(["s", T(`> sljedeća vijest ..... ${sl.naziv} ${lokSat(sl.utc)}`, `> next news ........... ${sl.naziv} ${lokSat(sl.utc)}`)]);
+  if (r.rizik_pct) R.push(["", T(`> rizik po trejdu ..... ${f2(r.rizik_pct)}%`, `> risk per trade ...... ${f2(r.rizik_pct)}%`)]);
+  R.push(["", T("> zaštite ............. spread · limit · SL ✓", "> safeguards .......... spread · limit · SL ✓")]);
+  if (bot.pauza) R.push(["c", T("> PAUZA – novi ulazi isključeni", "> PAUSED – no new entries")]);
+  if (bot.safe) R.push(["c", T("> SAFE MODE – čekam ispravne podatke", "> SAFE MODE – waiting for clean data")]);
+  if (t.signal) { const s = t.signal; R.push(["z", T(`> POZICIJA ${s.smjer} @ ${f2(s.ulaz)} – vodim trejd`, `> POSITION ${s.smjer} @ ${f2(s.ulaz)} – managing`)]);
+    R.push(["", T(`> rezultat sada ....... ${sgn(s.trenutno_R ?? 0)}R`, `> result now ......... ${sgn(s.trenutno_R ?? 0)}R`)]); }
+  else if (rd.faza === "obrazac") R.push(["z", T(`> OBRAZAC ${rd.smjer} – provjeravam uslove…`, `> SETUP ${rd.smjer} – checking conditions…`)]);
+  else if (rd.faza === "odbijen") R.push(["c", T(`> signal odbijen: ${rd.razlog}`, `> signal rejected: ${rd.razlog_en}`)]);
+  else if (t.gotov || t.status_kod === "iskoristen") R.push(["s", T("> glavni signal dana iskorišten", "> today's main signal done")]);
+  else R.push(["z", T("> skeniram tržište…", "> scanning the market…")]);
+  return R;
+}
+function motor(d, mir) {
+  const t = d.danas, bot = t.bot || {}, stoji = !!mir || bot.ziv === false || bot.pauza;
+  $("k-motor").classList.toggle("stoji", stoji);
+  $("mt-st").textContent = mir ? T("MIRUJE", "STANDBY") : bot.ziv === false ? "OFFLINE" : bot.pauza ? T("PAUZA", "PAUSED") : bot.safe ? "SAFE MODE"
+    : t.signal ? T("RADI · vodi poziciju", "RUNNING · managing trade") : (t.radar || {}).faza === "obrazac" ? T("RADI · analizira obrazac", "RUNNING · analysing setup") : T("RADI · skenira tržište", "RUNNING · scanning");
+  MOT.red = motorRedovi(d, mir); MOT.zivi = bot.zivi;
+  const k = JSON.stringify(MOT.red) + LANG;
+  if (k !== MOT.kljuc) { MOT.kljuc = k; MOT.i = 0; $("mt-log").innerHTML = ""; clearTimeout(MOT.t); tipkaj(); }
+}
+function tipkaj() {
+  const log = $("mt-log"); if (!MOT.red.length) return;
+  const [cl, txt] = MOT.red[MOT.i % MOT.red.length]; MOT.i++;
+  log.querySelectorAll(".kursor").forEach(x => x.classList.remove("kursor"));
+  const el = document.createElement("div"); el.className = cl + " kursor"; log.appendChild(el);
+  while (log.children.length > 7) log.firstChild.remove();
+  if (MANJE) { el.textContent = txt; MOT.t = setTimeout(tipkaj, 1400); return; }
+  let n = 0; (function k() { el.textContent = txt.slice(0, ++n); if (n < txt.length) MOT.t = setTimeout(k, 18); else MOT.t = setTimeout(tipkaj, 900 + Math.random() * 700); })();
+}
+setInterval(() => { const z = MOT.zivi; $("mt-puls").textContent = z ? "♥ " + Math.max(0, Math.round(sad() / 1000 - z)) + " s" : "♥ —"; }, 1000);
 
 /* ---------- RADAR ---------- */
 let radarKljuc = "";
@@ -941,7 +1300,7 @@ function rezultati(d) {
     return `<div class="mini"><span>${sm === "BUY" ? "▲" : "▼"} ${sm}</span><b class="num ${Q && Q.uk >= 0 ? "g" : "c"}">${Q ? sgn(Q.uk) + "R" : "—"}</b><small>${Q ? Q.n + " · " + Math.round(Q.wr) + "% · PF " + (Q.pf ? Q.pf.toFixed(2) : "—") : "—"}</small></div>`; }).join("");
   const mjs = {}; sve.forEach(x => mjs[x.zatvoren.slice(0, 7)] = (mjs[x.zatvoren.slice(0, 7)] || 0) + x.R);
   $("mj").innerHTML = Object.entries(mjs).reverse().map(([m, x]) => `<div><span>${m.slice(5)}/${m.slice(2, 4)}</span><b class="num ${x >= 0 ? "g" : "c"}">${sgn(x)}R</b></div>`).join("") || `<p class="sv" style="font-size:13px">—</p>`;
-  povijestLista(d); mojNapredak(d);
+  povijestLista(d); mojNapredak(d); dnevnikDana(d); ghost(d);
   const te = d.test, Ct = 2 * Math.PI * 40;
   $("prsten").innerHTML = `<circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,.08)" stroke-width="10" fill="none"/>
     <circle cx="50" cy="50" r="40" stroke="#8d929c" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="${Ct * te.dobitnih_pct / 100} ${Ct}" transform="rotate(-90 50 50)"/>
@@ -973,6 +1332,7 @@ function danDetalj(k) {
   const uk = L.reduce((a, x) => a + x.R, 0), naslov = new Date(k + "T12:00:00").toLocaleDateString(LANG === "en" ? "en-GB" : "hr-HR", {weekday: "long", day: "numeric", month: "long", year: "numeric"});
   $("list-sadrzaj").innerHTML = `<h2 style="text-transform:capitalize">${naslov}</h2>
     <p class="op">${inf ? (inf.z === "vijest" ? "📰 " + T("Dan važnih US vijesti", "Major US news day") : "📅 " + esc(T(inf.bs, inf.en)) + " · " + (inf.z === "zatvoreno" ? T("tržište zatvoreno", "market closed") : T("skraćeni dan", "short day"))) : ""}</p>
+    ${(() => { const x = (d.dnevnik_dana || []).find(z => z.dan === k); return x && !x.trejdova ? `<div class="upoz" style="margin-bottom:10px">⏸ ${esc(T(x.razlog || "", x.razlog_en || ""))}${x.obrazaca ? T(` · radar: ${x.obrazaca} obrazac(a), ${x.odbijeno} odbijeno`, ` · radar: ${x.obrazaca} setup(s), ${x.odbijeno} rejected`) : ""}</div>` : ""; })()}
     ${L.length ? `<div class="lst">${L.map(p => trejdRed(p)).join("")}</div><div class="lot"><span>${T("Rezultat dana", "Day result")}</span><b class="num" style="color:${uk >= 0 ? "var(--g)" : "var(--r)"}">${sgn(uk)}R</b></div>`
       : `<div class="lot"><span>${T("Taj dan nije bilo glavnog signala", "No main signal that day")}</span><b style="font-size:30px">—</b></div>`}
     <button class="dalje" style="background:rgba(255,255,255,.07);color:var(--t)" onclick="zatvoriList()">${T("Zatvori", "Close")}</button>`;
@@ -983,6 +1343,31 @@ function trejdRed(p, moj) { const b = p.smjer === "BUY", k = p.otvoren + p.smjer
     <div class="sr"><b>${p.smjer}</b> <span class="num">${f2(p.ulaz)} → ${f2(p.izlaz)} · ${p.otvoren.slice(8, 10)}.${p.otvoren.slice(5, 7)}. ${p.otvoren.slice(11)} · ${esc(T(...(RAZ[p.razlog] || [p.razlog, p.razlog])))}</span></div>
     <b class="num ${p.R >= 0 ? "g" : "c"}">${sgn(p.R)}R</b>
     ${moj ? `<div class="moj"><button class="u ${o === "u" ? "akt" : ""}" data-moj="${esc(k)}" data-v="u">✅</button><button class="p ${o === "p" ? "akt" : ""}" data-moj="${esc(k)}" data-v="p">⏭</button></div>` : ""}</div>`; }
+function dnevnikDana(d) {
+  const L = d.dnevnik_dana || [];
+  const s = L.filter(x => x.trejdova), bez = L.length - s.length;
+  $("dd-sum").innerHTML = L.length ? `<div class="mini"><span>${T("Dana praćeno", "Days tracked")}</span><b class="num">${L.length}</b></div>
+    <div class="mini"><span>${T("S trejdom", "With trade")}</span><b class="num">${Math.round(s.length / L.length * 100)}%</b></div>
+    <div class="mini"><span>${T("Bez trejda", "No trade")}</span><b class="num zl">${Math.round(bez / L.length * 100)}%</b></div>` : "";
+  $("dd-lista").innerHTML = L.length ? L.slice(0, 25).map(x => {
+    const dt = new Date(x.dan + "T12:00:00").toLocaleDateString(LANG === "en" ? "en-GB" : "hr-HR", {weekday: "short", day: "numeric", month: "numeric"});
+    const ik = x.otvoren ? "▶️" : x.trejdova ? (x.R > 0 ? "✅" : x.R < 0 ? "❌" : "➖") : "⏸";
+    const rad = x.obrazaca ? T(` · radar: ${x.obrazaca} obrazac(a), ${x.odbijeno} odbijeno`, ` · radar: ${x.obrazaca} setup(s), ${x.odbijeno} rejected`) : "";
+    const opis = x.otvoren ? T("trejd u tijeku", "trade in progress") : x.trejdova ? T(`${x.trejdova} trejd`, `${x.trejdova} trade`) : esc(T(x.razlog || "bez trejda", x.razlog_en || "no trade"));
+    return `<div class="st"><div class="ikon ${x.trejdova ? (x.R >= 0 ? "buy" : "sell") : "pr"}" style="font-size:16px">${ik}</div>
+      <div class="sr"><b style="text-transform:capitalize">${dt}</b><span>${opis}${rad}</span></div>
+      ${x.trejdova && !x.otvoren ? `<b class="num ${x.R >= 0 ? "g" : "c"}">${sgn(x.R)}R</b>` : `<span class="tag p">${T("bez ulaza", "no entry")}</span>`}</div>`; }).join("")
+    : `<p class="sv" style="font-size:13px">${T("Dnevnik se puni od danas – svaki dan, i bez trejda.", "The log fills from today – every day, even without a trade.")}</p>`;
+}
+function ghost(d) {
+  const g = d.preskoceni; $("k-ghost").style.display = g && g.n ? "" : "none"; if (!g || !g.n) return;
+  $("gh-sum").innerHTML = `<div class="mini"><span>${T("Odbijeno", "Rejected")}</span><b class="num">${g.n}</b></div>
+    <div class="mini"><span>${T("Bili bi dobitni", "Would have won")}</span><b class="num">${g.dobitnih}</b></div>
+    <div class="mini"><span>${T("Da je ušao", "If entered")}</span><b class="num ${g.R >= 0 ? "g" : "c"}">${sgn(g.R)}R</b></div>`;
+  $("gh-txt").textContent = g.R < 0 ? T(`Filter ocjene je u zadnjih 30 dana sačuvao račun od ${f2(-g.R)}R gubitka.`, `The score filter saved the account from a ${f2(-g.R)}R loss in the last 30 days.`)
+    : T(`Odbijeni signali bi ovaj put donijeli ${sgn(g.R)}R – i to objavljujemo. Filter se procjenjuje kroz duže razdoblje (cilj 2R, do zatvaranja dana).`,
+        `Rejected signals would have made ${sgn(g.R)}R this time – and we publish that too. The filter is judged over longer periods (2R target, until day close).`);
+}
 function povijestLista(d) {
   const P = (d.povijest || []).slice(0, 20);
   $("pov").innerHTML = P.length ? P.map(p => trejdRed(p, true)).join("") : `<p class="sv" style="font-size:13px">${T("Još nema zatvorenih signala. Povijest se puni automatski.", "No closed signals yet. The history fills in automatically.")}</p>`;
@@ -1032,7 +1417,9 @@ function prikazi(d, tiho) {
   const star = zastarjelo(d);
   const mir = mirovanje(d);
   $("tocka").className = "tocka" + (star > 20 || mir ? " off" : "");
-  $("azur").textContent = mir ? T("miruje · ", "resting · ") + mir.naziv.toLowerCase() : (star > 20 ? T("ažurirano ", "updated ") : T("uživo · ", "live · ")) + d.azurirano.slice(11, 16);
+  const bz = d.danas.bot || {};
+  const sys = mir ? ["off", T("MIRUJE", "RESTING")] : bz.pauza ? ["off", T("PAUZA", "PAUSED")] : bz.safe ? ["cr", "SAFE MODE"] : (bz.ziv === false || star > 30) ? ["cr", "OFFLINE"] : ["", T("SISTEM ONLINE", "SYSTEM ONLINE")];
+  $("azur").innerHTML = `<span class="sys ${sys[0]}">● ${sys[1]}</span> <span>${mir ? esc(mir.naziv.toLowerCase()) : d.azurirano.slice(11, 16)}</span>`;
   $("prat").textContent = d.pratitelja ? `👥 ${Number(d.pratitelja).toLocaleString("de-DE")} ${T("pratitelja", "followers")}` : "";
   danas(d, tiho); trziste(d); rezultati(d);
   if (d.danas.signal && !rucno) kalkIzSignala(); else kalk();
@@ -1191,7 +1578,8 @@ document.querySelectorAll("#jez-meni button").forEach(b => b.onclick = () => {
   if (DON) $("don-tekst").textContent = T(DON.tekst || "", DON.tekst_en || "Zlatni signal is free. If it helps you, you can support the project."); });
 ucitajMoj(); primijeniJezik(); requestAnimationFrame(pomakniInd);
 const T0 = Date.now(); let napredak = 0, gotovo = false, kraj = false;
-function postavi(p) { napredak = Math.max(napredak, Math.min(100, p));
+const BOOT = () => [T("> povezivanje s botom…", "> connecting to bot…"), T("> učitavanje tržišnih podataka…", "> loading market data…"), T("> pokretanje radara…", "> starting radar…"), T("> motor spreman ✓", "> engine ready ✓")];
+function postavi(p) { napredak = Math.max(napredak, Math.min(100, p)); const B = BOOT(); $("sp-boot").textContent = B[Math.min(B.length - 1, Math.floor(napredak / 26))];
   $("sp-pun").style.strokeDashoffset = (791.7 * (1 - napredak / 100)).toFixed(1); $("sp-post").textContent = Math.round(napredak) + "%"; }
 const tik = setInterval(() => {
   const e = Date.now() - T0;
