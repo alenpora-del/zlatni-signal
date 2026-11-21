@@ -110,7 +110,7 @@
   .rad-sv.brzo .sken{animation-duration:1.6s}
   .rad-sv.stoji .sken{animation:none;opacity:.25}
 
-  .rad-sv .blip{animation:blip 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  .rad-sv .blip{animation:blip2 1.6s ease-out infinite} @keyframes blip2{0%{opacity:1;r:4}100%{opacity:0;r:12}}
   @keyframes blip{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
   .rad-c{z-index:2;position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-weight:800;font-size:13px;pointer-events:none}
   .uvj{flex:1;min-width:0;list-style:none}
@@ -156,9 +156,11 @@
   svg.graf{width:100%;display:block}
   .crta{stroke-dasharray:3000;stroke-dashoffset:3000;animation:crtaj 1.6s ease-out forwards}
   @keyframes crtaj{to{stroke-dashoffset:0}}
-  .skener{animation:skeniraj 4s linear infinite}
-  @keyframes skeniraj{from{transform:translateX(0)}to{transform:translateX(320px)}}
-  .tpuls{animation:puls3 1.6s ease-out infinite;transform-origin:center;transform-box:fill-box}
+  .graf-w{position:relative;overflow:hidden}
+  .graf-sken{position:absolute;top:14px;bottom:22px;left:0;width:14%;pointer-events:none;will-change:transform;
+     background:linear-gradient(90deg,rgba(214,166,56,0),rgba(214,166,56,.22));animation:grafsken 4s linear infinite}
+  @keyframes grafsken{from{transform:translateX(-100%)}to{transform:translateX(620%)}}
+  .tpuls{animation:puls3b 1.6s ease-out infinite} @keyframes puls3b{0%{opacity:.8;r:5}100%{opacity:0;r:14}}
   @keyframes puls3{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
   .ai{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--z);background:rgba(233,185,73,.08);border:1px solid rgba(233,185,73,.25);padding:4px 9px;border-radius:99px;text-transform:none;letter-spacing:0}
   .ai i{width:6px;height:6px;border-radius:50%;background:var(--z);animation:treptaj 1s ease-in-out infinite}
@@ -324,7 +326,7 @@
      background:conic-gradient(from 0deg,rgba(124,255,178,0) 0deg,rgba(124,255,178,0) 290deg,rgba(32,216,121,.15) 320deg,rgba(124,255,178,.65) 358deg,#c8ffe0 360deg);
      animation:sken 4s linear infinite}
   @keyframes sken{from{transform:rotate(0deg) translateZ(0)}to{transform:rotate(360deg) translateZ(0)}}
-  .lux-krug .sken{-webkit-mask:radial-gradient(circle,transparent 26%,#000 27%);mask:radial-gradient(circle,transparent 26%,#000 27%)}
+
   .lux-krug .mah{transform-origin:100px 100px;animation:vrti 6s linear infinite}
   .lux-krug .luk{transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
   .lux-br{z-index:2;position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
@@ -380,7 +382,7 @@
   .lux-svijece{position:absolute;top:56px;width:34%;height:120px;opacity:.22;pointer-events:none}
   .lux-svijece.l{left:6px} .lux-svijece.d{right:6px}
   .lux-krug .sweep{transform-origin:100px 100px;animation:vrti 4s linear infinite}
-  .lux-krug .blip{animation:blip 2.2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+  .lux-krug .blip{animation:blip3 2.2s ease-out infinite} @keyframes blip3{0%{opacity:1;r:2.6}100%{opacity:0;r:8}}
   header h1{white-space:nowrap;font:700 16.5px/1.1 Georgia,"Times New Roman",serif;letter-spacing:1px;text-transform:uppercase;
      background:linear-gradient(180deg,#FFF1C2,#FFD978 40%,#D6A638 70%,#9c7020);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 6px rgba(214,166,56,.35))}
   header .slogan{font-size:11px;color:#d9cfb5;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -407,12 +409,14 @@
   @keyframes pulsglow{0%,100%{filter:drop-shadow(0 0 6px rgba(32,216,121,.5))}50%{filter:drop-shadow(0 0 16px rgba(32,216,121,.95))}}
   @keyframes val{0%{transform:translateX(0)}100%{transform:translateX(-40px)}}
   @keyframes ripple{to{transform:scale(3.2);opacity:0}}
-  .lux:before,.sig-k:before,.motor:before{background-size:300% 100%!important;animation:rubsjaj 9s linear infinite}
+  .lux .rub-odsjaj,.motor .rub-odsjaj{position:absolute;top:-1px;left:0;width:40%;height:2px;border-radius:2px;pointer-events:none;z-index:3;
+     background:linear-gradient(90deg,transparent,#FFF6D6,transparent);will-change:transform;animation:rubprolaz 5s linear infinite}
+  @keyframes rubprolaz{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
   .gumb,.dalje,.kan2 button,.idi,.uv-dal,.seg button.akt,nav .ind,.kop{position:relative;overflow:hidden}
   .gumb:after,.dalje:after,.kan2 button:after,.idi:after,.uv-dal:after,.seg button.akt:after,nav .ind:after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:35%;
      background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:odsjaj2 3.6s ease-in-out infinite;pointer-events:none}
   header h1{background:linear-gradient(90deg,#9c7020,#FFD978 20%,#FFF6D6 30%,#FFD978 40%,#D6A638 60%,#9c7020 80%,#FFD978)!important;background-size:200% 100%!important;
-     -webkit-background-clip:text!important;background-clip:text!important;animation:zlatotekst 5s linear infinite}
+     -webkit-background-clip:text!important;background-clip:text!important}
   .lux-nas{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(30,25,15,.8));overflow:hidden}
   .lux-nas:after{content:"";position:absolute;top:0;bottom:0;left:0;width:30%;background:linear-gradient(90deg,transparent,rgba(255,233,168,.35),transparent);animation:odsjaj2 4.5s ease-in-out infinite}
   .logo-w{position:relative;overflow:visible!important}
@@ -524,7 +528,7 @@
   <section id="t-danas">
     <div id="baner"></div>
     <div class="k lux">
-      <div class="lux-nas">◎ MARKET RADAR</div>
+      <div class="rub-odsjaj"></div><div class="lux-nas">◎ MARKET RADAR</div>
       <svg class="lux-svijece l" viewBox="0 0 112 120" preserveAspectRatio="none"><g stroke="#20D879" fill="#20D879"><line x1="6" x2="6" y1="50" y2="95"/><rect x="3" y="67" width="6" height="18"/></g><g stroke="#20D879" fill="#20D879"><line x1="17" x2="17" y1="49" y2="80"/><rect x="14" y="61" width="6" height="21"/></g><g stroke="#20D879" fill="#20D879"><line x1="28" x2="28" y1="52" y2="86"/><rect x="25" y="65" width="6" height="17"/></g><g stroke="#20D879" fill="#20D879"><line x1="39" x2="39" y1="38" y2="77"/><rect x="36" y="53" width="6" height="10"/></g><g stroke="#20D879" fill="#20D879"><line x1="50" x2="50" y1="40" y2="68"/><rect x="47" y="50" width="6" height="17"/></g><g stroke="#20D879" fill="#20D879"><line x1="61" x2="61" y1="37" y2="80"/><rect x="58" y="55" width="6" height="16"/></g><g stroke="#20D879" fill="#20D879"><line x1="72" x2="72" y1="36" y2="77"/><rect x="69" y="48" width="6" height="12"/></g><g stroke="#20D879" fill="#20D879"><line x1="83" x2="83" y1="26" y2="63"/><rect x="80" y="40" width="6" height="16"/></g><g stroke="#20D879" fill="#20D879"><line x1="94" x2="94" y1="24" y2="56"/><rect x="91" y="37" width="6" height="15"/></g><g stroke="#20D879" fill="#20D879"><line x1="105" x2="105" y1="22" y2="53"/><rect x="102" y="30" width="6" height="22"/></g></svg>
       <svg class="lux-svijece d" viewBox="0 0 112 120" preserveAspectRatio="none"><g stroke="#FF5252" fill="#FF5252"><line x1="6" x2="6" y1="20" y2="53"/><rect x="3" y="29" width="6" height="16"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="17" x2="17" y1="17" y2="53"/><rect x="14" y="34" width="6" height="15"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="28" x2="28" y1="19" y2="63"/><rect x="25" y="33" width="6" height="14"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="39" x2="39" y1="31" y2="61"/><rect x="36" y="39" width="6" height="11"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="50" x2="50" y1="43" y2="79"/><rect x="47" y="51" width="6" height="14"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="61" x2="61" y1="26" y2="64"/><rect x="58" y="44" width="6" height="13"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="72" x2="72" y1="47" y2="83"/><rect x="69" y="59" width="6" height="18"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="83" x2="83" y1="43" y2="77"/><rect x="80" y="56" width="6" height="22"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="94" x2="94" y1="47" y2="90"/><rect x="91" y="60" width="6" height="16"/></g><g stroke="#FF5252" fill="#FF5252"><line x1="105" x2="105" y1="57" y2="95"/><rect x="102" y="65" width="6" height="22"/></g></svg>
       <div style="text-align:center;margin-bottom:4px"><span class="chip siv" id="chip-trz"><i></i>—</span></div>
@@ -544,7 +548,7 @@
       <div class="poruka" id="poruka"><b>📡</b><span class="skel" style="flex:1">…</span></div>
       <p class="info-t" style="text-align:center" data-en="Score = market quality from bot data (activity, news, structure). BUY/SELL = buyer vs seller pressure over the last 4 h.">Ocjena = kvaliteta tržišta iz podataka bota (živost, vijesti, struktura). BUY/SELL = pritisak kupaca i prodavača zadnja 4 h.</p>
     </div>
-    <div class="k motor" id="k-motor">
+    <div class="k motor" id="k-motor"><div class="rub-odsjaj"></div>
       <div class="mot-gl">
         <svg class="zupcanik" id="mt-zup" viewBox="0 0 48 48"><defs><linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset=".5" stop-color="#D6A638"/><stop offset="1" stop-color="#805B16"/></linearGradient></defs>
           <path fill="url(#zg)" d="M27 3l1.4 5.2a16 16 0 0 1 4.2 1.8l4.7-2.7 3.4 3.4-2.7 4.7a16 16 0 0 1 1.8 4.2L45 21v6l-5.2 1.4a16 16 0 0 1-1.8 4.2l2.7 4.7-3.4 3.4-4.7-2.7a16 16 0 0 1-4.2 1.8L27 45h-6l-1.4-5.2a16 16 0 0 1-4.2-1.8l-4.7 2.7-3.4-3.4 2.7-4.7a16 16 0 0 1-1.8-4.2L3 27v-6l5.2-1.4a16 16 0 0 1 1.8-4.2L7.3 10.7l3.4-3.4 4.7 2.7a16 16 0 0 1 4.2-1.8L21 3z"/>
@@ -610,7 +614,7 @@
     </div>
     <div class="k" style="padding:16px 0 12px;overflow:hidden">
       <div class="nas" style="padding:0 18px"><span data-en="Gold · last 12 h">Zlato · zadnjih 12 h</span><span class="ai des"><i></i><span data-en="Live">Uživo</span></span></div>
-      <svg class="graf" id="graf-zlato" viewBox="0 0 320 210" preserveAspectRatio="none" style="height:220px"></svg>
+      <div class="graf-w"><svg class="graf" id="graf-zlato" viewBox="0 0 320 210" preserveAspectRatio="none" style="height:220px"></svg><div class="graf-sken"></div></div>
       <div class="tile4" style="padding:10px 18px 0">
         <div class="mini"><span data-en="Today high / low">Danas max / min</span><b class="num" id="d-mm" style="font-size:13px;white-space:normal">—</b></div>
         <div class="mini"><span data-en="Yesterday high / low">Jučer vrh / dno</span><b class="num" id="n-juc" style="font-size:13px;white-space:normal">—</b></div>
@@ -754,7 +758,7 @@
   </section>
 </main>
 <footer id="upoz"></footer>
-<div style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v6.0</div>
+<div style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v6.1</div>
 <div class="sloj" id="sloj"></div>
 <div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <div class="toast" id="toast"></div>
@@ -796,7 +800,7 @@ function primijeniJezik() {
 
 /* ---------- cestice (lagane, pauziraju se kad aplikacija nije vidljiva) ---------- */
 (function cestice() {
-  if (MANJE) return;
+  return;   // ugaseno: crtanje preko cijelog ekrana 30x/s uzrokovalo trzanje; pozadina ima valove
   const c = $("cestice"), x = c.getContext("2d"); let W, H, P = [];
   const vel = () => { const d = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; c.width = W * d; c.height = H * d; x.setTransform(d, 0, 0, d, 0, 0); };
   vel(); addEventListener("resize", vel);
@@ -983,7 +987,7 @@ function lux(d, mir) {
       <g stroke="#20D879" stroke-opacity=".22"><path d="M100 4V196M4 100H196M32 32L168 168M168 32L32 168"/></g>
 
       ${[[140, 52, 0], [62, 70, .7], [150, 140, 1.3], [74, 150, 1.8]].map(([x, y, d]) => `<circle cx="${x}" cy="${y}" r="2.6" fill="#7CFFB2"/><circle class="blip" cx="${x}" cy="${y}" r="2.6" fill="#7CFFB2" style="animation-delay:${d}s"/>`).join("")}
-      <circle cx="100" cy="100" r="50" fill="rgba(0,0,0,.72)" stroke="rgba(255,255,255,.08)" stroke-width="7"/>
+      <circle cx="100" cy="100" r="50" fill="#050b07" stroke="rgba(255,255,255,.08)" stroke-width="7"/>
       <circle id="lx-luk" class="luk" cx="100" cy="100" r="50" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}" transform="rotate(-90 100 100)"/>`;
   }
   const luk = $("lx-luk"); luk.setAttribute("stroke", boja); luk.style.filter = `drop-shadow(0 0 8px ${boja})`;
@@ -1024,9 +1028,9 @@ function racunIPlocice(d, mir) {
     const v = (r.povijest || []).concat([]); if (v.length < 2) v.unshift(r.equity - r.promjena);
     const mn = Math.min(...v), mx = Math.max(...v), W = 320, H = 56, X = i => i / (v.length - 1) * (W - 8) + 4, Y = y => 6 + (1 - (y - mn) / ((mx - mn) || 1)) * (H - 14);
     const put = v.map((y, i) => (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(y).toFixed(1)).join(" ");
-    $("rc-graf").innerHTML = `<defs><linearGradient id="rcg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".3"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>
+    if ($("rc-graf").dataset.k !== put) { $("rc-graf").dataset.k = put; $("rc-graf").innerHTML = `<defs><linearGradient id="rcg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".3"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>
       <path d="${put} L${X(v.length - 1)} ${H} L4 ${H} Z" fill="url(#rcg)"/><path class="crta" d="${put}" fill="none" stroke="#e9b949" stroke-width="2"/>
-      <circle cx="${X(v.length - 1)}" cy="${Y(v[v.length - 1])}" r="3.5" fill="#fff1c2" style="filter:drop-shadow(0 0 4px #e9b949)"/>`;
+      <circle cx="${X(v.length - 1)}" cy="${Y(v[v.length - 1])}" r="3.5" fill="#fff1c2"/>`; }
   }
   const rp = r && r.rizik_pct;
   $("tl-riz").textContent = rp ? f2(rp) + "%" : "1–2%";
@@ -1201,7 +1205,7 @@ function crtajGraf(t) {
       <linearGradient id="gsk" x1="0" x2="1"><stop offset="0" stop-color="#e9b949" stop-opacity="0"/><stop offset="1" stop-color="#e9b949" stop-opacity=".18"/></linearGradient></defs>
     ${grid}${svijece}${razine}<path d="${put} L${zad[0]},${H - bot} L${pts[0][0]},${H - bot} Z" fill="url(#gpov)"/>
     <path class="crta" d="${put}" fill="none" stroke="#e9b949" stroke-width="2.2" stroke-linejoin="round"/>
-    <rect class="skener" x="-40" y="${top}" width="40" height="${H - top - bot}" fill="url(#gsk)"/>
+
     <circle class="tpuls" cx="${zad[0]}" cy="${zad[1]}" r="5" fill="${boja}"/><circle cx="${zad[0]}" cy="${zad[1]}" r="4" fill="${boja}" stroke="#07080b" stroke-width="1.5"/>
     <rect x="${W - 50}" y="${zad[1] - 9}" width="48" height="18" rx="5" fill="#e9b949"/><text x="${W - 26}" y="${zad[1] + 4}" text-anchor="middle" fill="#1b1406" font-size="10" font-weight="800">${t.cijena.toFixed(1)}</text>${sati}`;
 }
@@ -1302,7 +1306,7 @@ function rezultati(d) {
   if (S && S.kr.length > 1) { const v = S.kr, mn = Math.min(...v), mx = Math.max(...v), r = (mx - mn) || 1, W = 320, H = 150;
     const xy = v.map((y, i) => [i / (v.length - 1) * W, 10 + (1 - (y - mn) / r) * (H - 20)]), line = xy.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
     const nula = 10 + (1 - (0 - mn) / r) * (H - 20);
-    $("graf").innerHTML = `<defs><linearGradient id="gz" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".35"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>
+    if ($("graf").dataset.k !== line) $("graf").dataset.k = line, $("graf").innerHTML = `<defs><linearGradient id="gz" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".35"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>
       <line x1="0" x2="${W}" y1="${nula}" y2="${nula}" stroke="rgba(255,255,255,.15)" stroke-dasharray="4 4"/><path d="${line} L ${W} ${H} L 0 ${H} Z" fill="url(#gz)"/>
       <path class="crta" d="${line}" fill="none" stroke="#e9b949" stroke-width="2.4" stroke-linejoin="round"/><circle cx="${xy[xy.length - 1][0]}" cy="${xy[xy.length - 1][1]}" r="4" fill="#e9b949"/>`;
   } else $("graf").innerHTML = `<text x="160" y="75" text-anchor="middle" fill="#5d626c" font-size="12">${T("Još nema zatvorenih signala", "No closed signals yet")}</text>`;
