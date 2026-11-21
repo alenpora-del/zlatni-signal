@@ -1201,7 +1201,7 @@ const tik = setInterval(() => {
 function skrijSplash() { gotovo = true; }
 const sp0 = (tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new URLSearchParams(location.search).get("tgWebAppStartParam");
 const DUBOKI = {radar: "danas", signal: "danas", dodatne: "danas", statistika: "rez", kalendar: "trziste", rizik: "kalk", info: "info"};
-postavi(4); ucitaj().finally(() => { skrijSplash(); if (DUBOKI[sp0]) setTimeout(() => idiNa(DUBOKI[sp0]), 400); else if (!sp0) setTimeout(prviPut, 1400); }); setTimeout(skrijSplash, 6000);
+postavi(4); ucitaj().finally(() => { skrijSplash(); if (sp0 === "uvod") setTimeout(otvoriUvod, 900); else if (DUBOKI[sp0]) setTimeout(() => idiNa(DUBOKI[sp0]), 400); else setTimeout(prviPut, 1400); }); setTimeout(skrijSplash, 6000);
 donacije();
 </script>
 </body>
