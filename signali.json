@@ -1,12 +1,12 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-21T10:10",
+ "azurirano": "2026-11-21T15:58",
  "danas": {
-  "server_vrijeme": "2026-11-21 11:10",
+  "server_vrijeme": "2026-11-20 23:58",
   "cijena": 3537.12,
-  "status": "Vikend - tržište zatvoreno",
-  "status_kod": "vikend",
+  "status": "Glavni signal dana iskorišten",
+  "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
    {
@@ -353,26 +353,42 @@
   },
   "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-21T19:00:00Z",
-  "kraj_utc": "2026-11-21T20:00:00Z",
+  "ulaz_do_utc": "2026-11-21T12:00:00Z",
+  "kraj_utc": "2026-11-21T13:00:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
-   "safe": false
+   "safe": false,
+   "zivi": 1795273115,
+   "gotov": false
+  },
+  "racun": {
+   "equity": 10000.0,
+   "valuta": "USD",
+   "promjena": 0.0,
+   "promjena_pct": 0.0,
+   "rizik_pct": 2.0,
+   "povijest": [
+    10000.0
+   ]
   },
   "sljedeci_radni": "2026-11-23",
   "puls": {
-   "ocjena": 100,
-   "stanje": "povoljno",
+   "ocjena": 65,
+   "stanje": "rizicno",
+   "pritisak": {
+    "buy": 50,
+    "sell": 50
+   },
    "zivost_pct": 179,
-   "vijesti_danas": false,
+   "vijesti_danas": true,
    "razlozi": [
     "Živost tržišta 179% od uobičajene",
-    "Danas nema velikih US vijesti"
+    "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
     "Market activity 179% of normal",
-    "No major US news today"
+    "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
     "15": 11.41,
@@ -418,9 +434,38 @@
   "kanal": "https://t.me/zlatni_signal_ba",
   "kontakt": null
  },
- "pratitelja": 16,
+ "pratitelja": 17,
  "verzija": 5,
- "vijesti": [],
+ "vijesti": [
+  {
+   "utc": "2026-11-16T17:00:00Z",
+   "naziv": "Fed Chairman Warsh Speaks",
+   "prognoza": null,
+   "prethodno": null,
+   "objavljeno": null
+  },
+  {
+   "utc": "2026-11-17T13:30:00Z",
+   "naziv": "Core Retail Sales m/m",
+   "prognoza": "0.4%",
+   "prethodno": "0.9%",
+   "objavljeno": null
+  },
+  {
+   "utc": "2026-11-17T13:30:00Z",
+   "naziv": "Retail Sales m/m",
+   "prognoza": "0.1%",
+   "prethodno": "0.8%",
+   "objavljeno": null
+  },
+  {
+   "utc": "2026-11-18T19:00:00Z",
+   "naziv": "FOMC Meeting Minutes",
+   "prognoza": null,
+   "prethodno": null,
+   "objavljeno": null
+  }
+ ],
  "dani": {
   "2026-09-07": {
    "z": "skraceno",
@@ -513,6 +558,32 @@
    "z": "zatvoreno",
    "bs": "Nova godina",
    "en": "New Year's Day"
+  }
+ },
+ "dnevnik_dana": [
+  {
+   "dan": "2026-11-20",
+   "trejdova": 0,
+   "R": 0,
+   "otvoren": false,
+   "obrazaca": 0,
+   "odbijeno": 0,
+   "razlog": "Dan važnih US vijesti – bez ulaza (pravilo)",
+   "razlog_en": "Major US news day – no entries (rule)"
+  }
+ ],
+ "preskoceni": {
+  "n": 1,
+  "R": -1.0,
+  "dobitnih": 0,
+  "dani": {
+   "2026-11-20": [
+    {
+     "smjer": "BUY",
+     "ocjena": 45,
+     "R": -1.0
+    }
+   ]
   }
  },
  "dodatne": {
