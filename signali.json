@@ -3,7 +3,7 @@
  "instrument": "XAU/USD (zlato)",
  "azurirano": "2026-11-22T17:02",
  "danas": {
-  "server_vrijeme": "2026-11-21 00:02",
+  "server_vrijeme": "2026-11-22 18:02",
   "cijena": 3537.12,
   "status": "Vikend - tržište zatvoreno",
   "status_kod": "vikend",
@@ -353,13 +353,13 @@
   },
   "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-23T13:00:00Z",
-  "kraj_utc": "2026-11-23T14:00:00Z",
+  "ulaz_do_utc": "2026-11-22T19:00:00Z",
+  "kraj_utc": "2026-11-22T20:00:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795363309,
+   "zivi": 1795363369,
    "gotov": false
   },
   "racun": {
@@ -438,28 +438,8 @@
  },
  "pratitelja": 20,
  "verzija": 5,
- "vijesti": [
-  {
-   "utc": "2026-11-25T13:30:00Z",
-   "naziv": "Core PCE Price Index m/m",
-   "prognoza": "0.3%",
-   "prethodno": "0.3%",
-   "objavljeno": null
-  },
-  {
-   "utc": "2026-11-25T13:30:00Z",
-   "naziv": "Prelim GDP q/q",
-   "prognoza": "3.5%",
-   "prethodno": "3.4%",
-   "objavljeno": null
-  }
- ],
+ "vijesti": [],
  "dani": {
-  "2026-09-07": {
-   "z": "skraceno",
-   "bs": "Praznik rada (SAD)",
-   "en": "Labor Day (US)"
-  },
   "2026-09-11": {
    "z": "vijest"
   },
