@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T00:25",
+ "azurirano": "2026-11-23T00:30",
  "danas": {
-  "server_vrijeme": "2026-11-23 01:25",
-  "cijena": 3576.32,
-  "status": "Moguća prilika uskoro",
-  "status_kod": "prilika",
+  "server_vrijeme": "2026-11-23 01:30",
+  "cijena": 3577.78,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "12:30",
-    "o": 3581.7,
-    "h": 3595.09,
-    "l": 3580.8,
-    "c": 3595.06
-   },
    {
     "t": "12:45",
     "o": 3595.07,
@@ -342,8 +335,15 @@
     "t": "01:15",
     "o": 3576.03,
     "h": 3587.95,
-    "l": 3575.72,
-    "c": 3576.32
+    "l": 3569.08,
+    "c": 3574.24
+   },
+   {
+    "t": "01:30",
+    "o": 3574.29,
+    "h": 3579.67,
+    "l": 3573.71,
+    "c": 3577.78
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795389896,
+   "zivi": 1795390256,
    "gotov": false
   },
   "racun": {
@@ -380,23 +380,23 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 60,
-    "sell": 40
+    "buy": 62,
+    "sell": 38
    },
-   "zivost_pct": 182,
+   "zivost_pct": 180,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 182% od uobičajene",
+    "Živost tržišta 180% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 182% of normal",
+    "Market activity 180% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": 2.34,
-    "60": 54.89,
-    "240": 51.5
+    "15": -4.48,
+    "60": 54.61,
+    "240": 62.46
    },
    "nivoi": {
     "jucer": {
@@ -410,16 +410,10 @@
    }
   },
   "radar": {
-   "faza": "obrazac",
+   "faza": "ponisten",
    "smjer": "SELL",
-   "od": "2026-11-23 01:15",
-   "uvjeti": [
-    true,
-    true,
-    true,
-    true
-   ],
-   "potvrda": null
+   "razlog": "Obrazac se nije potvrdio",
+   "razlog_en": "The setup was not confirmed"
   },
   "dnevnik": [
    "Analiziram tržište…"
