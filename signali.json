@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T00:06",
+ "azurirano": "2026-11-23T00:15",
  "danas": {
-  "server_vrijeme": "2026-11-23 01:06",
-  "cijena": 3570.81,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-23 01:15",
+  "cijena": 3582.4,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "12:15",
-    "o": 3575.19,
-    "h": 3582.79,
-    "l": 3574.67,
-    "c": 3581.77
-   },
    {
     "t": "12:30",
     "o": 3581.7,
@@ -343,11 +336,18 @@
     "o": 3558.38,
     "h": 3581.47,
     "l": 3554.46,
-    "c": 3570.81
+    "c": 3576.05
+   },
+   {
+    "t": "01:15",
+    "o": 3576.03,
+    "h": 3583.0,
+    "l": 3575.72,
+    "c": 3582.4
    }
   ],
   "dan": {
-   "max": 3581.47,
+   "max": 3583.0,
    "min": 3554.46,
    "otvaranje": 3558.38
   },
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795388785,
+   "zivi": 1795389355,
    "gotov": false
   },
   "racun": {
@@ -380,23 +380,23 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 52,
-    "sell": 48
+    "buy": 60,
+    "sell": 40
    },
-   "zivost_pct": 179,
+   "zivost_pct": 182,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 179% od uobičajene",
+    "Živost tržišta 182% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 179% of normal",
+    "Market activity 182% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": 37.2,
-    "60": 45.66,
-    "240": 43.55
+    "15": 19.21,
+    "60": 61.08,
+    "240": 59.71
    },
    "nivoi": {
     "jucer": {
@@ -410,7 +410,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "SELL",
+   "od": "2026-11-23 01:15",
+   "uvjeti": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -550,10 +559,10 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 0,
+   "obrazaca": 1,
    "odbijeno": 0,
-   "razlog": "Nije bilo kvalitetnog obrasca",
-   "razlog_en": "No quality setup appeared"
+   "razlog": "Obrazac se nije potvrdio",
+   "razlog_en": "The setup was not confirmed"
   },
   {
    "dan": "2026-11-20",
