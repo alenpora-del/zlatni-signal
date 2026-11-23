@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T09:12",
+ "azurirano": "2026-11-23T09:15",
  "danas": {
-  "server_vrijeme": "2026-11-23 10:12",
-  "cijena": 3603.04,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-23 10:15",
+  "cijena": 3603.99,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "21:15",
-    "o": 3518.22,
-    "h": 3521.62,
-    "l": 3511.39,
-    "c": 3512.72
-   },
    {
     "t": "21:30",
     "o": 3512.81,
@@ -343,7 +336,14 @@
     "o": 3618.17,
     "h": 3620.72,
     "l": 3601.71,
-    "c": 3603.04
+    "c": 3604.68
+   },
+   {
+    "t": "10:15",
+    "o": 3604.66,
+    "h": 3604.85,
+    "l": 3603.4,
+    "c": 3604.02
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795421521,
+   "zivi": 1795421701,
    "gotov": false
   },
   "racun": {
@@ -380,23 +380,23 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 57,
-    "sell": 43
+    "buy": 47,
+    "sell": 53
    },
-   "zivost_pct": 149,
+   "zivost_pct": 150,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 149% od uobičajene",
+    "Živost tržišta 150% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 149% of normal",
+    "Market activity 150% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": -17.0,
-    "60": -30.25,
-    "240": -1.11
+    "15": -15.3,
+    "60": -30.04,
+    "240": -4.21
    },
    "nivoi": {
     "jucer": {
@@ -410,7 +410,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "BUY",
+   "od": "2026-11-23 10:15",
+   "uvjeti": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -535,7 +544,7 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 2,
+   "obrazaca": 3,
    "odbijeno": 1,
    "razlog": "Dan važnih US vijesti – bot izbjegava ulaz (ocjena 65/100, prag 80)",
    "razlog_en": "Major US news day – the bot avoids entries (score 65/100, threshold 80)"
