@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T20:52",
+ "azurirano": "2026-11-23T21:03",
  "danas": {
-  "server_vrijeme": "2026-11-23 21:52",
-  "cijena": 3641.09,
+  "server_vrijeme": "2026-11-23 22:03",
+  "cijena": 3640.07,
   "status": "Glavni signal dana iskorišten",
   "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
-   {
-    "t": "10:00",
-    "o": 3618.17,
-    "h": 3620.72,
-    "l": 3601.71,
-    "c": 3604.68
-   },
    {
     "t": "10:15",
     "o": 3604.66,
@@ -341,15 +334,22 @@
    {
     "t": "21:45",
     "o": 3640.62,
-    "h": 3642.14,
+    "h": 3644.02,
     "l": 3638.41,
-    "c": 3641.09
+    "c": 3643.01
+   },
+   {
+    "t": "22:00",
+    "o": 3643.0,
+    "h": 3646.8,
+    "l": 3640.0,
+    "c": 3640.07
    }
   ],
   "dan": {
    "max": 3689.55,
    "min": 3600.4,
-   "otvaranje": 3618.17
+   "otvaranje": 3604.66
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795463560,
+   "zivi": 1795464220,
    "gotov": false
   },
   "racun": {
@@ -380,23 +380,23 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 32,
-    "sell": 68
+    "buy": 34,
+    "sell": 66
    },
-   "zivost_pct": 134,
+   "zivost_pct": 130,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 134% od uobičajene",
+    "Živost tržišta 130% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 134% of normal",
+    "Market activity 130% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": -2.35,
-    "60": -10.83,
-    "240": -28.21
+    "15": -0.03,
+    "60": -15.49,
+    "240": -28.7
    },
    "nivoi": {
     "jucer": {
@@ -552,15 +552,22 @@
   }
  ],
  "preskoceni": {
-  "n": 1,
-  "R": -1.0,
-  "dobitnih": 0,
+  "n": 2,
+  "R": 1.0,
+  "dobitnih": 1,
   "dani": {
    "2026-11-20": [
     {
      "smjer": "BUY",
      "ocjena": 45,
      "R": -1.0
+    }
+   ],
+   "2026-11-23": [
+    {
+     "smjer": "BUY",
+     "ocjena": 65,
+     "R": 2.0
     }
    ]
   }
