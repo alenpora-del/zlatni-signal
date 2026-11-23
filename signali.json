@@ -1,12 +1,12 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T23:22",
+ "azurirano": "2026-11-23T23:26",
  "danas": {
-  "server_vrijeme": "2026-11-24 00:22",
+  "server_vrijeme": "2026-11-23 23:56",
   "cijena": 3635.86,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "status": "Glavni signal dana iskorišten",
+  "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
    {
@@ -353,13 +353,13 @@
   },
   "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-24T19:00:00Z",
-  "kraj_utc": "2026-11-24T20:00:00Z",
+  "ulaz_do_utc": "2026-11-23T19:30:00Z",
+  "kraj_utc": "2026-11-23T20:30:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795472532,
+   "zivi": 1795472742,
    "gotov": false
   },
   "racun": {
@@ -376,7 +376,7 @@
     10000.0
    ]
   },
-  "sljedeci_radni": "2026-11-25",
+  "sljedeci_radni": "2026-11-24",
   "puls": {
    "ocjena": 100,
    "stanje": "povoljno",
@@ -411,13 +411,13 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "miruje"
   },
   "dnevnik": [
-   "Analiziram tržište…"
+   "15:00 · dodatna preporuka #1 BUY @ 3.637,92"
   ],
   "dnevnik_en": [
-   "Analysing the market…"
+   "15:00 · extra idea #1 BUY @ 3.637,92"
   ],
   "prilike": []
  },
@@ -606,6 +606,24 @@
     "h1": "2018-2026: +0.37R/trejd, 8/9 godina u plusu"
    }
   },
-  "danas": []
+  "danas": [
+   {
+    "br": 1,
+    "vrsta": "retest_dan",
+    "smjer": "BUY",
+    "ulaz": 3637.92,
+    "sl": 3623.56,
+    "tp": 3666.64,
+    "rr": 2.0,
+    "razlog": "Cijena je probila i zatvorila iznad jučerašnjeg vrha (3,636.61). Probijeni otpor često postaje podrška – ulaz na povratku do tog nivoa.",
+    "razlog_en": "Price broke and closed above yesterday's high (3,636.61). Broken resistance often turns into support – entry on the pullback to that level.",
+    "izdano": "2026-11-23 16:00:00",
+    "vrijedi_do": "2026-11-23 20:00:00",
+    "status": "istekla",
+    "R": null,
+    "vrijeme": "15:00",
+    "do_cet": "19:00"
+   }
+  ]
  }
 }
