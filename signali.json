@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T14:51",
+ "azurirano": "2026-11-23T15:00",
  "danas": {
-  "server_vrijeme": "2026-11-23 15:51",
-  "cijena": 3615.22,
+  "server_vrijeme": "2026-11-23 16:00",
+  "cijena": 3650.04,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "04:00",
-    "o": 3600.29,
-    "h": 3607.72,
-    "l": 3583.37,
-    "c": 3586.37
-   },
    {
     "t": "04:15",
     "o": 3586.38,
@@ -341,15 +334,22 @@
    {
     "t": "15:45",
     "o": 3618.34,
-    "h": 3620.53,
-    "l": 3614.16,
-    "c": 3615.22
+    "h": 3659.8,
+    "l": 3611.37,
+    "c": 3654.39
+   },
+   {
+    "t": "16:00",
+    "o": 3654.31,
+    "h": 3655.5,
+    "l": 3645.92,
+    "c": 3650.04
    }
   ],
   "dan": {
-   "max": 3636.92,
+   "max": 3659.8,
    "min": 3575.25,
-   "otvaranje": 3600.29
+   "otvaranje": 3586.38
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795441876,
+   "zivi": 1795442446,
    "gotov": false
   },
   "racun": {
@@ -380,23 +380,23 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 51,
-    "sell": 49
+    "buy": 72,
+    "sell": 28
    },
-   "zivost_pct": 142,
+   "zivost_pct": 146,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 142% od uobičajene",
+    "Živost tržišta 146% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 142% of normal",
+    "Market activity 146% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": -6.42,
-    "60": -0.94,
-    "240": -2.09
+    "15": 30.96,
+    "60": 29.5,
+    "240": 35.11
    },
    "nivoi": {
     "jucer": {
@@ -413,10 +413,10 @@
    "faza": "skenira"
   },
   "dnevnik": [
-   "Analiziram tržište…"
+   "15:00 · dodatna preporuka #1 BUY @ 3.637,92"
   ],
   "dnevnik_en": [
-   "Analysing the market…"
+   "15:00 · extra idea #1 BUY @ 3.637,92"
   ],
   "prilike": []
  },
@@ -567,9 +567,16 @@
  },
  "dodatne": {
   "stat": {
-   "izdano": 0,
+   "izdano": 1,
    "aktivirano": 0,
    "zatvoreno": 0,
+   "neaktivirano": 0,
+   "u_tijeku": 1,
+   "dobitnih_pct": 0,
+   "ukupno_R": 0,
+   "prosjek_R": 0,
+   "dd_R": 0,
+   "po_vrsti": {},
    "test": {
     "izdano": 519,
     "aktivirano": 348,
@@ -581,6 +588,24 @@
     "h1": "2018-2026: +0.37R/trejd, 8/9 godina u plusu"
    }
   },
-  "danas": []
+  "danas": [
+   {
+    "br": 1,
+    "vrsta": "retest_dan",
+    "smjer": "BUY",
+    "ulaz": 3637.92,
+    "sl": 3623.56,
+    "tp": 3666.64,
+    "rr": 2.0,
+    "razlog": "Cijena je probila i zatvorila iznad jučerašnjeg vrha (3,636.61). Probijeni otpor često postaje podrška – ulaz na povratku do tog nivoa.",
+    "razlog_en": "Price broke and closed above yesterday's high (3,636.61). Broken resistance often turns into support – entry on the pullback to that level.",
+    "izdano": "2026-11-23 16:00:00",
+    "vrijedi_do": "2026-11-23 20:00:00",
+    "status": "ceka",
+    "R": null,
+    "vrijeme": "15:00",
+    "do_cet": "19:00"
+   }
+  ]
  }
 }
