@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T06:05",
+ "azurirano": "2026-11-23T06:10",
  "danas": {
-  "server_vrijeme": "2026-11-23 07:05",
-  "cijena": 3607.4,
+  "server_vrijeme": "2026-11-23 07:10",
+  "cijena": 3607.13,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
@@ -342,8 +342,8 @@
     "t": "07:00",
     "o": 3607.86,
     "h": 3610.45,
-    "l": 3605.78,
-    "c": 3607.4
+    "l": 3605.22,
+    "c": 3607.13
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795410348,
+   "zivi": 1795410618,
    "gotov": false
   },
   "racun": {
@@ -377,26 +377,26 @@
   },
   "sljedeci_radni": "2026-11-24",
   "puls": {
-   "ocjena": 65,
-   "stanje": "rizicno",
+   "ocjena": 100,
+   "stanje": "povoljno",
    "pritisak": {
     "buy": 66,
     "sell": 34
    },
    "zivost_pct": 159,
-   "vijesti_danas": true,
+   "vijesti_danas": false,
    "razlozi": [
     "Živost tržišta 159% od uobičajene",
-    "Danas su važne US vijesti – bot danas ne otvara glavni signal"
+    "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
     "Market activity 159% of normal",
-    "Major US news today – the bot opens no main signal today"
+    "No major US news today"
    ],
    "promjena": {
-    "15": -5.41,
-    "60": 2.31,
-    "240": 13.07
+    "15": -4.0,
+    "60": 2.32,
+    "240": 5.77
    },
    "nivoi": {
     "jucer": {
@@ -483,24 +483,6 @@
   "2026-11-10": {
    "z": "vijest"
   },
-  "2026-11-16": {
-   "z": "vijest"
-  },
-  "2026-11-17": {
-   "z": "vijest"
-  },
-  "2026-11-18": {
-   "z": "vijest"
-  },
-  "2026-11-19": {
-   "z": "vijest"
-  },
-  "2026-11-20": {
-   "z": "vijest"
-  },
-  "2026-11-23": {
-   "z": "vijest"
-  },
   "2026-11-25": {
    "z": "vijest"
   },
@@ -555,8 +537,8 @@
    "otvoren": false,
    "obrazaca": 2,
    "odbijeno": 1,
-   "razlog": "Dan važnih US vijesti – bez ulaza (pravilo)",
-   "razlog_en": "Major US news day – no entries (rule)"
+   "razlog": "Dan važnih US vijesti – bot izbjegava ulaz (ocjena 65/100, prag 80)",
+   "razlog_en": "Major US news day – the bot avoids entries (score 65/100, threshold 80)"
   },
   {
    "dan": "2026-11-20",
