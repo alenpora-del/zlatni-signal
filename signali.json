@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T22:06",
+ "azurirano": "2026-11-23T22:17",
  "danas": {
-  "server_vrijeme": "2026-11-23 23:06",
-  "cijena": 3635.71,
+  "server_vrijeme": "2026-11-23 23:17",
+  "cijena": 3634.56,
   "status": "Glavni signal dana iskorišten",
   "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
-   {
-    "t": "11:15",
-    "o": 3617.9,
-    "h": 3626.75,
-    "l": 3616.58,
-    "c": 3619.96
-   },
    {
     "t": "11:30",
     "o": 3619.74,
@@ -343,13 +336,20 @@
     "o": 3635.07,
     "h": 3638.0,
     "l": 3634.21,
-    "c": 3635.71
+    "c": 3636.64
+   },
+   {
+    "t": "23:15",
+    "o": 3636.63,
+    "h": 3637.17,
+    "l": 3633.97,
+    "c": 3634.56
    }
   ],
   "dan": {
    "max": 3689.55,
    "min": 3611.37,
-   "otvaranje": 3617.9
+   "otvaranje": 3619.74
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795467971,
+   "zivi": 1795468631,
    "gotov": false
   },
   "racun": {
@@ -380,8 +380,8 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 24,
-    "sell": 76
+    "buy": 29,
+    "sell": 71
    },
    "zivost_pct": 126,
    "vijesti_danas": false,
@@ -394,9 +394,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": 2.4,
-    "60": -4.05,
-    "240": -28.0
+    "15": -1.29,
+    "60": -3.58,
+    "240": -32.26
    },
    "nivoi": {
     "jucer": {
