@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-23T03:52",
+ "azurirano": "2026-11-23T04:00",
  "danas": {
-  "server_vrijeme": "2026-11-23 04:52",
-  "cijena": 3590.8,
-  "status": "Moguća prilika uskoro",
-  "status_kod": "prilika",
+  "server_vrijeme": "2026-11-23 05:00",
+  "cijena": 3591.55,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "16:00",
-    "o": 3571.95,
-    "h": 3580.22,
-    "l": 3562.96,
-    "c": 3579.84
-   },
    {
     "t": "16:15",
     "o": 3579.84,
@@ -341,9 +334,16 @@
    {
     "t": "04:45",
     "o": 3582.78,
-    "h": 3591.58,
+    "h": 3595.57,
     "l": 3579.32,
-    "c": 3590.8
+    "c": 3591.44
+   },
+   {
+    "t": "05:00",
+    "o": 3591.44,
+    "h": 3592.55,
+    "l": 3591.44,
+    "c": 3591.55
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795402329,
+   "zivi": 1795402780,
    "gotov": false
   },
   "racun": {
@@ -377,26 +377,26 @@
   },
   "sljedeci_radni": "2026-11-24",
   "puls": {
-   "ocjena": 100,
-   "stanje": "povoljno",
+   "ocjena": 65,
+   "stanje": "rizicno",
    "pritisak": {
-    "buy": 63,
-    "sell": 37
+    "buy": 62,
+    "sell": 38
    },
-   "zivost_pct": 174,
-   "vijesti_danas": false,
+   "zivost_pct": 173,
+   "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 174% od uobičajene",
-    "Danas nema velikih US vijesti"
+    "Živost tržišta 173% od uobičajene",
+    "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 174% of normal",
-    "No major US news today"
+    "Market activity 173% of normal",
+    "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": 13.97,
-    "60": -12.82,
-    "240": 57.95
+    "15": 8.52,
+    "60": -12.08,
+    "240": 28.36
    },
    "nivoi": {
     "jucer": {
@@ -410,16 +410,10 @@
    }
   },
   "radar": {
-   "faza": "obrazac",
+   "faza": "odbijen",
    "smjer": "BUY",
-   "od": "2026-11-23 04:15",
-   "uvjeti": [
-    true,
-    true,
-    true,
-    true
-   ],
-   "potvrda": null
+   "razlog": "Dan važnih US vijesti – bot izbjegava ulaz (ocjena 65/100, prag 80)",
+   "razlog_en": "Major US news day – the bot avoids entries (score 65/100, threshold 80)"
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -507,6 +501,9 @@
   "2026-11-20": {
    "z": "vijest"
   },
+  "2026-11-23": {
+   "z": "vijest"
+  },
   "2026-11-25": {
    "z": "vijest"
   },
@@ -560,9 +557,9 @@
    "R": 0,
    "otvoren": false,
    "obrazaca": 2,
-   "odbijeno": 0,
-   "razlog": "Obrazac se nije potvrdio",
-   "razlog_en": "The setup was not confirmed"
+   "odbijeno": 1,
+   "razlog": "Dan važnih US vijesti – bez ulaza (pravilo)",
+   "razlog_en": "Major US news day – no entries (rule)"
   },
   {
    "dan": "2026-11-20",
