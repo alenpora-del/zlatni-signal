@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-24T08:45",
+ "azurirano": "2026-11-24T08:55",
  "danas": {
-  "server_vrijeme": "2026-11-24 09:45",
-  "cijena": 3623.25,
+  "server_vrijeme": "2026-11-24 09:55",
+  "cijena": 3621.65,
   "status": "SIGNAL AKTIVAN",
   "status_kod": "aktivan",
   "raspon": null,
@@ -341,9 +341,9 @@
    {
     "t": "09:45",
     "o": 3623.71,
-    "h": 3624.73,
-    "l": 3623.25,
-    "c": 3623.25
+    "h": 3625.41,
+    "l": 3619.77,
+    "c": 3621.65
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "cilj": 3642.2,
    "stepenice": true,
    "otvoren": "2026-11-24 09:45",
-   "trenutno_R": -0.09,
+   "trenutno_R": -0.27,
    "stop_udaljenost": 9.07,
    "otvoren_utc": "2026-11-24T07:45:00Z"
   },
@@ -369,21 +369,21 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795506303,
+   "zivi": 1795506934,
    "gotov": true
   },
   "racun": {
-   "equity": 9982.4,
+   "equity": 9946.98,
    "valuta": "USD",
-   "promjena": -17.6,
-   "promjena_pct": -0.18,
+   "promjena": -53.02,
+   "promjena_pct": -0.53,
    "rizik_pct": 2.0,
    "povijest": [
     10000.0,
     10000.0,
     10000.0,
     10000.0,
-    9982.4
+    9946.98
    ]
   },
   "sljedeci_radni": "2026-11-25",
@@ -405,9 +405,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": 4.75,
-    "60": 1.53,
-    "240": -6.19
+    "15": 1.39,
+    "60": -7.33,
+    "240": -11.31
    },
    "nivoi": {
     "jucer": {
