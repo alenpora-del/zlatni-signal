@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-24T04:11",
+ "azurirano": "2026-11-24T04:15",
  "danas": {
-  "server_vrijeme": "2026-11-24 05:11",
-  "cijena": 3631.84,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-24 05:15",
+  "cijena": 3631.91,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "16:15",
-    "o": 3667.03,
-    "h": 3689.55,
-    "l": 3662.85,
-    "c": 3689.17
-   },
    {
     "t": "16:30",
     "o": 3689.22,
@@ -343,7 +336,14 @@
     "o": 3640.41,
     "h": 3642.86,
     "l": 3630.35,
-    "c": 3631.84
+    "c": 3632.96
+   },
+   {
+    "t": "05:15",
+    "o": 3632.96,
+    "h": 3632.96,
+    "l": 3631.47,
+    "c": 3631.91
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795489890,
+   "zivi": 1795490100,
    "gotov": false
   },
   "racun": {
@@ -384,20 +384,20 @@
     "buy": 51,
     "sell": 49
    },
-   "zivost_pct": 115,
+   "zivost_pct": 114,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 115% od uobičajene",
+    "Živost tržišta 114% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 115% of normal",
+    "Market activity 114% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": -10.33,
-    "60": -25.44,
-    "240": -1.83
+    "15": -8.61,
+    "60": -27.04,
+    "240": 0.53
    },
    "nivoi": {
     "jucer": {
@@ -411,7 +411,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "BUY",
+   "od": "2026-11-24 05:15",
+   "uvjeti": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -536,7 +545,7 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 1,
+   "obrazaca": 2,
    "odbijeno": 0,
    "razlog": "Obrazac se nije potvrdio",
    "razlog_en": "The setup was not confirmed"
