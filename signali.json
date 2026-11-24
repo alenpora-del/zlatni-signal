@@ -1,12 +1,12 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-24T09:16",
+ "azurirano": "2026-11-24T09:26",
  "danas": {
-  "server_vrijeme": "2026-11-24 10:16",
-  "cijena": 3620.3,
-  "status": "SIGNAL AKTIVAN",
-  "status_kod": "aktivan",
+  "server_vrijeme": "2026-11-24 10:26",
+  "cijena": 3614.16,
+  "status": "Glavni signal dana iskorišten",
+  "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
    {
@@ -341,9 +341,9 @@
    {
     "t": "10:15",
     "o": 3620.3,
-    "h": 3621.37,
-    "l": 3620.01,
-    "c": 3620.3
+    "h": 3625.13,
+    "l": 3614.11,
+    "c": 3614.16
    }
   ],
   "dan": {
@@ -352,38 +352,28 @@
    "otvaranje": 3636.77
   },
   "gotov": true,
-  "signal": {
-   "smjer": "BUY",
-   "ulaz": 3624.06,
-   "stop": 3614.99,
-   "cilj": 3642.2,
-   "stepenice": true,
-   "otvoren": "2026-11-24 09:45",
-   "trenutno_R": -0.41,
-   "stop_udaljenost": 9.07,
-   "otvoren_utc": "2026-11-24T07:45:00Z"
-  },
+  "signal": null,
   "ulaz_do_utc": "2026-11-24T19:00:00Z",
   "kraj_utc": "2026-11-24T20:00:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795508196,
+   "zivi": 1795508767,
    "gotov": true
   },
   "racun": {
-   "equity": 9917.28,
+   "equity": 9800.46,
    "valuta": "USD",
-   "promjena": -82.72,
-   "promjena_pct": -0.83,
+   "promjena": -199.54,
+   "promjena_pct": -2.0,
    "rizik_pct": 2.0,
    "povijest": [
     10000.0,
     10000.0,
     10000.0,
     10000.0,
-    9917.28
+    9800.46
    ]
   },
   "sljedeci_radni": "2026-11-25",
@@ -405,9 +395,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": -6.14,
-    "60": 1.18,
-    "240": -11.49
+    "15": -6.3,
+    "60": -3.34,
+    "240": -12.78
    },
    "nivoi": {
     "jucer": {
@@ -421,28 +411,48 @@
    }
   },
   "radar": {
-   "faza": "signal",
-   "smjer": "BUY",
-   "uvjeti": [
-    true,
-    true,
-    true,
-    true
-   ],
-   "potvrda": true
+   "faza": "miruje"
   },
   "dnevnik": [
-   "09:45 · glavni signal BUY @ 3.624,06"
+   "09:45 · glavni signal BUY @ 3.624,06",
+   "10:25 · zatvoreno -1.00R ([sl 3614.99])"
   ],
   "dnevnik_en": [
-   "09:45 · main signal BUY @ 3.624,06"
+   "09:45 · main signal BUY @ 3.624,06",
+   "10:25 · closed -1.00R ([sl 3614.99])"
   ],
   "prilike": []
  },
  "statistika": {
-  "signala": 0
+  "signala": 1,
+  "dobitnih_pct": 0,
+  "ukupno_R": -1.0,
+  "prosjek_R": -1.0,
+  "profit_faktor": 0.0,
+  "najveci_pad_R": 0.0,
+  "krivulja_R": [
+   -1.0
+  ],
+  "po_mjesecima": {
+   "2026-11": -1.0
+  },
+  "mjeseci": 1,
+  "mjeseci_plus": 0,
+  "zasticen_profit": 0
  },
- "povijest": [],
+ "povijest": [
+  {
+   "otvoren": "2026-11-24 09:45",
+   "zatvoren": "2026-11-24 10:25",
+   "smjer": "BUY",
+   "ulaz": 3624.06,
+   "stop": 3614.99,
+   "cilj": 3641.69,
+   "izlaz": 3614.99,
+   "R": -1.0,
+   "razlog": "[sl 3614.99]"
+  }
+ ],
  "test": {
   "razdoblje": "01–11/2026",
   "trejdova": 105,
@@ -552,8 +562,8 @@
   {
    "dan": "2026-11-24",
    "trejdova": 1,
-   "R": 0,
-   "otvoren": true,
+   "R": -1.0,
+   "otvoren": false,
    "obrazaca": 2,
    "odbijeno": 0,
    "razlog": null,
