@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-24T23:56",
+ "azurirano": "2026-11-25T00:00",
  "danas": {
-  "server_vrijeme": "2026-11-24 23:56",
-  "cijena": 3555.51,
-  "status": "Glavni signal dana iskorišten",
-  "status_kod": "iskoristen",
+  "server_vrijeme": "2026-11-25 01:00",
+  "cijena": 3561.97,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "12:00",
-    "o": 3622.28,
-    "h": 3624.96,
-    "l": 3619.07,
-    "c": 3623.11
-   },
    {
     "t": "12:15",
     "o": 3623.11,
@@ -344,23 +337,30 @@
     "h": 3555.92,
     "l": 3552.8,
     "c": 3555.51
+   },
+   {
+    "t": "01:00",
+    "o": 3559.92,
+    "h": 3562.21,
+    "l": 3558.07,
+    "c": 3561.97
    }
   ],
   "dan": {
-   "max": 3646.6,
-   "min": 3546.65,
-   "otvaranje": 3622.28
+   "max": 3562.21,
+   "min": 3558.07,
+   "otvaranje": 3559.92
   },
-  "gotov": true,
+  "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-24T20:00:00Z",
-  "kraj_utc": "2026-11-24T21:00:00Z",
+  "ulaz_do_utc": "2026-11-25T19:00:00Z",
+  "kraj_utc": "2026-11-25T20:00:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795561013,
-   "gotov": true
+   "zivi": 1795561223,
+   "gotov": false
   },
   "racun": {
    "equity": 9800.46,
@@ -377,33 +377,33 @@
     9800.46
    ]
   },
-  "sljedeci_radni": "2026-11-25",
+  "sljedeci_radni": "2026-11-26",
   "puls": {
-   "ocjena": 100,
-   "stanje": "povoljno",
+   "ocjena": 65,
+   "stanje": "rizicno",
    "pritisak": {
-    "buy": 34,
-    "sell": 66
+    "buy": 38,
+    "sell": 62
    },
-   "zivost_pct": 106,
-   "vijesti_danas": false,
+   "zivost_pct": 105,
+   "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 106% od uobičajene",
-    "Danas nema velikih US vijesti"
+    "Živost tržišta 105% od uobičajene",
+    "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 106% of normal",
-    "No major US news today"
+    "Market activity 105% of normal",
+    "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": 1.55,
-    "60": 2.34,
-    "240": -10.39
+    "15": 9.0,
+    "60": 9.63,
+    "240": -4.64
    },
    "nivoi": {
     "jucer": {
-     "vrh": 3689.55,
-     "dno": 3554.46
+     "vrh": 3678.19,
+     "dno": 3546.65
     },
     "tjedan": {
      "vrh": 3901.14,
@@ -412,15 +412,13 @@
    }
   },
   "radar": {
-   "faza": "miruje"
+   "faza": "skenira"
   },
   "dnevnik": [
-   "09:45 · glavni signal BUY @ 3.624,06",
-   "10:25 · zatvoreno -1.00R ([sl 3614.99])"
+   "Analiziram tržište…"
   ],
   "dnevnik_en": [
-   "09:45 · main signal BUY @ 3.624,06",
-   "10:25 · closed -1.00R ([sl 3614.99])"
+   "Analysing the market…"
   ],
   "prilike": []
  },
