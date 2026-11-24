@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-24T01:37",
+ "azurirano": "2026-11-24T01:45",
  "danas": {
-  "server_vrijeme": "2026-11-24 02:37",
-  "cijena": 3653.52,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-24 02:45",
+  "cijena": 3657.3,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "13:45",
-    "o": 3622.2,
-    "h": 3622.59,
-    "l": 3618.72,
-    "c": 3618.98
-   },
    {
     "t": "14:00",
     "o": 3618.98,
@@ -341,13 +334,20 @@
    {
     "t": "02:30",
     "o": 3645.44,
-    "h": 3657.16,
+    "h": 3659.93,
     "l": 3643.34,
-    "c": 3653.52
+    "c": 3657.29
+   },
+   {
+    "t": "02:45",
+    "o": 3657.3,
+    "h": 3657.46,
+    "l": 3657.08,
+    "c": 3657.3
    }
   ],
   "dan": {
-   "max": 3657.16,
+   "max": 3659.93,
    "min": 3619.69,
    "otvaranje": 3636.77
   },
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795480639,
+   "zivi": 1795481090,
    "gotov": false
   },
   "racun": {
@@ -381,23 +381,23 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 46,
-    "sell": 54
+    "buy": 61,
+    "sell": 39
    },
-   "zivost_pct": 119,
+   "zivost_pct": 120,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 119% od uobičajene",
+    "Živost tržišta 120% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 119% of normal",
+    "Market activity 120% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": 10.26,
-    "60": 20.95,
-    "240": 5.61
+    "15": 11.28,
+    "60": 29.48,
+    "240": 15.97
    },
    "nivoi": {
     "jucer": {
@@ -411,7 +411,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "SELL",
+   "od": "2026-11-24 02:45",
+   "uvjeti": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -536,10 +545,10 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 0,
+   "obrazaca": 1,
    "odbijeno": 0,
-   "razlog": "Nije bilo kvalitetnog obrasca",
-   "razlog_en": "No quality setup appeared"
+   "razlog": "Obrazac se nije potvrdio",
+   "razlog_en": "The setup was not confirmed"
   },
   {
    "dan": "2026-11-23",
