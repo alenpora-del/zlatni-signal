@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T19:27",
+ "azurirano": "2026-11-25T19:30",
  "danas": {
-  "server_vrijeme": "2026-11-25 20:27",
-  "cijena": 3531.14,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-25 20:30",
+  "cijena": 3536.49,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "08:30",
-    "o": 3526.25,
-    "h": 3528.02,
-    "l": 3517.14,
-    "c": 3521.66
-   },
    {
     "t": "08:45",
     "o": 3521.66,
@@ -341,15 +334,22 @@
    {
     "t": "20:15",
     "o": 3528.09,
-    "h": 3540.73,
+    "h": 3541.21,
     "l": 3525.42,
-    "c": 3531.14
+    "c": 3540.07
+   },
+   {
+    "t": "20:30",
+    "o": 3540.25,
+    "h": 3541.43,
+    "l": 3536.35,
+    "c": 3536.49
    }
   ],
   "dan": {
-   "max": 3540.73,
+   "max": 3541.43,
    "min": 3426.55,
-   "otvaranje": 3526.25
+   "otvaranje": 3521.66
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795631231,
+   "zivi": 1795631442,
    "gotov": false
   },
   "racun": {
@@ -382,8 +382,8 @@
    "ocjena": 65,
    "stanje": "rizicno",
    "pritisak": {
-    "buy": 62,
-    "sell": 38
+    "buy": 68,
+    "sell": 32
    },
    "zivost_pct": 123,
    "vijesti_danas": true,
@@ -396,9 +396,9 @@
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": 3.84,
-    "60": 30.4,
-    "240": 61.31
+    "15": 5.19,
+    "60": 38.35,
+    "240": 71.14
    },
    "nivoi": {
     "jucer": {
@@ -412,7 +412,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "SELL",
+   "od": "2026-11-25 20:30",
+   "uvjeti": [
+    true,
+    true,
+    false,
+    false
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "13:00 · dodatna preporuka #1 SELL @ 3.501,80"
@@ -563,7 +572,7 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 7,
+   "obrazaca": 8,
    "odbijeno": 1,
    "razlog": "Dan važnih US vijesti – bez ulaza (pravilo)",
    "razlog_en": "Major US news day – no entries (rule)"
