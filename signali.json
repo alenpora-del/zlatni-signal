@@ -1,9 +1,9 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T23:31",
+ "azurirano": "2026-11-25T23:42",
  "danas": {
-  "server_vrijeme": "2026-11-26 00:01",
+  "server_vrijeme": "2026-11-26 00:12",
   "cijena": 3588.5,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795645852,
+   "zivi": 1795646512,
    "gotov": false
   },
   "racun": {
