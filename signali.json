@@ -1,12 +1,12 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T23:26",
+ "azurirano": "2026-11-25T23:31",
  "danas": {
-  "server_vrijeme": "2026-11-25 23:56",
+  "server_vrijeme": "2026-11-26 00:01",
   "cijena": 3588.5,
-  "status": "Glavni signal dana iskorišten",
-  "status_kod": "iskoristen",
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
    {
@@ -353,13 +353,13 @@
   },
   "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-25T19:30:00Z",
-  "kraj_utc": "2026-11-25T20:30:00Z",
+  "ulaz_do_utc": "2026-11-26T17:30:00Z",
+  "kraj_utc": "2026-11-26T18:30:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795645552,
+   "zivi": 1795645852,
    "gotov": false
   },
   "racun": {
@@ -378,23 +378,23 @@
     9800.46
    ]
   },
-  "sljedeci_radni": "2026-11-26",
+  "sljedeci_radni": "2026-11-27",
   "puls": {
-   "ocjena": 65,
-   "stanje": "rizicno",
+   "ocjena": 100,
+   "stanje": "povoljno",
    "pritisak": {
     "buy": 76,
     "sell": 24
    },
    "zivost_pct": 133,
-   "vijesti_danas": true,
+   "vijesti_danas": false,
    "razlozi": [
     "Živost tržišta 133% od uobičajene",
-    "Danas su važne US vijesti – bot danas ne otvara glavni signal"
+    "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
     "Market activity 133% of normal",
-    "Major US news today – the bot opens no main signal today"
+    "No major US news today"
    ],
    "promjena": {
     "15": 12.24,
@@ -413,13 +413,13 @@
    }
   },
   "radar": {
-   "faza": "miruje"
+   "faza": "skenira"
   },
   "dnevnik": [
-   "13:00 · dodatna preporuka #1 SELL @ 3.501,80"
+   "Analiziram tržište…"
   ],
   "dnevnik_en": [
-   "13:00 · extra idea #1 SELL @ 3.501,80"
+   "Analysing the market…"
   ],
   "prilike": []
  },
@@ -485,9 +485,6 @@
   }
  ],
  "dani": {
-  "2026-09-11": {
-   "z": "vijest"
-  },
   "2026-09-16": {
    "z": "vijest"
   },
@@ -669,24 +666,6 @@
     "h1": "2018-2026: +0.37R/trejd, 8/9 godina u plusu"
    }
   },
-  "danas": [
-   {
-    "br": 1,
-    "vrsta": "retest_tjedan",
-    "smjer": "SELL",
-    "ulaz": 3501.8,
-    "sl": 3512.79,
-    "tp": 3479.83,
-    "rr": 2.0,
-    "razlog": "Cijena je probila i zatvorila ispod dna prošlog tjedna (3,502.80) – jak nivo. Ulaz na povratku do probijenog nivoa.",
-    "razlog_en": "Price broke and closed below last week's low (3,502.80) – a strong level. Entry on the pullback to the broken level.",
-    "izdano": "2026-11-25 14:00:00",
-    "vrijedi_do": "2026-11-25 18:00:00",
-    "status": "stop",
-    "R": -1.02,
-    "vrijeme": "13:00",
-    "do_cet": "17:00"
-   }
-  ]
+  "danas": []
  }
 }
