@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T13:36",
+ "azurirano": "2026-11-25T13:45",
  "danas": {
-  "server_vrijeme": "2026-11-25 14:36",
-  "cijena": 3527.51,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-25 14:45",
+  "cijena": 3522.77,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "02:45",
-    "o": 3543.86,
-    "h": 3558.24,
-    "l": 3543.45,
-    "c": 3548.64
-   },
    {
     "t": "03:00",
     "o": 3548.62,
@@ -341,15 +334,22 @@
    {
     "t": "14:30",
     "o": 3522.58,
-    "h": 3528.09,
+    "h": 3530.08,
     "l": 3518.13,
-    "c": 3527.51
+    "c": 3522.83
+   },
+   {
+    "t": "14:45",
+    "o": 3522.83,
+    "h": 3522.97,
+    "l": 3522.72,
+    "c": 3522.77
    }
   ],
   "dan": {
    "max": 3575.09,
    "min": 3484.89,
-   "otvaranje": 3543.86
+   "otvaranje": 3548.62
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795610148,
+   "zivi": 1795610688,
    "gotov": false
   },
   "racun": {
@@ -382,23 +382,23 @@
    "ocjena": 65,
    "stanje": "rizicno",
    "pritisak": {
-    "buy": 46,
-    "sell": 54
+    "buy": 43,
+    "sell": 57
    },
-   "zivost_pct": 108,
+   "zivost_pct": 109,
    "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 108% od uobičajene",
+    "Živost tržišta 109% od uobičajene",
     "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 108% of normal",
+    "Market activity 109% of normal",
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": 8.06,
-    "60": 15.94,
-    "240": -7.47
+    "15": 0.02,
+    "60": 10.89,
+    "240": -14.01
    },
    "nivoi": {
     "jucer": {
@@ -412,7 +412,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "SELL",
+   "od": "2026-11-25 14:45",
+   "uvjeti": [
+    true,
+    true,
+    false,
+    false
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "13:00 · dodatna preporuka #1 SELL @ 3.501,80"
@@ -563,7 +572,7 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 4,
+   "obrazaca": 5,
    "odbijeno": 1,
    "razlog": "Dan važnih US vijesti – bez ulaza (pravilo)",
    "razlog_en": "Major US news day – no entries (rule)"
