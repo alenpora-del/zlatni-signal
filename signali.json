@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T20:54",
+ "azurirano": "2026-11-25T21:04",
  "danas": {
-  "server_vrijeme": "2026-11-25 21:54",
-  "cijena": 3547.92,
+  "server_vrijeme": "2026-11-25 22:04",
+  "cijena": 3550.24,
   "status": "Glavni signal dana iskorišten",
   "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
-   {
-    "t": "10:00",
-    "o": 3523.32,
-    "h": 3527.39,
-    "l": 3516.04,
-    "c": 3522.31
-   },
    {
     "t": "10:15",
     "o": 3522.32,
@@ -341,15 +334,22 @@
    {
     "t": "21:45",
     "o": 3538.09,
-    "h": 3549.43,
+    "h": 3551.1,
     "l": 3535.91,
-    "c": 3547.92
+    "c": 3546.27
+   },
+   {
+    "t": "22:00",
+    "o": 3546.26,
+    "h": 3553.12,
+    "l": 3544.37,
+    "c": 3550.24
    }
   ],
   "dan": {
    "max": 3557.7,
    "min": 3426.55,
-   "otvaranje": 3523.32
+   "otvaranje": 3522.32
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795636427,
+   "zivi": 1795637060,
    "gotov": false
   },
   "racun": {
@@ -385,20 +385,20 @@
     "buy": 83,
     "sell": 17
    },
-   "zivost_pct": 127,
+   "zivost_pct": 128,
    "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 127% od uobičajene",
+    "Živost tržišta 128% od uobičajene",
     "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 127% of normal",
+    "Market activity 128% of normal",
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": -1.04,
-    "60": 0.96,
-    "240": 101.94
+    "15": 11.26,
+    "60": 2.42,
+    "240": 99.11
    },
    "nivoi": {
     "jucer": {
@@ -600,8 +600,8 @@
   }
  ],
  "preskoceni": {
-  "n": 2,
-  "R": 1.0,
+  "n": 3,
+  "R": 0.0,
   "dobitnih": 1,
   "dani": {
    "2026-11-20": [
@@ -616,6 +616,13 @@
      "smjer": "BUY",
      "ocjena": 65,
      "R": 2.0
+    }
+   ],
+   "2026-11-25": [
+    {
+     "smjer": "SELL",
+     "ocjena": 45,
+     "R": -1.0
     }
    ]
   }
