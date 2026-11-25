@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T13:05",
+ "azurirano": "2026-11-25T13:14",
  "danas": {
-  "server_vrijeme": "2026-11-25 14:05",
-  "cijena": 3500.99,
+  "server_vrijeme": "2026-11-25 14:14",
+  "cijena": 3513.37,
   "status": "Moguća prilika uskoro",
   "status_kod": "prilika",
   "raspon": null,
@@ -341,9 +341,9 @@
    {
     "t": "14:00",
     "o": 3490.47,
-    "h": 3502.67,
+    "h": 3517.34,
     "l": 3489.33,
-    "c": 3500.98
+    "c": 3513.37
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795608286,
+   "zivi": 1795608886,
    "gotov": false
   },
   "racun": {
@@ -396,9 +396,9 @@
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": -14.45,
-    "60": -25.81,
-    "240": -15.87
+    "15": 22.93,
+    "60": -13.72,
+    "240": -8.94
    },
    "nivoi": {
     "jucer": {
@@ -633,14 +633,22 @@
   "stat": {
    "izdano": 2,
    "aktivirano": 1,
-   "zatvoreno": 0,
+   "zatvoreno": 1,
    "neaktivirano": 1,
-   "u_tijeku": 1,
+   "u_tijeku": 0,
    "dobitnih_pct": 0,
-   "ukupno_R": 0,
-   "prosjek_R": 0,
-   "dd_R": 0,
-   "po_vrsti": {},
+   "ukupno_R": -1.02,
+   "prosjek_R": -1.02,
+   "dd_R": -1.02,
+   "po_vrsti": {
+    "retest_tjedan": {
+     "naziv": "Retest prošlotjednog nivoa",
+     "naziv_en": "Retest of last week's level",
+     "n": 1,
+     "dobitnih_pct": 0,
+     "ukupno_R": -1.02
+    }
+   },
    "test": {
     "izdano": 519,
     "aktivirano": 348,
@@ -665,8 +673,8 @@
     "razlog_en": "Price broke and closed below last week's low (3,502.80) – a strong level. Entry on the pullback to the broken level.",
     "izdano": "2026-11-25 14:00:00",
     "vrijedi_do": "2026-11-25 18:00:00",
-    "status": "aktivna",
-    "R": null,
+    "status": "stop",
+    "R": -1.02,
     "vrijeme": "13:00",
     "do_cet": "17:00"
    }
