@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T21:25",
+ "azurirano": "2026-11-25T21:36",
  "danas": {
-  "server_vrijeme": "2026-11-25 22:25",
-  "cijena": 3576.85,
+  "server_vrijeme": "2026-11-25 22:36",
+  "cijena": 3572.05,
   "status": "Glavni signal dana iskorišten",
   "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
-   {
-    "t": "10:30",
-    "o": 3531.92,
-    "h": 3540.19,
-    "l": 3529.34,
-    "c": 3536.47
-   },
    {
     "t": "10:45",
     "o": 3536.46,
@@ -341,15 +334,22 @@
    {
     "t": "22:15",
     "o": 3566.96,
-    "h": 3580.89,
+    "h": 3587.74,
     "l": 3566.79,
-    "c": 3576.85
+    "c": 3584.4
+   },
+   {
+    "t": "22:30",
+    "o": 3584.42,
+    "h": 3584.66,
+    "l": 3567.69,
+    "c": 3572.05
    }
   ],
   "dan": {
-   "max": 3580.89,
+   "max": 3587.74,
    "min": 3426.55,
-   "otvaranje": 3531.92
+   "otvaranje": 3536.46
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795638320,
+   "zivi": 1795638950,
    "gotov": false
   },
   "racun": {
@@ -382,23 +382,23 @@
    "ocjena": 65,
    "stanje": "rizicno",
    "pritisak": {
-    "buy": 85,
-    "sell": 15
+    "buy": 86,
+    "sell": 14
    },
-   "zivost_pct": 129,
+   "zivost_pct": 130,
    "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 129% od uobičajene",
+    "Živost tržišta 130% od uobičajene",
     "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 129% of normal",
+    "Market activity 130% of normal",
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": 15.91,
-    "60": 26.77,
-    "240": 115.14
+    "15": -0.54,
+    "60": 25.66,
+    "240": 118.33
    },
    "nivoi": {
     "jucer": {
@@ -465,7 +465,7 @@
   "kanal": "https://t.me/zlatni_signal_ba",
   "kontakt": null
  },
- "pratitelja": 23,
+ "pratitelja": 24,
  "verzija": 5,
  "vijesti": [
   {
