@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T19:41",
+ "azurirano": "2026-11-25T19:45",
  "danas": {
-  "server_vrijeme": "2026-11-25 20:41",
-  "cijena": 3529.93,
-  "status": "Moguća prilika uskoro",
-  "status_kod": "prilika",
+  "server_vrijeme": "2026-11-25 20:45",
+  "cijena": 3541.5,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "08:45",
-    "o": 3521.66,
-    "h": 3523.46,
-    "l": 3512.49,
-    "c": 3515.87
-   },
    {
     "t": "09:00",
     "o": 3515.86,
@@ -343,13 +336,20 @@
     "o": 3540.25,
     "h": 3541.43,
     "l": 3525.98,
-    "c": 3529.93
+    "c": 3539.56
+   },
+   {
+    "t": "20:45",
+    "o": 3539.54,
+    "h": 3541.91,
+    "l": 3539.53,
+    "c": 3541.5
    }
   ],
   "dan": {
-   "max": 3541.43,
+   "max": 3541.91,
    "min": 3426.55,
-   "otvaranje": 3521.66
+   "otvaranje": 3515.86
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795632072,
+   "zivi": 1795632313,
    "gotov": false
   },
   "racun": {
@@ -382,23 +382,23 @@
    "ocjena": 65,
    "stanje": "rizicno",
    "pritisak": {
-    "buy": 68,
-    "sell": 32
+    "buy": 74,
+    "sell": 26
    },
-   "zivost_pct": 123,
+   "zivost_pct": 124,
    "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 123% od uobičajene",
+    "Živost tržišta 124% od uobičajene",
     "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 123% of normal",
+    "Market activity 124% of normal",
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": -1.94,
-    "60": 22.05,
-    "240": 73.55
+    "15": 5.76,
+    "60": 34.66,
+    "240": 76.38
    },
    "nivoi": {
     "jucer": {
@@ -412,16 +412,10 @@
    }
   },
   "radar": {
-   "faza": "obrazac",
+   "faza": "ponisten",
    "smjer": "SELL",
-   "od": "2026-11-25 20:30",
-   "uvjeti": [
-    true,
-    true,
-    false,
-    false
-   ],
-   "potvrda": null
+   "razlog": "Obrazac se nije potvrdio",
+   "razlog_en": "The setup was not confirmed"
   },
   "dnevnik": [
    "13:00 · dodatna preporuka #1 SELL @ 3.501,80"
