@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T15:10",
+ "azurirano": "2026-11-25T15:20",
  "danas": {
-  "server_vrijeme": "2026-11-25 16:10",
-  "cijena": 3482.3,
+  "server_vrijeme": "2026-11-25 16:20",
+  "cijena": 3479.48,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "04:15",
-    "o": 3559.64,
-    "h": 3570.26,
-    "l": 3556.64,
-    "c": 3565.34
-   },
    {
     "t": "04:30",
     "o": 3565.27,
@@ -343,13 +336,20 @@
     "o": 3476.56,
     "h": 3489.68,
     "l": 3475.61,
-    "c": 3482.3
+    "c": 3482.98
+   },
+   {
+    "t": "16:15",
+    "o": 3482.99,
+    "h": 3484.66,
+    "l": 3476.87,
+    "c": 3479.48
    }
   ],
   "dan": {
    "max": 3575.09,
    "min": 3467.44,
-   "otvaranje": 3559.64
+   "otvaranje": 3565.27
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795615854,
+   "zivi": 1795616425,
    "gotov": false
   },
   "racun": {
@@ -382,23 +382,23 @@
    "ocjena": 65,
    "stanje": "rizicno",
    "pritisak": {
-    "buy": 29,
-    "sell": 71
+    "buy": 31,
+    "sell": 69
    },
-   "zivost_pct": 113,
+   "zivost_pct": 112,
    "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 113% od uobičajene",
+    "Živost tržišta 112% od uobičajene",
     "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 113% of normal",
+    "Market activity 112% of normal",
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": 5.5,
-    "60": -32.28,
-    "240": -53.26
+    "15": -1.37,
+    "60": -18.96,
+    "240": -52.41
    },
    "nivoi": {
     "jucer": {
@@ -412,10 +412,7 @@
    }
   },
   "radar": {
-   "faza": "ponisten",
-   "smjer": "BUY",
-   "razlog": "Obrazac se nije potvrdio",
-   "razlog_en": "The setup was not confirmed"
+   "faza": "skenira"
   },
   "dnevnik": [
    "13:00 · dodatna preporuka #1 SELL @ 3.501,80"
