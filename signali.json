@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T06:35",
+ "azurirano": "2026-11-25T06:45",
  "danas": {
-  "server_vrijeme": "2026-11-25 07:35",
-  "cijena": 3537.49,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-25 07:45",
+  "cijena": 3530.69,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "18:45",
-    "o": 3574.94,
-    "h": 3574.94,
-    "l": 3563.8,
-    "c": 3564.63
-   },
    {
     "t": "19:00",
     "o": 3564.65,
@@ -342,13 +335,20 @@
     "t": "07:30",
     "o": 3539.56,
     "h": 3543.98,
-    "l": 3533.87,
-    "c": 3537.49
+    "l": 3530.5,
+    "c": 3530.55
+   },
+   {
+    "t": "07:45",
+    "o": 3530.6,
+    "h": 3531.6,
+    "l": 3530.41,
+    "c": 3530.69
    }
   ],
   "dan": {
    "max": 3575.09,
-   "min": 3533.69,
+   "min": 3530.41,
    "otvaranje": 3559.92
   },
   "gotov": false,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795584920,
+   "zivi": 1795585520,
    "gotov": false
   },
   "racun": {
@@ -382,23 +382,23 @@
    "ocjena": 65,
    "stanje": "rizicno",
    "pritisak": {
-    "buy": 49,
-    "sell": 51
+    "buy": 37,
+    "sell": 63
    },
-   "zivost_pct": 105,
+   "zivost_pct": 106,
    "vijesti_danas": true,
    "razlozi": [
-    "Živost tržišta 105% od uobičajene",
+    "Živost tržišta 106% od uobičajene",
     "Danas su važne US vijesti – bot danas ne otvara glavni signal"
    ],
    "razlozi_en": [
-    "Market activity 105% of normal",
+    "Market activity 106% of normal",
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": -10.02,
-    "60": -12.91,
-    "240": -12.26
+    "15": -5.35,
+    "60": -17.59,
+    "240": -20.85
    },
    "nivoi": {
     "jucer": {
@@ -412,7 +412,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "BUY",
+   "od": "2026-11-25 07:45",
+   "uvjeti": [
+    true,
+    false,
+    false,
+    false
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -563,7 +572,7 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 2,
+   "obrazaca": 3,
    "odbijeno": 1,
    "razlog": "Dan važnih US vijesti – bez ulaza (pravilo)",
    "razlog_en": "Major US news day – no entries (rule)"
