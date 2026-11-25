@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-25T13:00",
+ "azurirano": "2026-11-25T13:05",
  "danas": {
-  "server_vrijeme": "2026-11-25 14:00",
-  "cijena": 3490.73,
+  "server_vrijeme": "2026-11-25 14:05",
+  "cijena": 3500.99,
   "status": "Moguća prilika uskoro",
   "status_kod": "prilika",
   "raspon": null,
@@ -341,9 +341,9 @@
    {
     "t": "14:00",
     "o": 3490.47,
-    "h": 3491.53,
-    "l": 3490.23,
-    "c": 3490.73
+    "h": 3502.67,
+    "l": 3489.33,
+    "c": 3500.98
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795607985,
+   "zivi": 1795608286,
    "gotov": false
   },
   "racun": {
@@ -396,9 +396,9 @@
     "Major US news today – the bot opens no main signal today"
    ],
    "promjena": {
-    "15": -21.15,
-    "60": -40.97,
-    "240": -35.23
+    "15": -14.45,
+    "60": -25.81,
+    "240": -15.87
    },
    "nivoi": {
     "jucer": {
@@ -632,7 +632,7 @@
  "dodatne": {
   "stat": {
    "izdano": 2,
-   "aktivirano": 0,
+   "aktivirano": 1,
    "zatvoreno": 0,
    "neaktivirano": 1,
    "u_tijeku": 1,
@@ -665,7 +665,7 @@
     "razlog_en": "Price broke and closed below last week's low (3,502.80) – a strong level. Entry on the pullback to the broken level.",
     "izdano": "2026-11-25 14:00:00",
     "vrijedi_do": "2026-11-25 18:00:00",
-    "status": "ceka",
+    "status": "aktivna",
     "R": null,
     "vrijeme": "13:00",
     "do_cet": "17:00"
