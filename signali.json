@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-26T03:23",
+ "azurirano": "2026-11-26T03:30",
  "danas": {
-  "server_vrijeme": "2026-11-26 04:23",
-  "cijena": 3585.93,
-  "status": "Analiziram tržište",
-  "status_kod": "analiza",
+  "server_vrijeme": "2026-11-26 04:30",
+  "cijena": 3583.93,
+  "status": "Moguća prilika uskoro",
+  "status_kod": "prilika",
   "raspon": null,
   "graf": [
-   {
-    "t": "15:30",
-    "o": 3508.82,
-    "h": 3508.94,
-    "l": 3469.54,
-    "c": 3476.38
-   },
    {
     "t": "15:45",
     "o": 3476.37,
@@ -342,8 +335,15 @@
     "t": "04:15",
     "o": 3584.27,
     "h": 3591.09,
-    "l": 3582.11,
-    "c": 3585.93
+    "l": 3579.31,
+    "c": 3585.71
+   },
+   {
+    "t": "04:30",
+    "o": 3585.71,
+    "h": 3586.81,
+    "l": 3583.4,
+    "c": 3583.93
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795659786,
+   "zivi": 1795660236,
    "gotov": false
   },
   "racun": {
@@ -383,8 +383,8 @@
    "ocjena": 100,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 54,
-    "sell": 46
+    "buy": 52,
+    "sell": 48
    },
    "zivost_pct": 140,
    "vijesti_danas": false,
@@ -397,9 +397,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": 9.9,
-    "60": 13.16,
-    "240": 16.54
+    "15": -0.25,
+    "60": 19.46,
+    "240": -0.47
    },
    "nivoi": {
     "jucer": {
@@ -413,7 +413,16 @@
    }
   },
   "radar": {
-   "faza": "skenira"
+   "faza": "obrazac",
+   "smjer": "SELL",
+   "od": "2026-11-26 04:30",
+   "uvjeti": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "potvrda": null
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -561,10 +570,10 @@
    "trejdova": 0,
    "R": 0,
    "otvoren": false,
-   "obrazaca": 0,
+   "obrazaca": 1,
    "odbijeno": 0,
-   "razlog": "Nije bilo kvalitetnog obrasca",
-   "razlog_en": "No quality setup appeared"
+   "razlog": "Obrazac se nije potvrdio",
+   "razlog_en": "The setup was not confirmed"
   },
   {
    "dan": "2026-11-25",
