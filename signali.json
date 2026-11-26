@@ -1,9 +1,9 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-26T22:28",
+ "azurirano": "2026-11-26T22:39",
  "danas": {
-  "server_vrijeme": "2026-11-26 21:28",
+  "server_vrijeme": "2026-11-26 21:39",
   "cijena": 3566.28,
   "status": "Glavni signal dana iskorišten",
   "status_kod": "iskoristen",
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795728519,
+   "zivi": 1795729120,
    "gotov": false
   },
   "racun": {
@@ -466,7 +466,7 @@
   "kanal": "https://t.me/zlatni_signal_ba",
   "kontakt": null
  },
- "pratitelja": 25,
+ "pratitelja": 24,
  "verzija": 5,
  "vijesti": [
   {
@@ -670,9 +670,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "IrqxTyF3ab8Zs1ejyYom6w==",
-  "c": "NZnTaFsnoGTlZT/K0kg6PEEpXS9iGFnm6ylj/dYGFaosCn8Rhjirw2cBMK/WlvLzTneF/KsbBE9Xe0Xd2q+V/HdsGf7Sh6CcqaTK/HSVEp4bHUOna3i74h8EJFIsjzLqV9OdsU36rS/dh5G3VAjgwtTJaUd6sr+PiPTFH2WAhBkVjDXA3NBSP+sNKJdGoVAOzJUEJprzMh0kaLS/t4Ct2gnN+yQ92To9OChIdRJm2qX6QA/jBVvWR67+rMkOENOeztQId/1PmRuhABq46Q==",
-  "t": "tCSongtPL4Osqr8FzJjvGSE11g4GpetPsWCjX0UDW+o=",
+  "n": "5kr1Qcs+YX/Ljizh5flOeQ==",
+  "c": "opeltGbACGczhlp2rrlOlExPFxn8Y2Dfqpl/aBhvhAXe/LgJFjST7TiI4oFX3kWs89uXkO+UjySnT3T1APdfys/rBpYVyyFnhBSOe4MxLFjHeu08TeQzr+CQC5UejnezyuMKVW/v8p3qGYuMqzOd2gU4vk9r/D4CYZat+twrM3Fs0X4y2gJtqE7CwtfFw4r1J1DzuXjOysEJa8YWiKXluQOvyD43T7rvMiIGahwPyI84/LEbvKoJ/5XdeyrNajpoFqO4lupkVywjYzYZng==",
+  "t": "LdqWPMKroxQqoh/f3YvfLbVTx0jOCROvL87CG6Oh440=",
   "i": 150000
  }
 }
