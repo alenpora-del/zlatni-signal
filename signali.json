@@ -1,12 +1,12 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-26T20:52",
+ "azurirano": "2026-11-26T20:58",
  "danas": {
-  "server_vrijeme": "2026-11-26 21:52",
+  "server_vrijeme": "2026-11-26 21:28",
   "cijena": 3566.28,
-  "status": "Praznik - tržište zatvoreno",
-  "status_kod": "praznik",
+  "status": "Glavni signal dana iskorišten",
+  "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
    {
@@ -353,13 +353,13 @@
   },
   "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-26T17:00:00Z",
-  "kraj_utc": "2026-11-26T18:00:00Z",
+  "ulaz_do_utc": "2026-11-26T17:30:00Z",
+  "kraj_utc": "2026-11-26T18:30:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795722698,
+   "zivi": 1795723088,
    "gotov": false
   },
   "racun": {
@@ -670,9 +670,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "WWvcqBZbhpaLe2y9Bdsl+w==",
-  "c": "L5OhxD1+QNfZayJdzlJ9Vukcx91mv/9Bs91iyf+PMgeEEjr55LcqR7+QLf/3h6+KKmbypwEHmTs1uEx3Rdy7ixYomwcxIvp+oNIujEajo34JUtmbsHt5emtD9gCU4JkakIHl1U6D9Mxa+1Tno54bQg1SY5KQrJ94KAwI6NLrE7EJM2XH+oS6UHgrnAj9T2rAsGQ9CeAPkT/a/p+UMYM26cPcwWUJZhLsu7nxZyFGzjYbwxivSBUB/FgjbuMTk5CqHm31EYG1CLowrySKBQ==",
-  "t": "8D9qxOUXu1gFVEFU1FKqEoBrQrZlUptwgtYRObP94F0=",
+  "n": "Oynk8Q1ijAMTKmT4CsPc9g==",
+  "c": "+QVZgn4cmhbbqe8I8YmJ/LaSbCW5IH7Pj85i/g4+nnSjmZJ9lVRwhXkNYIfzsAGSB4AiZ7nb6cB0Mkh7PxNsLxtMO5dHuvdyMBq+Y/ahU+E8fD69vtl/0bkhHH+WVvguvDFqKXg8mSxHl38QNQdRS5d22rvh4fiYxhvWqybVcZq3Tgx1JuOj8djbWN2wW5t5UrUW+XhrULr/zq2OmDeczrHU1EE9vy1XEv9GDZZTaGU8bJmva8B8g1rJgy9jy9IFgN8hFdd/XcFHEqvr9g==",
+  "t": "hmm9W+vlQ0l7IbmbMwt6d+Iduyc6ytdhYo2ZyqeIK7Q=",
   "i": 150000
  }
 }
