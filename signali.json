@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-26T23:58",
+ "azurirano": "2026-11-27T00:01",
  "danas": {
-  "server_vrijeme": "2026-11-26 21:28",
-  "cijena": 3566.28,
-  "status": "Glavni signal dana iskorišten",
-  "status_kod": "iskoristen",
+  "server_vrijeme": "2026-11-27 01:01",
+  "cijena": 3563.8,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "09:30",
-    "o": 3570.18,
-    "h": 3574.21,
-    "l": 3567.79,
-    "c": 3571.47
-   },
    {
     "t": "09:45",
     "o": 3571.47,
@@ -344,22 +337,29 @@
     "h": 3567.06,
     "l": 3565.56,
     "c": 3566.28
+   },
+   {
+    "t": "01:00",
+    "o": 3565.96,
+    "h": 3566.01,
+    "l": 3562.81,
+    "c": 3563.8
    }
   ],
   "dan": {
-   "max": 3586.39,
-   "min": 3552.01,
-   "otvaranje": 3570.18
+   "max": 3566.01,
+   "min": 3562.81,
+   "otvaranje": 3565.96
   },
   "gotov": false,
   "signal": null,
-  "ulaz_do_utc": "2026-11-26T20:30:00Z",
-  "kraj_utc": "2026-11-26T21:30:00Z",
+  "ulaz_do_utc": "2026-11-27T17:00:00Z",
+  "kraj_utc": "2026-11-27T18:00:00Z",
   "bot": {
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795733881,
+   "zivi": 1795734061,
    "gotov": false
   },
   "racun": {
@@ -375,36 +375,37 @@
     10000.0,
     9800.46,
     9800.46,
+    9800.46,
     9800.46
    ]
   },
-  "sljedeci_radni": "2026-11-27",
+  "sljedeci_radni": "2026-11-30",
   "puls": {
    "ocjena": 90,
    "stanje": "povoljno",
    "pritisak": {
-    "buy": 36,
-    "sell": 64
+    "buy": 37,
+    "sell": 63
    },
-   "zivost_pct": 98,
+   "zivost_pct": 97,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 98% od uobičajene",
+    "Živost tržišta 97% od uobičajene",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 98% of normal",
+    "Market activity 97% of normal",
     "No major US news today"
    ],
    "promjena": {
-    "15": -0.74,
-    "60": -2.15,
-    "240": -7.88
+    "15": -3.17,
+    "60": -4.7,
+    "240": -7.71
    },
    "nivoi": {
     "jucer": {
-     "vrh": 3589.32,
-     "dno": 3426.55
+     "vrh": 3607.12,
+     "dno": 3551.26
     },
     "tjedan": {
      "vrh": 3901.14,
@@ -413,7 +414,7 @@
    }
   },
   "radar": {
-   "faza": "miruje"
+   "faza": "skenira"
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -557,6 +558,16 @@
  },
  "dnevnik_dana": [
   {
+   "dan": "2026-11-27",
+   "trejdova": 0,
+   "R": 0,
+   "otvoren": false,
+   "obrazaca": 0,
+   "odbijeno": 0,
+   "razlog": "Nije bilo kvalitetnog obrasca",
+   "razlog_en": "No quality setup appeared"
+  },
+  {
    "dan": "2026-11-26",
    "trejdova": 0,
    "R": 0,
@@ -670,9 +681,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "ixK9OEl/DV7KlrxHu+1Q0w==",
-  "c": "EwIG/JFajGH8IB/jpm45yytXNRFvkvLAIR5IOQ1k+LdHQeCs3m6VhHWxdtV2IwDXQQqOSiWVMV4/OaCDnKCbr+Vj8whLGX2kcVat6E+OFvAwWf2Dv4PAgfloUcxNi6XIluX3iSkKemj7MfEf5FZ/GKbYpvn9lNTnsj1rYCabipS4L03eaelP+JFbjASJ7BdrsbsZqCIEI4IRQ2OI8pKKP3JXKNUbBWXKV9OGvp4NFhJu58s/3cM7hmcxBQLv7qb/H34Hi0zZJC8+H8i6wg==",
-  "t": "PYmp29mmFTVo/BXYesAuemjTvJ2FY5PSQQHCcSOkXtU=",
+  "n": "PMNqPVHs7FhUL50htGNM0A==",
+  "c": "Lk8ll9/Ql89Qk8HniOSGEEUezg7uLRyvHKhcFItKNJpsV7GHOeXbRKInNbqT9f9b9L+ixmZLnI/QKSLhBNAtjKVpdBGpwKUy/VQTWHSRY+jiRWPjhi/WNbSQiN61XqjFIWB/29y9VqQTMOIFrCJDat7qp86iOtSo6FC8NLBOM/GYdC/FJ7TVzEl+FOYZ/BSU13VDnrajOpAOXAaqcmXPnFe4YFC3F4xOWzi0RwA2mhiOpdXnS/2PJzaa0PEdgaBdau2n5iZy0RytdzFIRA==",
+  "t": "fHzYfbeI2h7SVPaYfQ2kIThns+lj6SdP+qoCdnEPPzg=",
   "i": 150000
  }
 }
