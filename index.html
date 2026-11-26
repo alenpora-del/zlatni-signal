@@ -528,6 +528,7 @@
   <!-- ===================== DANAS ===================== -->
   <section id="t-danas">
     <div id="baner"></div>
+    <div class="k" id="moj-k" hidden style="cursor:pointer"></div>
     <div class="k lux">
       <div class="rub-odsjaj"></div><div class="lux-nas">◎ MARKET RADAR</div>
       <svg class="lux-svijece l" viewBox="0 0 112 120" preserveAspectRatio="none"><g stroke="#20D879" fill="#20D879"><line x1="6" x2="6" y1="50" y2="95"/><rect x="3" y="67" width="6" height="18"/></g><g stroke="#20D879" fill="#20D879"><line x1="17" x2="17" y1="49" y2="80"/><rect x="14" y="61" width="6" height="21"/></g><g stroke="#20D879" fill="#20D879"><line x1="28" x2="28" y1="52" y2="86"/><rect x="25" y="65" width="6" height="17"/></g><g stroke="#20D879" fill="#20D879"><line x1="39" x2="39" y1="38" y2="77"/><rect x="36" y="53" width="6" height="10"/></g><g stroke="#20D879" fill="#20D879"><line x1="50" x2="50" y1="40" y2="68"/><rect x="47" y="50" width="6" height="17"/></g><g stroke="#20D879" fill="#20D879"><line x1="61" x2="61" y1="37" y2="80"/><rect x="58" y="55" width="6" height="16"/></g><g stroke="#20D879" fill="#20D879"><line x1="72" x2="72" y1="36" y2="77"/><rect x="69" y="48" width="6" height="12"/></g><g stroke="#20D879" fill="#20D879"><line x1="83" x2="83" y1="26" y2="63"/><rect x="80" y="40" width="6" height="16"/></g><g stroke="#20D879" fill="#20D879"><line x1="94" x2="94" y1="24" y2="56"/><rect x="91" y="37" width="6" height="15"/></g><g stroke="#20D879" fill="#20D879"><line x1="105" x2="105" y1="22" y2="53"/><rect x="102" y="30" width="6" height="22"/></g></svg>
@@ -630,6 +631,18 @@
 
   <!-- ===================== RIZIK ===================== -->
   <section id="t-kalk" class="sk">
+    <div class="k"><div class="nas" data-en="📈 Account simulator">📈 Simulator računa</div>
+      <label data-en="Account type">Vrsta računa</label>
+      <div class="seg" id="sim-vr"><button data-v="std" class="akt">Standard</button><button data-v="cent">Cent</button></div>
+      <label data-en="Starting capital">Početni kapital</label>
+      <div class="seg" id="sim-kap"><button data-v="100">100$</button><button data-v="500">500$</button><button data-v="1000" class="akt">1.000$</button><button data-v="5000">5.000$</button><button data-v="10000">10.000$</button></div>
+      <label data-en="Risk per signal">Rizik po signalu</label>
+      <div class="seg" id="sim-riz"><button data-v="0.5">0,5%</button><button data-v="1" class="akt">1%</button><button data-v="2">2%</button></div>
+      <svg class="graf" id="sim-graf" viewBox="0 0 320 170" preserveAspectRatio="none" style="height:170px;margin-top:14px"></svg>
+      <div id="sim-lot"></div>
+      <div class="lst" id="sim-rez" style="margin-top:6px"></div>
+      <div class="upoz" data-en="⚠️ <b>Hypothetical simulation, not a promise.</b> Based on the historical test (~11 signals/month, +0.15 / +0.25 / +0.33R per signal). Real results can be worse, and losing months happen.">⚠️ <b>Hipotetička simulacija, nije obećanje zarade.</b> Na osnovu povijesnog testa (~11 signala mjesečno, +0,15 / +0,25 / +0,33R po signalu). Stvarni rezultati mogu biti lošiji, a mjeseci u minusu se događaju.</div>
+    </div>
     <div class="k"><div class="nas" data-en="Risk calculator">Kalkulator rizika</div>
       <label data-en="Account balance ($)">Stanje računa ($)</label><input id="k-racun" type="number" inputmode="decimal" value="1000">
       <label data-en="Risk per signal">Rizik po signalu</label>
@@ -647,15 +660,6 @@
       </div>
       <div id="k-upoz"></div>
       <p class="info-t" data-en="When a signal is active, its entry and stop are filled in automatically. On gold, 0.01 lot = $1 per $1 price move; the smallest lot is 0.01. Lot rules vary slightly by broker.">Kad je signal aktivan, ulaz i stop se upišu sami. Na zlatu 0.01 lota = 1$ po 1$ pomaka cijene; najmanji lot je 0.01. Pravila lota se malo razlikuju od brokera do brokera.</p>
-    </div>
-    <div class="k"><div class="nas" data-en="📈 Account simulator">📈 Simulator računa</div>
-      <label data-en="Starting capital">Početni kapital</label>
-      <div class="seg" id="sim-kap"><button data-v="500">500$</button><button data-v="1000" class="akt">1.000$</button><button data-v="5000">5.000$</button><button data-v="10000">10.000$</button></div>
-      <label data-en="Risk per signal">Rizik po signalu</label>
-      <div class="seg" id="sim-riz"><button data-v="0.5">0,5%</button><button data-v="1" class="akt">1%</button><button data-v="2">2%</button></div>
-      <svg class="graf" id="sim-graf" viewBox="0 0 320 170" preserveAspectRatio="none" style="height:170px;margin-top:14px"></svg>
-      <div class="lst" id="sim-rez" style="margin-top:6px"></div>
-      <div class="upoz" data-en="⚠️ <b>Hypothetical simulation, not a promise.</b> Based on the historical test (~11 signals/month, +0.15 / +0.25 / +0.33R per signal). Real results can be worse, and losing months happen.">⚠️ <b>Hipotetička simulacija, nije obećanje zarade.</b> Na osnovu povijesnog testa (~11 signala mjesečno, +0,15 / +0,25 / +0,33R po signalu). Stvarni rezultati mogu biti lošiji, a mjeseci u minusu se događaju.</div>
     </div>
   </section>
 
@@ -675,6 +679,11 @@
         <div class="mini"><span data-en="Max drawdown">Najveći pad</span><b class="num c" id="s-dd">—</b></div>
         <div class="mini"><span data-en="Loss streak">Niz gubitaka</span><b class="num" id="s-ng">—</b></div>
         <div class="mini"><span data-en="Win streak">Niz dobitaka</span><b class="num" id="s-nd">—</b></div>
+      </div>
+      <div class="tri" style="margin-top:8px">
+        <div class="mini"><span data-en="Green months">Plus mjeseci</span><b class="num g" id="s-mj">—</b></div>
+        <div class="mini"><span data-en="Profit locked">Zaštićen profit</span><b class="num g" id="s-zp">—</b></div>
+        <div class="mini"><span data-en="Win : loss">Dobit : gubitak</span><b class="num" id="s-wl">—</b></div>
       </div>
       <svg class="graf" id="graf" viewBox="0 0 320 150" preserveAspectRatio="none" style="height:150px;margin-top:12px"></svg>
       <p class="info-t" data-en="Equity curve in R · 1R = the amount you risk per signal. Results are in R so they don't depend on account size: the demo bot risks 2%, for real money we recommend 1% (then +10R ≈ +10%).">Krivulja kapitala u R · 1R = iznos koji riskiraš po signalu. Rezultati su u R da ne ovise o veličini računa: demo bot riskira 2%, za pravi novac preporučujemo 1% (tada je +10R ≈ +10%).</p></div>
@@ -759,7 +768,7 @@
   </section>
 </main>
 <footer id="upoz"></footer>
-<div style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px">Zlatni signal · v6.2</div>
+<div id="ver" style="text-align:center;font-size:10px;color:#3d4149;padding-bottom:8px;-webkit-user-select:none;user-select:none">Zlatni signal · v6.5</div>
 <div class="sloj" id="sloj"></div>
 <div class="list" id="list"><div class="rucka"></div><div id="list-sadrzaj"></div></div>
 <div class="toast" id="toast"></div>
@@ -1263,10 +1272,18 @@ try { const r = localStorage.getItem("zs_racun"); if (r) $("k-racun").value = r;
 function seg(id, fn) { document.querySelectorAll(`#${id} button`).forEach(b => b.onclick = () => {
   document.querySelectorAll(`#${id} button`).forEach(x => x.classList.remove("akt")); b.classList.add("akt"); haptic("light"); fn(b.dataset.v); }); }
 seg("seg", v => { rizik = +v; kalk(); });
-let simKap = 1000, simRiz = 1;
-seg("sim-kap", v => { simKap = +v; sim(); }); seg("sim-riz", v => { simRiz = +v; sim(); });
+let simKap = 1000, simRiz = 1, simVr = "std";
+seg("sim-kap", v => { simKap = +v; sim(); }); seg("sim-riz", v => { simRiz = +v; sim(); }); seg("sim-vr", v => { simVr = v; sim(); });
+// udio signala sa stopom <= X $ (test 2024-26) - za najmanji lot 0.01
+const STOP_CDF = [[0, 0], [2, .02], [3, .10], [4, .25], [5, .39], [6, .48], [7.5, .57], [9, .65], [12, .77], [15, .86], [20, .93], [30, .98], [40, 1]];
+function udioSignala(dozvoljeno) {        // bot uzima trejd ako 0.01 lot (1$ po 1$) ne prelazi 1.5x dozvoljenog rizika
+  const x = 1.5 * dozvoljeno;
+  for (let i = 1; i < STOP_CDF.length; i++) if (x <= STOP_CDF[i][0]) { const [a, pa] = STOP_CDF[i - 1], [b, pb] = STOP_CDF[i]; return pa + (pb - pa) * (x - a) / (b - a); }
+  return 1;
+}
 function sim() {
-  const mj = 12, n = 11, SC = [[0.15, "#8d929c", T("Konzervativno", "Conservative")], [0.25, "#e9b949", T("Umjereno", "Moderate")], [0.33, "#34d399", T("Optimistično", "Optimistic")]];
+  const dozv = simKap * simRiz / 100 * (simVr === "cent" ? 100 : 1);   // cent racun: 0.01 lota = 1 cent po 1$
+  const udio = udioSignala(dozv), mj = 12, n = 11 * udio, SC = [[0.15, "#8d929c", T("Konzervativno", "Conservative")], [0.25, "#e9b949", T("Umjereno", "Moderate")], [0.33, "#34d399", T("Optimistično", "Optimistic")]];
   const krive = SC.map(([r]) => { const v = [simKap]; for (let m = 1; m <= mj; m++) v.push(v[m - 1] * Math.pow(1 + simRiz / 100 * r, n)); return v; });
   const los = simKap * Math.pow(1 - simRiz / 100, 8);
   const sve = krive.flat().concat([los]), mn = Math.min(...sve), mx = Math.max(...sve), W = 320, H = 170;
@@ -1274,6 +1291,10 @@ function sim() {
   $("sim-graf").innerHTML = `<line x1="0" x2="${W}" y1="${Y(simKap)}" y2="${Y(simKap)}" stroke="rgba(255,255,255,.15)" stroke-dasharray="4 4"/>` +
     krive.map((v, j) => `<path class="crta" d="${v.map((y, i) => (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(y).toFixed(1)).join(" ")}" fill="none" stroke="${SC[j][1]}" stroke-width="2.2"/>`).join("") +
     [0, 3, 6, 9, 12].map(i => `<text x="${X(i)}" y="${H - 3}" text-anchor="${i === 0 ? "start" : i === 12 ? "end" : "middle"}" fill="#5d626c" font-size="9">${i ? i + T(" mj", " mo") : T("start", "start")}</text>`).join("");
+  $("sim-lot").innerHTML = udio < 0.97
+    ? `<div class="upoz" style="margin-top:8px">⚠️ ${T(`Na standard računu s ${f2(simKap)} $ i ${simRiz}% rizika najmanji lot (0,01 = 1 $ po 1 $ pomaka) je prevelik za većinu stopova – bot bi odradio samo oko <b>${Math.round(udio * 100)}%</b> signala (~${n.toFixed(1).replace(".", ",")} mjesečno), ostale preskače da ne riskira više od dozvoljenog. Rješenje: veći račun ili <b>Cent</b> račun.`,
+        `On a standard account with $${f2(simKap)} and ${simRiz}% risk, the smallest lot (0.01 = $1 per $1 move) is too big for most stops – the bot would take only about <b>${Math.round(udio * 100)}%</b> of signals (~${n.toFixed(1)}/month) and skip the rest. Fix: a bigger account or a <b>Cent</b> account.`)}</div>`
+    : (simVr === "cent" ? `<p class="info-t" style="margin-top:8px">${T(`Cent račun: ${f2(simKap)} $ = ${f2(simKap * 100)} centi, najmanji lot je 100× manji, pa bot može uzeti sve signale s točnim rizikom. Zarada i gubitak su u istom postotku kao na standard računu.`, `Cent account: $${f2(simKap)} = ${f2(simKap * 100)} cents, the smallest lot is 100× smaller, so the bot takes every signal with exact risk. Gains and losses are the same % as on a standard account.`)}</p>` : "");
   $("sim-rez").innerHTML = krive.map((v, j) => `<div class="st"><i style="width:10px;height:10px;border-radius:50%;background:${SC[j][1]};flex:none"></i><div class="sr"><b>${SC[j][2]}</b><span>+${SC[j][0]}R ${T("po signalu", "per signal")}</span></div>
     <b class="num ${v[mj] >= simKap ? "g" : "c"}">${f2(v[mj])} $</b></div>`).join("") +
     `<div class="st"><i style="width:10px;height:10px;border-radius:50%;background:var(--r);flex:none"></i><div class="sr"><b>${T("Loš niz (8 gubitaka zaredom)", "Bad streak (8 losses in a row)")}</b><span>${T("može se dogoditi u svakom trenutku", "can happen at any time")}</span></div>
@@ -1288,7 +1309,11 @@ function statOd(L) {
   let eq = 0, vrh = 0, dd = 0, ng = 0, nd = 0, a = 0, b = 0; const kr = [0];
   for (const r of R) { eq += r; kr.push(eq); vrh = Math.max(vrh, eq); dd = Math.min(dd, eq - vrh); a = r <= 0 ? a + 1 : 0; b = r > 0 ? b + 1 : 0; ng = Math.max(ng, a); nd = Math.max(nd, b); }
   const dob = R.filter(r => r > 0).reduce((x, y) => x + y, 0), gub = -R.filter(r => r < 0).reduce((x, y) => x + y, 0);
-  return {n: R.length, wr: R.filter(r => r > 0).length / R.length * 100, uk: eq, pr: eq / R.length, pf: gub ? dob / gub : null, dd, ng, nd, kr};
+  const mj = {}; L.forEach(x => { const k = (x.zatvoren || "").slice(0, 7); mj[k] = (mj[k] || 0) + x.R; });
+  const nW = R.filter(r => r > 0).length, nL = R.length - nW, gubS = R.filter(r => r <= 0).reduce((x, y) => x + y, 0);
+  return {n: R.length, wr: nW / R.length * 100, uk: eq, pr: eq / R.length, pf: gub ? dob / gub : null, dd, ng, nd, kr,
+    mj: Object.keys(mj).length, mjp: Object.values(mj).filter(v => v > 0).length, zp: L.filter(x => x.razlog === "zaključan profit").length,
+    aw: nW ? dob / nW : null, al: nL ? gubS / nL : null};
 }
 function rezultati(d) {
   if (!d) return; dodatneStat(d);
@@ -1304,6 +1329,8 @@ function rezultati(d) {
   broji($("s-n"), S && S.n, v => Math.round(v)); broji($("s-pr"), S && S.pr, v => sgn(v) + "R");
   $("s-pf").textContent = S && S.pf ? S.pf.toFixed(2) : "—"; $("s-dd").textContent = S ? f2(S.dd) + "R" : "—";
   $("s-ng").textContent = S ? S.ng : "—"; $("s-nd").textContent = S ? S.nd : "—";
+  $("s-mj").textContent = S ? S.mjp + "/" + S.mj : "—"; $("s-zp").textContent = S ? S.zp : "—";
+  $("s-wl").textContent = S && S.aw != null && S.al ? (S.aw / -S.al).toLocaleString("de-DE", {maximumFractionDigits: 1, minimumFractionDigits: 1}) + " : 1" : "—";
   if (S && S.kr.length > 1) { const v = S.kr, mn = Math.min(...v), mx = Math.max(...v), r = (mx - mn) || 1, W = 320, H = 150;
     const xy = v.map((y, i) => [i / (v.length - 1) * W, 10 + (1 - (y - mn) / r) * (H - 20)]), line = xy.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
     const nula = 10 + (1 - (0 - mn) / r) * (H - 20);
@@ -1440,6 +1467,7 @@ async function ucitaj() {
   ucitaj._t = setTimeout(ucitaj, fz === "obrazac" || (ZADNJI && ZADNJI.danas.signal) ? 15000 : 45000);
 }
 function prikazi(d, tiho) {
+  mojOsvjezi(d);
   const star = zastarjelo(d);
   const mir = mirovanje(d);
   $("tocka").className = "tocka" + (star > 20 || mir ? " off" : "");
@@ -1617,6 +1645,93 @@ const sp0 = (tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || new UR
 const DUBOKI = {radar: "danas", signal: "danas", dodatne: "danas", statistika: "rez", kalendar: "trziste", rizik: "kalk", info: "info"};
 postavi(4); ucitaj().finally(() => { skrijSplash(); if (sp0 === "uvod") setTimeout(otvoriUvod, 900); else if (DUBOKI[sp0]) setTimeout(() => idiNa(DUBOKI[sp0]), 400); else setTimeout(prviPut, 1400); }); setTimeout(skrijSplash, 6000);
 donacije();
+</script>
+<script>
+/* ---------- PRIVATNO: kopir (sifrirano, vidi samo vlasnik) ----------
+   Podaci dolaze kao d.x (sifrirano lozinkom KOPIR_LOZINKA). Otkljucavanje: 5x tap na "Zlatni signal · v6.5". */
+const MOJ_KLJUC = "zs_pk";
+let MOJ_POD = null;
+async function mojDesifriraj(x, loz) {
+  const b = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const s = b(x.s), n = b(x.n), c = b(x.c), t = b(x.t), cs = crypto.subtle, enc = new TextEncoder();
+  const id = x.s + "|" + loz;
+  if (!mojDesifriraj._k || mojDesifriraj._k.id !== id) {
+    const base = await cs.importKey("raw", enc.encode(loz), "PBKDF2", false, ["deriveBits"]);
+    const bits = new Uint8Array(await cs.deriveBits({name: "PBKDF2", hash: "SHA-256", salt: s, iterations: x.i}, base, 512));
+    const imp = k => cs.importKey("raw", k, {name: "HMAC", hash: "SHA-256"}, false, ["sign", "verify"]);
+    mojDesifriraj._k = {id, ke: await imp(bits.slice(0, 32)), km: await imp(bits.slice(32))};
+  }
+  const {ke, km} = mojDesifriraj._k;
+  const msg = new Uint8Array(s.length + n.length + c.length); msg.set(s); msg.set(n, s.length); msg.set(c, s.length + n.length);
+  if (!await cs.verify("HMAC", km, t, msg)) throw new Error("lozinka");
+  const out = new Uint8Array(c.length);
+  for (let i = 0; i * 32 < c.length; i++) {
+    const blk = new Uint8Array(20); blk.set(n); new DataView(blk.buffer).setUint32(16, i);
+    const ks = new Uint8Array(await cs.sign("HMAC", ke, blk));
+    for (let j = 0; j < 32 && i * 32 + j < c.length; j++) out[i * 32 + j] = c[i * 32 + j] ^ ks[j];
+  }
+  return JSON.parse(new TextDecoder().decode(out));
+}
+function mojLoz() { try { return localStorage.getItem(MOJ_KLJUC); } catch (e) { return null; } }
+const mojUsd = v => v == null ? "—" : `<span style="color:${v >= 0 ? "var(--g)" : "var(--r)"}">${v >= 0 ? "+" : ""}${Number(v).toFixed(2)} $</span>`;
+async function mojOsvjezi(d) {
+  const k = $("moj-k"), loz = mojLoz();
+  if (!k) return;
+  if (!loz || !d || !d.x) { k.hidden = true; MOJ_POD = null; return; }
+  try { MOJ_POD = await mojDesifriraj(d.x, loz); } catch (e) { k.hidden = true; MOJ_POD = null; return; }
+  const p = MOJ_POD, o = p.otvorene || [];
+  k.hidden = false;
+  k.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+      <b style="font-size:15px">🔐 Moj kopir <small style="color:var(--s);font-weight:600">· samo ti vidiš</small></b>
+      <span class="chip" style="font-size:11px;padding:4px 9px;color:${p.ziv ? "var(--g)" : "var(--r)"}">● ${p.ziv ? "radi" : "nema veze"}</span></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;text-align:center">
+      <div><small style="color:var(--s)">Danas</small><br><b class="num">${mojUsd(p.danas)}</b></div>
+      <div><small style="color:var(--s)">Tjedan</small><br><b class="num">${mojUsd(p.tjedan)}</b></div>
+      <div><small style="color:var(--s)">Ukupno</small><br><b class="num">${mojUsd(p.ukupno)}</b></div></div>
+    <div style="margin-top:10px;font-size:12.5px;color:var(--s)">${o.length ? o.map(x => `${x.s > 0 ? "🟢 BUY" : "🔴 SELL"} ${x.lot} @ ${x.ulaz} → ${mojUsd(x.usd)}`).join("<br>") : "Nema otvorene kopije"} · detalji ›</div>`;
+}
+function mojDetalji() {
+  const p = MOJ_POD; if (!p) return;
+  const red = x => `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px">
+     <span>${esc(x.t.slice(5))} · ${x.s > 0 ? "BUY" : "SELL"} ${x.lot}<br><small style="color:var(--s)">${x.ulaz} → ${x.izlaz} (${x.pomak >= 0 ? "+" : ""}${x.pomak} $${x.izvor != null ? `, izvor ${x.izvor >= 0 ? "+" : ""}${x.izvor} $` : ""})</small></span>
+     <b class="num">${mojUsd(x.usd)}</b></div>`;
+  $("list-sadrzaj").innerHTML = `<h2>🔐 Moj kopir</h2>
+    <p class="op" style="font-size:12.5px">Demo test · lot ${p.lot} · ažurirano ${esc((p.azurirano || "").slice(11, 16))}</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;margin:10px 0">
+      <div>Trejdova: <b>${p.broj}</b></div><div>Dobitnih: <b>${p.dobitnih ?? "—"}%</b></div>
+      <div>Najbolji: <b>${mojUsd(p.najbolji)}</b></div><div>Najgori: <b>${mojUsd(p.najgori)}</b></div>
+      <div>Kasni za izvorom: <b>${p.odstupanje != null ? p.odstupanje + " $" : "—"}</b></div><div>Preskočeno: <b>${p.preskoceno}</b></div></div>
+    <div>${(p.povijest || []).map(red).join("") || '<p class="op">Još nema zatvorenih kopija.</p>'}</div>
+    <button class="dalje" id="moj-zakljucaj" style="margin-top:14px;background:#2a2d33">🔒 Zaključaj na ovom uređaju</button>`;
+  $("moj-zakljucaj").onclick = () => { try { localStorage.removeItem(MOJ_KLJUC); } catch (e) {} MOJ_POD = null; $("moj-k").hidden = true; zatvoriList(); };
+  otvoriList();
+}
+function mojOtkljucaj() {
+  $("list-sadrzaj").innerHTML = `<h2>🔐</h2>
+    <input id="moj-loz" type="password" autocomplete="off" placeholder="Lozinka"
+      style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--rub);background:#0d0f13;color:var(--t);font-size:16px;margin:8px 0">
+    <p id="moj-por" class="op" style="font-size:12.5px;min-height:18px"></p>
+    <button class="dalje" id="moj-ok">Otključaj</button>`;
+  $("moj-ok").onclick = async () => {
+    const loz = $("moj-loz").value, por = $("moj-por");
+    if (!ZADNJI || !ZADNJI.x) { por.textContent = "Nema podataka (radi li kopir i je li postavljen KOPIR_LOZINKA?)"; return; }
+    por.textContent = "Provjeravam…";
+    try { await mojDesifriraj(ZADNJI.x, loz); } catch (e) { por.textContent = "Netočno."; return; }
+    try { localStorage.setItem(MOJ_KLJUC, loz); } catch (e) {}
+    zatvoriList(); await mojOsvjezi(ZADNJI);
+  };
+  otvoriList();
+  setTimeout(() => { const i = $("moj-loz"); if (i) i.focus(); }, 300);
+}
+(function () {
+  let n = 0, t0 = 0;
+  const v = $("ver"); if (!v) return;
+  v.addEventListener("click", () => {
+    const sad = Date.now(); if (sad - t0 > 3000) n = 0; t0 = sad;
+    if (++n >= 5) { n = 0; mojLoz() && MOJ_POD ? mojDetalji() : mojOtkljucaj(); }
+  });
+  const k = $("moj-k"); if (k) k.addEventListener("click", mojDetalji);
+})();
 </script>
 </body>
 </html>
