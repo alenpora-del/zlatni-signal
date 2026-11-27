@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-27T02:58",
+ "azurirano": "2026-11-27T03:08",
  "danas": {
-  "server_vrijeme": "2026-11-27 03:58",
-  "cijena": 3589.75,
+  "server_vrijeme": "2026-11-27 04:08",
+  "cijena": 3611.82,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "12:30",
-    "o": 3561.75,
-    "h": 3563.78,
-    "l": 3553.12,
-    "c": 3554.96
-   },
    {
     "t": "12:45",
     "o": 3554.93,
@@ -341,13 +334,20 @@
    {
     "t": "03:45",
     "o": 3572.15,
-    "h": 3590.57,
+    "h": 3594.29,
     "l": 3570.33,
-    "c": 3589.75
+    "c": 3594.14
+   },
+   {
+    "t": "04:00",
+    "o": 3594.16,
+    "h": 3617.35,
+    "l": 3591.4,
+    "c": 3611.82
    }
   ],
   "dan": {
-   "max": 3590.57,
+   "max": 3617.35,
    "min": 3557.63,
    "otvaranje": 3565.96
   },
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795744692,
+   "zivi": 1795745323,
    "gotov": false
   },
   "racun": {
@@ -384,8 +384,8 @@
    "ocjena": 70,
    "stanje": "neutralno",
    "pritisak": {
-    "buy": 59,
-    "sell": 41
+    "buy": 75,
+    "sell": 25
    },
    "zivost_pct": 87,
    "vijesti_danas": false,
@@ -398,9 +398,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": 18.43,
-    "60": 28.41,
-    "240": 21.12
+    "15": 29.92,
+    "60": 43.2,
+    "240": 42.88
    },
    "nivoi": {
     "jucer": {
@@ -681,9 +681,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "9KBXJIDLztMZnOcdyHROyQ==",
-  "c": "VvlZl5NsTEO8LoKmAfIxFw7PlmzbsdtaOTjMGxZswRv9JrCuKalOHFgO7/ERDX/O0LiDNB8dhlhVJEu6ay8AhU5UXjpR2oTtKVDyKYmhG9czqpSS5w2GfGbGVcYeDfEyl/i9r7j37TOgH2ng1WwYfcOMLiJqiFgDTIgcfdqkpHkzYeABbE7rj8x05OomtCS9YhFQ7mpZvnrPYUuWYXfR8LBfzTSUQvaeupZTdM/1f6fxqMOBmYRS2BbO8r7r1gdKPTyFnQihk1tQKyfoaw==",
-  "t": "W/OZR7diCp1w/vpXIR7QsszSDDjoLcsbIc9uOScDUwI=",
+  "n": "w3e2HkddOWyRjcCfwvUy3w==",
+  "c": "lEFwnXkz93o1I1S5LVF8goYzYeDvVm8lTc2YPbaVFVdM9hOw+4JdCzo3fRjvR6oZmA+Hj9hI/TA2UjB9i7SjM5QYeKZU4wXM8kdl40McuoP7XafUPGMRIeiJVgsL1plNz5uOkWtRwtHWtNjYu6KTQj1ywtcj3tYuFwe8AsdWYjXf4feMX5LUfzIa6DpvfPAUzZ2aKwwl2NnBKGdZoYczJvWdGp2D+9fpBzc6m3X89wVOfwuAxUawsZd00eO4p52nTkkGskJ5tnv9HL+x7A==",
+  "t": "AAHNwPmpDpyZTjvRDWSbUMrVDdkdu5i0y/PCh3TLfd0=",
   "i": 150000
  }
 }
