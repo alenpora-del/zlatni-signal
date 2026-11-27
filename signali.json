@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-27T18:54",
+ "azurirano": "2026-11-27T19:05",
  "danas": {
-  "server_vrijeme": "2026-11-27 19:54",
-  "cijena": 3636.53,
+  "server_vrijeme": "2026-11-27 20:05",
+  "cijena": 3653.9,
   "status": "Glavni signal dana iskorišten",
   "status_kod": "iskoristen",
   "raspon": null,
   "graf": [
-   {
-    "t": "08:00",
-    "o": 3641.89,
-    "h": 3647.46,
-    "l": 3639.0,
-    "c": 3645.31
-   },
    {
     "t": "08:15",
     "o": 3645.31,
@@ -341,15 +334,22 @@
    {
     "t": "19:45",
     "o": 3632.73,
-    "h": 3637.1,
+    "h": 3649.36,
     "l": 3628.54,
-    "c": 3636.53
+    "c": 3648.18
+   },
+   {
+    "t": "20:00",
+    "o": 3648.04,
+    "h": 3654.48,
+    "l": 3645.49,
+    "c": 3653.9
    }
   ],
   "dan": {
    "max": 3685.13,
    "min": 3616.08,
-   "otvaranje": 3641.89
+   "otvaranje": 3645.31
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795802054,
+   "zivi": 1795802720,
    "gotov": false
   },
   "racun": {
@@ -384,23 +384,23 @@
    "ocjena": 70,
    "stanje": "neutralno",
    "pritisak": {
-    "buy": 42,
-    "sell": 58
+    "buy": 53,
+    "sell": 47
    },
-   "zivost_pct": 83,
+   "zivost_pct": 84,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 83% od uobičajene – mirnije nego inače",
+    "Živost tržišta 84% od uobičajene – mirnije nego inače",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 83% of normal – quieter than usual",
+    "Market activity 84% of normal – quieter than usual",
     "No major US news today"
    ],
    "promjena": {
-    "15": 0.83,
-    "60": 1.53,
-    "240": -10.25
+    "15": 18.9,
+    "60": 22.17,
+    "240": 14.5
    },
    "nivoi": {
     "jucer": {
@@ -619,9 +619,9 @@
   }
  ],
  "preskoceni": {
-  "n": 3,
-  "R": 0.0,
-  "dobitnih": 1,
+  "n": 6,
+  "R": 3.0,
+  "dobitnih": 3,
   "dani": {
    "2026-11-20": [
     {
@@ -642,6 +642,23 @@
      "smjer": "SELL",
      "ocjena": 45,
      "R": -1.0
+    }
+   ],
+   "2026-11-27": [
+    {
+     "smjer": "BUY",
+     "ocjena": 70,
+     "R": 2.0
+    },
+    {
+     "smjer": "SELL",
+     "ocjena": 70,
+     "R": -1.0
+    },
+    {
+     "smjer": "SELL",
+     "ocjena": 55,
+     "R": 2.0
     }
    ]
   }
@@ -681,9 +698,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "SjMS8nkq/Z5EhpQpGxZc6A==",
-  "c": "ECmhoBppty3jvKifykO1GC7PZi4gWY3IpHbOeBrVsyWgw2tjawswDKkUJhnuY3TtmDC2KzEaXnRsn5J8PcyKisCr/s/7EVhjAp5kgN6k9Zyg7ETTjUc1HgoX6zdVeo8zfssL6AUWhm9nioBDpzAcqJ30R5IqKZaqcF0PvLRHPBiz7V6JkQMyl/lT3EWOsy8OcmcsGiRgT3vq62h6RXhuwXWd6aJV7Tv9Q6CkIdjsKwtqN4cy0x6yEp3BxaYk6PyzOmW8mWrTC7E0PWQybw==",
-  "t": "BNfzAeGxhXkjYBYjklaxIkFifjCQ8Mr5E7Bvjp4lR2w=",
+  "n": "ybI2dT46Y9Bjz/2bZe7NKQ==",
+  "c": "/Dfq5RyilU8h+KjkNXqKPI9M3qTtwC4H9Tbn90t36mp1G6TkL6xgFcuCzHyneH6BW4BiNdonHm9a3BFM2BbgYZY4xncCnygTQASCBNdeD8+4zYDgwZWtTtYTrGXLim2aMfgqAS8NNKQb5HnWznBwj2L89ACajPhaQ24NSpis6Ll3DCJp5XFcUeQZB5e+nXS3VJ+jMawEf9SdAPUx0K0XzSPIg5mpjDQ4q1Rpto1L75OkYtjXkWgwj8ukQx70j4AGnO0ZHEW4i+hsAqw5JQ==",
+  "t": "oS3H51UEHUneULakvUtUBq7+Jq6I1fD5upZRYPHmS3Y=",
   "i": 150000
  }
 }
