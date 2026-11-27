@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-27T06:55",
+ "azurirano": "2026-11-27T07:00",
  "danas": {
-  "server_vrijeme": "2026-11-27 07:55",
-  "cijena": 3640.33,
-  "status": "Moguća prilika uskoro",
-  "status_kod": "prilika",
+  "server_vrijeme": "2026-11-27 08:00",
+  "cijena": 3643.71,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "16:30",
-    "o": 3574.46,
-    "h": 3586.39,
-    "l": 3571.99,
-    "c": 3578.97
-   },
    {
     "t": "16:45",
     "o": 3578.98,
@@ -342,8 +335,15 @@
     "t": "07:45",
     "o": 3653.41,
     "h": 3653.49,
-    "l": 3640.14,
-    "c": 3640.33
+    "l": 3639.25,
+    "c": 3641.87
+   },
+   {
+    "t": "08:00",
+    "o": 3641.89,
+    "h": 3643.94,
+    "l": 3641.43,
+    "c": 3643.71
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795758897,
+   "zivi": 1795759198,
    "gotov": false
   },
   "racun": {
@@ -384,8 +384,8 @@
    "ocjena": 70,
    "stanje": "neutralno",
    "pritisak": {
-    "buy": 89,
-    "sell": 11
+    "buy": 75,
+    "sell": 25
    },
    "zivost_pct": 84,
    "vijesti_danas": false,
@@ -398,9 +398,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": -9.67,
-    "60": 8.82,
-    "240": 58.4
+    "15": -6.64,
+    "60": 8.99,
+    "240": 48.27
    },
    "nivoi": {
     "jucer": {
@@ -414,16 +414,10 @@
    }
   },
   "radar": {
-   "faza": "obrazac",
+   "faza": "odbijen",
    "smjer": "SELL",
-   "od": "2026-11-27 07:45",
-   "uvjeti": [
-    true,
-    true,
-    true,
-    false
-   ],
-   "potvrda": null
+   "razlog": "Tržište premirno za kvalitetan ulaz (ocjena 70/100, prag 80)",
+   "razlog_en": "Market too quiet for a quality entry (score 70/100, threshold 80)"
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -572,9 +566,9 @@
    "R": 0,
    "otvoren": false,
    "obrazaca": 2,
-   "odbijeno": 0,
-   "razlog": "Obrazac se nije potvrdio",
-   "razlog_en": "The setup was not confirmed"
+   "odbijeno": 1,
+   "razlog": "Tržište premirno za kvalitetan ulaz (ocjena 70/100, prag 80)",
+   "razlog_en": "Market too quiet for a quality entry (score 70/100, threshold 80)"
   },
   {
    "dan": "2026-11-26",
@@ -690,9 +684,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "VRk2vmIFUV/G9SkIDPLIGw==",
-  "c": "TCkdCx8U8ukp13g0hQh8cMJD7KDre4s6gh1vmVN2KcdmR0S8p2Zh4NDqlrePYRsS7iewGzvt7Mw0xtaHOXmtjdtrAKWot3pKOWd9/goHJeLxB6roYAp0VOQ8FWvMTpbTmehE8JODRPyWijggAOBBY+Mcyzcx7y7fbJx82NqUHLPsqJxTOV2/KR+J+0/Ct0lLxPjO6t8lHOagyfKSQmdUOuagvX2PvvxiJGeBB+kulUfoiMf0f95LDL4YhNmdC0xNKZ5ZeYvcStZA6sUS1w==",
-  "t": "m7We/ISW0VwjDuh815A9jPZ+zSx537I5yvTCZ0XeITc=",
+  "n": "anCwqDYspXPk3R1pYo7xTQ==",
+  "c": "TIMky5rnYns4NR07Z+vd23PNywtKdT2HeIEr7zkVGUyYwDk68awQZPCbjdWZyxeuuk/Dpg+ZIrrh/DaHmWNljxZJAB1D/BIN3uNolg5I1APtdHt/Zy7fziwHQP99bbNk+uA8eJ/2BBwrmau3kI0BIPcpaZUEMV1e/LeI96XVm29AOg7d/Sq5jh/yRSjF9ZcQWqtdBBr/xGzYcGDl3PyCAU2gxJYHLj7rxfF0nZDGb0nouEeQ2kKAt6XnQ3+TN6lObJJrqTIJ7iFI3Gf16Q==",
+  "t": "BeSvv37lw3o+fT1HZLlhOM9t+PGDAYULiW++fcDqX/Q=",
   "i": 150000
  }
 }
