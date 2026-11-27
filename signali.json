@@ -1,10 +1,10 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-27T06:30",
+ "azurirano": "2026-11-27T06:41",
  "danas": {
-  "server_vrijeme": "2026-11-27 07:30",
-  "cijena": 3658.75,
+  "server_vrijeme": "2026-11-27 07:41",
+  "cijena": 3653.03,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
@@ -342,8 +342,8 @@
     "t": "07:30",
     "o": 3653.26,
     "h": 3666.58,
-    "l": 3653.22,
-    "c": 3658.75
+    "l": 3643.93,
+    "c": 3653.03
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795757426,
+   "zivi": 1795758086,
    "gotov": false
   },
   "racun": {
@@ -398,9 +398,9 @@
     "No major US news today"
    ],
    "promjena": {
-    "15": 18.81,
-    "60": 25.83,
-    "240": 81.4
+    "15": 2.93,
+    "60": 18.49,
+    "240": 78.87
    },
    "nivoi": {
     "jucer": {
@@ -681,9 +681,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "GmKAWd3T/r0TTAdxZGwf5w==",
-  "c": "Q3H8oIqXGPsSVC/2gG49/2afVsyC8wwGzZ2OpepeIKpcLCPzAX7bUt14xDjD3k2EU7Sfsm/P8KdfSTyDNovAh/pYiC3xwfK8/Aem+QmzyP92HcbXl6A3McorJA4mLqi4egrLtKaFYrcI4xumigx9CPJ05B9HZgIV4oIPHj1hGLVxrA/bUGiCR3u+P6/cg/l+yD68QMyO1wwtSW6BXRY+E8uF/GIiE8vx76tSXVkFzubn4ohoo5bVZqd1tPKrLWVn9N43QAJ2+OdWfj+tcw==",
-  "t": "6BpLoozRssAp6Zm9qNLj/83/9kakq5ljy2pDNCcgzUc=",
+  "n": "IMhbXlDQWbNJSq8CrLngJw==",
+  "c": "t1KfijuLj5jg5GIby3p1oPKqjbAKB7kTlzg6ZldiJra45/6XOIdChHRTgKjbJd99oGHimgaxiE6ys/vKxprraompG3cW00ZaRZkhE+1IJDfyIFrboBgF6GgIrvsTdqBVkgJg1BLYfXNRlRqwlfEkiLj+6c/FBWu+ki/h/2fsm4FblUZVuTzeyNJSdZy7zXn+Ale80v/GgpxXDOEQgY9OFYFjWB8MhxquseMMHFgWQGoTZrKDFGnSzJCDZ75NdAUPRKWIXA5N3bD7PxCi7Q==",
+  "t": "RhU5/QH7q5buuD8FFYnVOlosPyrXk59O/BoiiAC6oQ4=",
   "i": 150000
  }
 }
