@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-27T14:55",
+ "azurirano": "2026-11-27T15:01",
  "danas": {
-  "server_vrijeme": "2026-11-27 15:55",
-  "cijena": 3649.06,
-  "status": "Moguća prilika uskoro",
-  "status_kod": "prilika",
+  "server_vrijeme": "2026-11-27 16:01",
+  "cijena": 3644.96,
+  "status": "Analiziram tržište",
+  "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "04:00",
-    "o": 3594.16,
-    "h": 3627.3,
-    "l": 3591.4,
-    "c": 3614.68
-   },
    {
     "t": "04:15",
     "o": 3614.67,
@@ -343,13 +336,20 @@
     "o": 3642.56,
     "h": 3651.04,
     "l": 3642.32,
-    "c": 3649.06
+    "c": 3643.99
+   },
+   {
+    "t": "16:00",
+    "o": 3644.02,
+    "h": 3645.43,
+    "l": 3643.21,
+    "c": 3644.96
    }
   ],
   "dan": {
    "max": 3685.13,
-   "min": 3591.4,
-   "otvaranje": 3594.16
+   "min": 3611.43,
+   "otvaranje": 3614.67
   },
   "gotov": false,
   "signal": null,
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795787729,
+   "zivi": 1795788059,
    "gotov": false
   },
   "racun": {
@@ -384,23 +384,23 @@
    "ocjena": 55,
    "stanje": "neutralno",
    "pritisak": {
-    "buy": 22,
-    "sell": 78
+    "buy": 26,
+    "sell": 74
    },
-   "zivost_pct": 78,
+   "zivost_pct": 79,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 78% od uobičajene – mirnije nego inače",
+    "Živost tržišta 79% od uobičajene – mirnije nego inače",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 78% of normal – quieter than usual",
+    "Market activity 79% of normal – quieter than usual",
     "No major US news today"
    ],
    "promjena": {
-    "15": 4.19,
-    "60": -17.0,
-    "240": -24.88
+    "15": -5.22,
+    "60": -20.11,
+    "240": -26.28
    },
    "nivoi": {
     "jucer": {
@@ -414,16 +414,10 @@
    }
   },
   "radar": {
-   "faza": "obrazac",
+   "faza": "ponisten",
    "smjer": "BUY",
-   "od": "2026-11-27 15:45",
-   "uvjeti": [
-    true,
-    true,
-    true,
-    false
-   ],
-   "potvrda": null
+   "razlog": "Obrazac se nije potvrdio",
+   "razlog_en": "The setup was not confirmed"
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -690,9 +684,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "SoD3a+fLaD9ijWASP1OdeA==",
-  "c": "1MFY5TsHvPZ9Fb6UNVyzZhjWhpUWwosLsY8zedDNPI9Qa6h1Kz5XE/J2KiwpdtJmGrMjZWsAx14nmfkPj2wv+O17z8tZ7ddHnUy0uBPy8w9PMMYiQql6TWY1B2pYqCNHnGekTvzzvF88cLpH3uqNqAg5DRBWktg92zhcpm9jF7bnU+HFVxmNs2Jg5sBvr0Knt32tQk6Wx7JNAcTI7mJYEgranYE+eARZx3HjhLjLFob70BSTc/1EsoQ1Dy4YpsqNqAfPCz6muVDyXk2dlQ==",
-  "t": "qpMAzcfji126evSOvFj69nzDDrcdVavyKSLpohcvQyM=",
+  "n": "lZuaiM6ycNB4lJqOdz5Tzw==",
+  "c": "KV9M3rJEInIXqdQzjpoUWYLbfK/JOiFzIIXI0N2QH3U9aQ15x0pO9v94L1a4EsBVQGeUaLPAluiwJQ5zsEJSVF44jzF1DkY7h5Q7DukSCQ+RFVSINNcgGjpsajAdSYHbQDo/omg6sHAdU/h2an/j3oEzT1IPFrz01lbet9PT4g1KhKaTtwYs8J/pS28uTpWFNjxT1DtOwQzQra1EubHfXjVEQbsrsmFP8MAh3GrcDQ63EEzvFDU5J36FeKOZbOnObRlrmiBsxhjIrhVqgw==",
+  "t": "s9x0EYk2pRuISPGl64XJHPJbc3GTe4Z5JECm1i9khSc=",
   "i": 150000
  }
 }
