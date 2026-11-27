@@ -1,21 +1,14 @@
 {
  "naziv": "Zlatni signal",
  "instrument": "XAU/USD (zlato)",
- "azurirano": "2026-11-27T07:10",
+ "azurirano": "2026-11-27T07:20",
  "danas": {
-  "server_vrijeme": "2026-11-27 08:10",
-  "cijena": 3644.64,
+  "server_vrijeme": "2026-11-27 08:20",
+  "cijena": 3643.06,
   "status": "Analiziram tržište",
   "status_kod": "analiza",
   "raspon": null,
   "graf": [
-   {
-    "t": "16:45",
-    "o": 3578.98,
-    "h": 3582.03,
-    "l": 3574.57,
-    "c": 3581.67
-   },
    {
     "t": "17:00",
     "o": 3581.68,
@@ -341,9 +334,16 @@
    {
     "t": "08:00",
     "o": 3641.89,
-    "h": 3646.93,
+    "h": 3647.46,
     "l": 3639.0,
-    "c": 3644.64
+    "c": 3645.31
+   },
+   {
+    "t": "08:15",
+    "o": 3645.31,
+    "h": 3645.56,
+    "l": 3640.29,
+    "c": 3643.06
    }
   ],
   "dan": {
@@ -359,7 +359,7 @@
    "ziv": true,
    "pauza": false,
    "safe": false,
-   "zivi": 1795759798,
+   "zivi": 1795760399,
    "gotov": false
   },
   "racun": {
@@ -384,23 +384,23 @@
    "ocjena": 70,
    "stanje": "neutralno",
    "pritisak": {
-    "buy": 75,
-    "sell": 25
+    "buy": 70,
+    "sell": 30
    },
-   "zivost_pct": 84,
+   "zivost_pct": 82,
    "vijesti_danas": false,
    "razlozi": [
-    "Živost tržišta 84% od uobičajene – mirnije nego inače",
+    "Živost tržišta 82% od uobičajene – mirnije nego inače",
     "Danas nema velikih US vijesti"
    ],
    "razlozi_en": [
-    "Market activity 84% of normal – quieter than usual",
+    "Market activity 82% of normal – quieter than usual",
     "No major US news today"
    ],
    "promjena": {
-    "15": 3.78,
-    "60": 5.76,
-    "240": 21.55
+    "15": -1.21,
+    "60": 0.83,
+    "240": 28.56
    },
    "nivoi": {
     "jucer": {
@@ -414,10 +414,7 @@
    }
   },
   "radar": {
-   "faza": "odbijen",
-   "smjer": "SELL",
-   "razlog": "Tržište premirno za kvalitetan ulaz (ocjena 70/100, prag 80)",
-   "razlog_en": "Market too quiet for a quality entry (score 70/100, threshold 80)"
+   "faza": "skenira"
   },
   "dnevnik": [
    "Analiziram tržište…"
@@ -684,9 +681,9 @@
  },
  "x": {
   "s": "UtT914EbkQrelQJcFUpTzw==",
-  "n": "LYtFb0MSSWpoWIhZImsSLA==",
-  "c": "94DXjmGI24bLR6Wu92gcON7rxZD/f7e1uKr0ww+khLDZCFWrXE6byg+fD5oDZC8BUmiqBV6kHGwUK7hv8JMjhDKYsrzUCITKPqsLf28RW5IVOvrT1gMjZhkLQcd757Dsh5Y5btcl0xrSJr99EZ0AdHs5jbO1B7+IQX2N7Rzp0/0Fw/FmKt+CcBAtRI0BFb9Nyf/AmydlXe/6ZOlEX2VU/kPSg27K6jXywvhX5iHrNJJ9WNK0dPAuJ6oQDEWILMvegnK1eose7JX/+RTgqg==",
-  "t": "cpiyugLW/UEdncfbnjX0O4MGUnJodHjFrN52suOQll0=",
+  "n": "Umhv6lUgEdy7ovvvwIJqFA==",
+  "c": "0lRewQZ7Ow6Ywb/JknrRJ2DPU0lH8VFQGFKz1HuObmjyfPp5BjJXchZmP48FVRuGwSMQyV3Y2UeHOtOI9kCDFkTIFkKYic2KXvV7WyfJCqlrj+TBhrzXYaKpMqsz34WMqZyxvkJ5uiHFPWThYxw2pY/J/NgzGHQC+uJzAiSMNZvoPfmX7DdC3CuX0h2JyFlVW02prE0PFfrEd60H2mlDXaPeTkKUGunvTepFy6nj98dp4rpHiZDvtmHTqf3j5YEKy1Y0CQtagX+Coyz1JA==",
+  "t": "SknbIEvujw5RRYhHmvxxSEQmvpSUFpbzqjb/TdKc5FA=",
   "i": 150000
  }
 }
